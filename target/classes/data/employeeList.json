@@ -1,0 +1,21 @@
+{
+    "Employee": [
+        {
+            "Account": {
+                "Username": "Adam",
+                "Password": "adam123"
+            },
+            "Personal": {
+                "Name": "Adam Sojiwa",
+                "Passport": "090909090909",
+                "IdentificationCard": "9393939393",
+                "PhoneNumber": "0168919328",
+                "BirthDate": "02-09-2023",
+                "Address": "Sri Lagenda Villa",
+                "EmergencyContact": "019738229",
+                "Role": "Head of HR",
+                "Position": "CEO"
+            }
+        }
+    ]
+}
