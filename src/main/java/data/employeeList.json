@@ -1,21 +1,14 @@
 {
-    "Employee": [
-        {
-            "Account": {
-                "Username": "Adam",
-                "Password": "adam123"
-            },
-            "Personal": {
-                "Name": "Adam Sojiwa",
-                "Passport": "090909090909",
-                "IdentificationCard": "9393939393",
-                "PhoneNumber": "0168919328",
-                "BirthDate": "02-09-2023",
-                "Address": "Sri Lagenda Villa",
-                "EmergencyContact": "019738229",
-                "Role": "Head of HR",
-                "Position": "CEO"
-            }
-        }
-    ]
+    "username": "Adam",
+    "password": "adam123",
+    "name": "Adam Sojiwa",
+    "passport": "078687698",
+    "identificationCard": "040907121203",
+    "phoneNumber": "0168919328",
+    "birthDate": "09-08-07",
+    "email": "adam@gmail.com",
+    "address": "Sri Lagenda Villa",
+    "emergencyContact": "0198979645",
+    "role": "Department Manager",
+    "position": "CEO"
 }

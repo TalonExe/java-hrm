@@ -2,7 +2,7 @@ package com.talon.models;
 
 public abstract class Employee {
 
-    enum Roles {
+    public enum Roles {
        NORMAL_EMPLOYEE,
        HR_EMPLOYEE,
        PAYROLL_EMPLOYEE,
@@ -10,19 +10,133 @@ public abstract class Employee {
     }
 
     //account info
-    String username, password;
+    private String username;
+
+    public final String getUsername() {
+        return this.username;
+    }
+
+    public final void setUsername(final String username){
+        this.username = username;
+    }
+
+    private String password;
+
+    public final String getPassword() {
+        return this.password;
+    }
+
+    public final void setPassword(final String password) {
+        this.password = password;
+    }
+
     int attempts = 3;
 
     //personal info
-    String name, passport, identificationCard, phoneNumber, birthDate, email, address;
+    private String name;
+
+    public final String getName() {
+        return this.name;
+    }
+
+    public final void setName(final String name){
+        this.name = name;
+    }
+
+    private String passport;
+
+    public final String getPassport() {
+        return this.passport;
+    }
+
+    public final void setPassport(final String passport){
+        this.passport = passport;
+    }
+
+    private String identificationCard;
+
+    public final String getIdentificationCard() {
+        return this.identificationCard;
+    }
+
+    public final void setIdentificationCard(final String idenficationCard){
+        this.identificationCard = idenficationCard;
+    }
+
+    private String phoneNumber;
+
+    public final String getPhoneNumber() {
+        return this.phoneNumber;
+    }
+
+    public final void setPhoneNumber(final String username){
+        this.phoneNumber = username;
+    }
+
+    private String birthDate;
+
+    public final String getBirthDate() {
+        return this.birthDate;
+    }
+
+    public final void setBirthDate(final String birthDate){
+        this.birthDate = birthDate;
+    }
+
+    private String email;
+
+    public final String getEmail() {
+        return this.email;
+    }
+
+    public final void setEmail(final String email){
+        this.email = email;
+    }
+
+    private String address;
+
+    public final String getAddress() {
+        return this.address;
+    }
+
+    public final void setAddress(final String address){
+        this.address = address;
+    }
 
     //emergency contact
-    String emergencyContact;
+    private String emergencyContact;
+
+    public final String getEmergencyContact() {
+        return this.emergencyContact;
+    }
+
+    public final void setEmergencyContact(final String emergencyProperty){
+        this.emergencyContact = emergencyProperty;
+    }
 
     //working experience
 
     //role, position, department
-    String role, position;
+    private String role; 
+
+    public final String getRole() {
+        return this.role;
+    }
+
+    public final void setRole(final String role){
+        this.role = role;
+    }
+
+    private String position;
+
+    public final String getPosition() {
+        return this.position;
+    }
+
+    public final void setPosition(final String position){
+        this.position = position;
+    }
+
     Department department;
 
     //History of salary increment and change of position
@@ -32,135 +146,6 @@ public abstract class Employee {
     
     //monthly gross salary
     Payroll payroll;
-
-    public Employee(String username, String password, String name, String passport, String identificationCard, String phoneNumber, String birthDate, 
-                    String email,  String address, String emergencyContact, String role, String position) {
-
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.passport = passport;
-        this.identificationCard = identificationCard;
-        this.phoneNumber = phoneNumber;
-        this.birthDate = birthDate;
-        this.email = email;
-        this.address = address;
-        this.emergencyContact = emergencyContact;
-        this.role = role;
-        this.position = position;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public int getAttempts() {
-        return attempts;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPassport() {
-        return passport;
-    }
-
-    public String getIdentificationCard() {
-        return identificationCard;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public String getBirthDate() {
-        return birthDate;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getEmergencyContact() {
-        return emergencyContact;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public Schedule getSchedule() {
-        return schedule;
-    }
-
-    public Payroll getPayroll() {
-        return payroll;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPassport(String passport) {
-        this.passport = passport;
-    }
-
-    public void setIdentificationCard(String identificationCard) {
-        this.identificationCard = identificationCard;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setEmergencyContact(String emergencyContact) {
-        this.emergencyContact = emergencyContact;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
 
     @Override
     public String toString() {

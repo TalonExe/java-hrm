@@ -2,7 +2,7 @@ package com.talon;
 
 import java.io.IOException;
 
-import com.talon.models.DepartmentManager;
+import com.talon.controllers.EmployeeController;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +26,7 @@ public class App extends Application {
         } catch (IOException e) {
             System.out.println(e);
         }
-       
+
     }
 
     public static void setRoot(String fxml) throws IOException {
@@ -43,13 +43,8 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) {
-        // DepartmentManager(String, String, String, String, String, String, Date,
-        // String, String, String, String, String, Department, Schedule, Payroll)
-        DepartmentManager employee1 = new DepartmentManager("dfgdg", "dfgeg", "adfdf", "s fsf", "sfsldfsj", "fsuifhshf",
-                "fgsd", "dsdvsdv", "sefddddd", "sefsfs", "wwwrtwrer");
-
-        System.out.println(employee1);
+    public static void main(String[] args) throws IOException{
+        EmployeeController emp = new EmployeeController();
         launch();
 
     }
