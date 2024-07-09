@@ -20,11 +20,12 @@ public class EmployeeController {
         try {
             jread = new JsonReader(new FileReader("C:\\Users\\TalonExe\\Documents\\Projects\\Java-hrm\\java-hrm\\src\\main\\java\\data\\employeeList.json"));
             System.out.println(jread+"hi");
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.err.println(e+"hi");
         }   
         
         DepartmentManager manager = gson.fromJson(jread, DepartmentManager.class);
+        System.out.println(manager);
 
     } 
 
