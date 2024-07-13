@@ -1,4 +1,4 @@
-package com.talon.views;
+package com.talon.views.hr;
 
 import java.io.IOException;
 

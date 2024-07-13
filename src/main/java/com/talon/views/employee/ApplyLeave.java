@@ -1,4 +1,4 @@
-package com.talon.views;
+package com.talon.views.employee;
 
 import java.io.IOException;
 
@@ -8,8 +8,7 @@ import javafx.fxml.FXML;
 
 public class ApplyLeave {
     @FXML
-        private void switchMain() throws IOException {
-            App.setRoot("ApplyLeave");
-        }
+    private void switchMain() throws IOException {
+        App.setRoot("ApplyLeave");
+    }
 }
-
