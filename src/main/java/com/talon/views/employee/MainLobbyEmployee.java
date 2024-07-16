@@ -14,11 +14,11 @@ public class MainLobbyEmployee {
 
     @FXML
     private void switchPayroll() throws IOException {
-        App.setRoot("employeeSalary");
+        App.setRoot("ApplyLeave");
     }
 
     @FXML
     private void switchProfile() throws IOException {
-        App.setRoot("employeeProfile");
+        App.setRoot("ApplyLeave");
     }
 }

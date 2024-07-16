@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Circle?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.views.employee.MainLobbyEmployee">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.talon.views.employee.MainLobbyEmployee">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="170.0" style="-fx-background-color: #86C232;">
          <children>
