@@ -2,23 +2,26 @@ package com.talon.views.employee;
 
 import java.io.IOException;
 
-import com.talon.App;
+import com.talon.Router;
 
 import javafx.fxml.FXML;
 
 public class EmployeeProfile {
+
+    private final Router route = Router.getInstance();
+
     @FXML
     private void switchApplyLeave() throws IOException {
-        App.setRoot("ApplyLeave");
+        route.switchToScene("ApplyLeave");
     }
 
     @FXML
     private void switchPayroll() throws IOException {
-        App.setRoot("EmployeeSalary");
+        route.switchToScene("EmployeeSalary");
     }
 
     @FXML
     private void switchProfile() throws IOException {
-        App.setRoot("EmployeeProfile");
+        route.switchToScene("EmployeeProfile");
     }
 }
