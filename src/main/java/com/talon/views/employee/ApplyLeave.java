@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 
 public class ApplyLeave {
     @FXML
-    private void switchMain() throws IOException {
-        App.setRoot("ApplyLeave");
+    private void backToApplyPage() throws IOException {
+        App.setRoot("MainLobbyEmployee");
     }
 }

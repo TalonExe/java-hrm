@@ -6,7 +6,7 @@ import com.talon.App;
 
 import javafx.fxml.FXML;
 
-public class MainLobbyEmployee {
+public class EmployeeSalary {
     @FXML
     private void switchApplyLeave() throws IOException {
         App.setRoot("ApplyLeave");
