@@ -8,14 +8,10 @@ import javafx.fxml.FXML;
 
 public class PasswordChange {
 
-    private final Router route;
-
-    public PasswordChange(Router route) {
-        this.route = route;
-    }
+    private final Router route = Router.getInstance();
 
     @FXML
-    private void switchMain() throws IOException {
-        route.switchToScene("ApplyLeave");
+    private void changeConfirmation() throws IOException {
+        route.switchToScene("PasswordConfirmation");
     }
 }

@@ -30,11 +30,8 @@ public class Router{
 
     public void addScenes(String name, String fxmlFile) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-        System.out.println(getClass().getResource(fxmlFile));
         Parent root = loader.load();
-        System.out.println(root);
         scenes.put(name, new Scene(root));
-        System.out.println(scenes);
         
     }
 
@@ -49,7 +46,6 @@ public class Router{
 
     public Scene getCurrentScene(){
         if (currentSceneName != null) {
-            System.out.println("hi");
             return scenes.get(currentSceneName);
         }else{
             return null;

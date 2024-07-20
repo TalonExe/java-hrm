@@ -15,7 +15,7 @@
             <Button layoutY="158.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" onAction="#switchApplyLeave"/>
             <Button layoutY="88.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" onAction="#switchProfile"/>
             <Button layoutY="232.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Payroll" onAction="#switchPayroll"/>
-            <Button layoutY="322.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" />
+            <Button layoutY="322.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" onAction="#logout"/>
             <Circle fill="DODGERBLUE" layoutX="90.0" layoutY="42.0" radius="34.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </AnchorPane>

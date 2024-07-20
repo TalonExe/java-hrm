@@ -24,4 +24,9 @@ public class MainLobbyEmployee {
     private void switchProfile() throws IOException {
         route.switchToScene("EmployeeProfile");
     }
+    
+    @FXML
+    private void logout() throws IOException {
+       route.switchToScene("LoginPage");
+    }
 }

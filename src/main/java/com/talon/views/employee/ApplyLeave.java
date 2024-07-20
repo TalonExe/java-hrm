@@ -27,6 +27,11 @@ public class ApplyLeave {
 
     @FXML
     private void switchProfile() throws IOException {
-        route.switchToScene("EmployeeProfile");
+       route.switchToScene("EmployeeProfile");
+    }
+
+    @FXML
+    private void logout() throws IOException {
+       route.switchToScene("LoginPage");
     }
 }

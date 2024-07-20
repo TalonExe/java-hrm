@@ -8,15 +8,15 @@ import javafx.fxml.FXML;
 
 public class RegisterPage {
 
-    private final Router route;
+    private final Router route = Router.getInstance();
 
-    public RegisterPage(Router route) {
-        this.route = route;
+    @FXML
+    private void backToLogin() throws IOException {
+        route.switchToScene("LoginPage");
     }
 
     @FXML
-    private void switchMain() throws IOException {
-        route.switchToScene("ApplyLeave");
+    private void registerProcess() throws IOException {
+        route.switchToScene("AccountRegistered");
     }
-
 }

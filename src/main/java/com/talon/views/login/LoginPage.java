@@ -8,14 +8,20 @@ import javafx.fxml.FXML;
 
 public class LoginPage {
 
-    private final Router route;
+    private final Router route = Router.getInstance();
 
-    public LoginPage(Router route) {
-        this.route = route;
+    @FXML
+    private void switchForgot() throws IOException {
+        route.switchToScene("ResetPassword");
     }
 
     @FXML
-    private void switchMain() throws IOException {
-        route.switchToScene("ApplyLeave");
+    private void switchRegister() throws IOException {
+        route.switchToScene("RegisterPage");
+    }
+
+    @FXML
+    private void loginProcess() throws IOException {
+        route.switchToScene("MainLobbyEmployee");
     }
 }
