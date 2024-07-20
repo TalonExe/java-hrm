@@ -8,12 +8,7 @@ import javafx.fxml.FXML;
 
 public class MainLobbyHR {
 
-    private final Router route;
-
-    public MainLobbyHR(Router route) {
-        this.route = route;
-    }
-
+    private final Router route = Router.getInstance();
 
     @FXML
     private void switchMain() throws IOException {
