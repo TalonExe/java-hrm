@@ -1,9 +1,9 @@
 
 # Java HRM
 
+## Disclaimer
 
-
-
+For **non x86 machines**,  comment the javafx maven plugin in the pom.xml before running.
 
 ## Installation
 

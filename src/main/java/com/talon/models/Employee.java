@@ -1,6 +1,14 @@
 package com.talon.models;
 
-public abstract class Employee {
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Map;
+import java.lang.reflect.Type;
+
+public class Employee {
 
     public enum Roles {
        NORMAL_EMPLOYEE,
@@ -8,6 +16,8 @@ public abstract class Employee {
        PAYROLL_EMPLOYEE,
        DEPARTMENT_MANAGER
     }
+
+    private static final String EMPLOYEE_JSON_PATH = "/data/employeeList.json";
 
     //account info
     private String username;
@@ -150,5 +160,23 @@ public abstract class Employee {
     @Override
     public String toString() {
         return String.format("%s %s",this.role, this.name);
+    }
+
+    public static Employee findByUsername(String username) throws Exception {
+        Gson gson = new Gson();
+        try (InputStream inputStream = Employee.class.getResourceAsStream(EMPLOYEE_JSON_PATH)) {
+            if (inputStream == null) {
+                throw new IOException("File not found: " + EMPLOYEE_JSON_PATH);
+            }
+            try (InputStreamReader reader = new InputStreamReader(inputStream)) {
+                Type userType = new TypeToken<Map<String, Employee>>() {}.getType();
+                Map<String, Employee> employees = gson.fromJson(reader, userType);
+                Employee output = employees.get(username);
+                if (output == null) {
+                    throw new Exception("User with username " + username + " is not found");
+                }
+                return output;
+            }
+        }
     }
 }
