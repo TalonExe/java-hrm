@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="170.0" style="-fx-background-color: #86C232;">
+         <children>
+            <Button layoutY="175.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" />
+            <Button layoutY="250.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Payroll" />
+            <Button layoutY="100.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" />
+            <Circle fill="DODGERBLUE" layoutX="85.0" layoutY="54.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button layoutY="325.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" />
+         </children>
+      </AnchorPane>
+      <TableView layoutX="170.0" layoutY="200.0" prefHeight="200.0" prefWidth="530.0">
+        <columns>
+          <TableColumn prefWidth="70.0" text="Leave Type" />
+            <TableColumn prefWidth="90.0" text="From" />
+            <TableColumn prefWidth="90.0" text="To" />
+            <TableColumn prefWidth="35.0" text="Days" />
+            <TableColumn prefWidth="40.0" text="Status" />
+            <TableColumn prefWidth="63.67" text="Reason" />
+            <TableColumn prefWidth="63.67" text="Approver" />
+            <TableColumn prefWidth="64.800048828125" text="Action" />
+        </columns>
+      </TableView>
+      <Button layoutX="250.0" layoutY="41.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #86C232; -fx-text-fill: #FFFFFF;" text="Check Leave" />
+      <Button layoutX="500.0" layoutY="131.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #86C232; -fx-text-fill: #FFFFFF;" text="Assigned Issues" />
+      <Button layoutX="250.0" layoutY="131.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #86C232; -fx-text-fill: #FFFFFF;" text="Generate Report" />
+      <Button layoutX="500.0" layoutY="41.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #86C232; -fx-text-fill: #FFFFFF;" text="Apply Leave" />
+   </children>
+</AnchorPane>
