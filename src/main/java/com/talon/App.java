@@ -14,25 +14,22 @@ public class App extends Application{
         Router route = new Router(primaryStage);
 
         //login
-        route.addScenes("AccountRegistered", "/views/login/AccountRegistered.fxml");
         route.addScenes("LoginPage", "/views/login/LoginPage.fxml");
         route.addScenes("PasswordChange", "/views/login/PasswordChange.fxml");
         route.addScenes("PasswordConfirmation", "/views/login/PasswordConfirmation.fxml");
-        route.addScenes("RegisterPage", "/views/login/RegisterPage.fxml");
-        route.addScenes("ResetPassword", "/views/login/ResetPassword.fxml");
 
         //Employee Scenes
         route.addScenes("MainLobbyEmployee", "/views/employee/MainLobbyEmployee.fxml");
-        route.addScenes("ApplyLeave", "/views/employee/ApplyLeave.fxml");
+        // route.addScenes("ApplyLeave", "/views/employee/ApplyLeave.fxml");
         route.addScenes("EmployeeProfile", "/views/employee/EmployeeProfile.fxml");
-        route.addScenes("EmployeePersonal", "/views/employee/EmployeePersonal.fxml");
+        // route.addScenes("EmployeePersonal", "/views/employee/EmployeePersonal.fxml");
         route.addScenes("EmployeeSalary", "/views/employee/EmployeeSalary.fxml");
 
         // //HR Scenes
-        route.addScenes("AttendanceMonthlyYearly", "/views/hr/AttendanceMonthlyYearly.fxml");
-        route.addScenes("AttendanceYearly", "/views/hr/AttendanceYearly.fxml");
-        route.addScenes("MainLobbyHR", "/views/hr/MainLobbyHR.fxml");
-        route.addScenes("MonthlyAttendance", "/views/hr/MonthlyAttendance.fxml");
+        // route.addScenes("AttendanceMonthlyYearly", "/views/hr/AttendanceMonthlyYearly.fxml");
+        // route.addScenes("AttendanceYearly", "/views/hr/AttendanceYearly.fxml");
+        // route.addScenes("MainLobbyHR", "/views/hr/MainLobbyHR.fxml");
+        // route.addScenes("MonthlyAttendance", "/views/hr/MonthlyAttendance.fxml");
 
         route.switchToScene("LoginPage");
 

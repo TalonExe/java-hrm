@@ -11,10 +11,11 @@ import java.lang.reflect.Type;
 public class Employee {
 
     public enum Roles {
-       NORMAL_EMPLOYEE,
-       HR_EMPLOYEE,
-       PAYROLL_EMPLOYEE,
-       DEPARTMENT_MANAGER
+        SYSTEM_ADMIN,
+        HR_OFFICER,
+        DEPARMENT_MANAGER,
+        PAYROLL_OFFICER,
+        NORMAL_EMPLOYEE
     }
 
     private static final String EMPLOYEE_JSON_PATH = "/data/employeeList.json";
@@ -39,9 +40,7 @@ public class Employee {
     public final void setPassword(final String password) {
         this.password = password;
     }
-
-    int attempts = 3;
-
+    
     //personal info
     private String name;
 
@@ -178,5 +177,9 @@ public class Employee {
                 return output;
             }
         }
+    }
+
+    public static void createEmployee() throws Exception {
+        
     }
 }
