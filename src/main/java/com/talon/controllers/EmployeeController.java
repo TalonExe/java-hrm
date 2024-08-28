@@ -1,13 +1,16 @@
 package com.talon.controllers;
 
 import java.io.IOException;
+
 import com.talon.Router;
 import com.talon.models.Employee;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 public class EmployeeController {
     private final Router route = Router.getInstance();
+    public Employee employee = null;
 
     @FXML
     private TextField loginUsername;
@@ -29,7 +32,7 @@ public class EmployeeController {
     /*
      * TO DO:
      * Implement error handling and error message
-     * username should be lowecase
+     * username should be lowercase
      * Implement password decryption
      * Implement user details chaching
      * Implement attendance tracking
@@ -41,7 +44,8 @@ public class EmployeeController {
         String passwordInput = loginPassword.getText();
 
         try {
-            Employee employee = Employee.findByUsername(usernameInput);
+            employee = Employee.findByUsername(usernameInput);
+            System.out.println(employee.payroll);
             if (employee.getPassword().equals(passwordInput)) {
                 if (employee.getRole().equals("HR")) {
                     route.switchToScene("MainLobbyHR");
@@ -81,8 +85,13 @@ public class EmployeeController {
      * TO DO:
      * Fetch user data
     */
+
+    @FXML
+    private TextField employeeMonthlySalary;
+
     @FXML
     private void switchToEmployeeSalary() throws IOException {
+        employeeMonthlySalary.setText(employee.payroll.getEmployeeSalary());
         route.switchToScene("EmployeeSalary");
     }
 

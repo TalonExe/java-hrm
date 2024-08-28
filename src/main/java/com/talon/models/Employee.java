@@ -1,12 +1,13 @@
 package com.talon.models;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Map;
 import java.lang.reflect.Type;
+import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 public class Employee {
 
@@ -146,21 +147,21 @@ public class Employee {
         this.position = position;
     }
 
-    Department department;
+    public Department department;
 
     //History of salary increment and change of position
 
     //overview of leave entitlenent
-    Schedule schedule;
+    public Schedule schedule;
     
     //monthly gross salary
-    Payroll payroll;
+    public Payroll payroll;
 
     @Override
     public String toString() {
         return String.format("%s %s",this.role, this.name);
     }
-
+    // Todo: modify to fetch payroll data from payrollDetails.json
     public static Employee findByUsername(String username) throws Exception {
         Gson gson = new Gson();
         try (InputStream inputStream = Employee.class.getResourceAsStream(EMPLOYEE_JSON_PATH)) {
@@ -174,6 +175,7 @@ public class Employee {
                 if (output == null) {
                     throw new Exception("User with username " + username + " is not found");
                 }
+                output.payroll = Payroll.findByUsername(username);
                 return output;
             }
         }

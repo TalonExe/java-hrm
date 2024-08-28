@@ -1,95 +1,96 @@
 package com.talon.models;
 
-import javafx.beans.property.FloatProperty;
-import javafx.beans.property.SimpleFloatProperty;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
+import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 public class Payroll {
-    private final FloatProperty epf = new SimpleFloatProperty();
+    private static final String PAYROLL_JSON_PATH = "/data/payrollDetails.json";
 
-    public final FloatProperty epfProperty() {
-        return this.epf;
+    private final float epf_employee = 0.13f;
+    
+    public float getEmployeeEpf() {
+        return this.epf_employee;
     }
 
-    public final float getEmployeeEpf() {
-        this.epfProperty().set(0.11f);
-        return this.epfProperty().get();
+    private final float epf_employer = 0.11f;
+    
+    public float getEmployerEpf() {
+        return this.epf_employer;
     }
 
-    public final float getEmployerEpf() {
-        this.epfProperty().set(0.13f);
-        return this.epfProperty().get();
+    private final float socso_employer = 0.18f;
+    
+    public float getEmployerSocso() {
+        return this.socso_employer;
     }
 
-    public final void setEpf(final float epf){
-        this.epfProperty().set(epf);
+    private final float socso_employee = 0.005f;
+    
+    public float getEmployeeSocso() {
+        return this.socso_employee;
     }
+    
+    private float eis = 0.002f;
 
-    private final FloatProperty socso = new SimpleFloatProperty();
-
-    public final FloatProperty socsoProperty() {
-        return this.socso;
-    }
-
-    public final float getEmployeeSocso() {
-        this.socsoProperty().set(0.005f);
-        return this.socsoProperty().get();
-    }
-
-    public final float getEmployerSocso() {
-        this.socsoProperty().set(0.018f);
-        return this.socsoProperty().get();
-    }
-
-    public final void setSocso(final float socso){
-        this.socsoProperty().set(socso);
-    }
-
-
-
-    private final FloatProperty eis = new SimpleFloatProperty();
-
-    public final FloatProperty eisProperty() {
+    public float getEmployeeEis() {
         return this.eis;
     }
 
-    public final float getEmployeeEis() {
-        this.eisProperty().set(0.002f);
-        return this.eisProperty().get();
+    public float getEmployerEis() {
+        return this.eis;
     }
 
-    public final float getEmployerEis() {
-        this.eisProperty().set(0.002f);
-        return this.eisProperty().get();
+    public void setEis(float eis) {
+        this.eis = eis;
     }
 
-    public final void setEis(final float eis){
-        this.eisProperty().set(eis);
-    }
+    private float pcb = 0.05f;
 
-    private final FloatProperty pcb = new SimpleFloatProperty();
-
-    public final FloatProperty pcbProperty() {
+    public float getEmployeePcb() {
         return this.pcb;
     }
 
-    public final float getEmployeePcb() {
-        this.pcbProperty().set(0.05f);
-        return this.pcbProperty().get();
+    public void setPcb(float pcb) {
+        this.pcb = pcb;
     }
 
-    public final void setPcb(final float pcb){
-        this.epfProperty().set(pcb);
+    private float salary;
+
+    public float getEmployeeSalary() {
+        return this.salary;
     }
 
-    public Payroll() {
-        
+    public void setEmployeeSalary(float salary) {
+        this.salary = salary;
     }
 
     @Override
     public String toString() {
-        return String.format("%f %f %f %f", getEmployeeEpf(), getEmployeeSocso(), getEmployeeEis(), getEmployeePcb());
+        return String.format("%f %f %f %f %f", getEmployeeEpf(), getEmployeeSocso(), getEmployeeEis(), getEmployeePcb(), getEmployeeSalary());
     }
 
-    
+    public static Payroll findByUsername(String username) throws Exception {
+        Gson gson = new Gson();
+        try (InputStream inputStream = Employee.class.getResourceAsStream(PAYROLL_JSON_PATH)) {
+            if (inputStream == null) {
+                throw new IOException("File not found: " + PAYROLL_JSON_PATH);
+            }
+            try (InputStreamReader reader = new InputStreamReader(inputStream)) {
+                Type dataType = new TypeToken<Map<String, Payroll>>() {}.getType();
+                Map<String, Payroll> payroll = gson.fromJson(reader, dataType);
+                Payroll output = payroll.get(username);
+                if (output == null) {
+                    throw new Exception("Payroll with username " + username + " is not found");
+                }
+                System.out.println(output);
+                return output;
+            }
+        }
+    }
 }
-
