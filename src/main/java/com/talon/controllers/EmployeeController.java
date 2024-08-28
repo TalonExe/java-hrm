@@ -162,6 +162,15 @@ public class EmployeeController implements UpdatableController {
         if (route.getCurrentSceneName().equals("EmployeeSalary") && currentEmployee != null) {
             employeeMonthlySalary.setText(String.format("RM %.2f", currentEmployee.payroll.getEmployeeSalary()));
         }
+        if (route.getCurrentSceneName().equals("EmployeePersonal") && currentEmployee != null) {
+            nameField.setText(currentEmployee.getName());
+            ageField.setText(currentEmployee.getBirthDate());
+            addressField.setText(currentEmployee.getAddress());
+            // dobPicker.setValue(currentEmployee.getBirthDate());
+            contactNumberField.setText(currentEmployee.getPhoneNumber());
+            emergencyContactField.setText(currentEmployee.getEmergencyContact());
+            emailField.setText(currentEmployee.getEmail());
+        }
     }
 
 }
