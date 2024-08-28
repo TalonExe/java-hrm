@@ -1,6 +1,7 @@
 package com.talon;
 
 import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -19,10 +20,10 @@ public class App extends Application{
         route.addScenes("PasswordConfirmation", "/views/login/PasswordConfirmation.fxml");
 
         //Employee Scenes
-        route.addScenes("MainLobbyEmployee", "/views/employee/MainLobbyEmployee.fxml");
+        route.addScenes("EmployeeLeave", "/views/employee/EmployeeLeave.fxml");
         // route.addScenes("ApplyLeave", "/views/employee/ApplyLeave.fxml");
         route.addScenes("EmployeeProfile", "/views/employee/EmployeeProfile.fxml");
-        // route.addScenes("EmployeePersonal", "/views/employee/EmployeePersonal.fxml");
+        route.addScenes("EmployeePersonal", "/views/employee/EmployeePersonal.fxml");
         route.addScenes("EmployeeSalary", "/views/employee/EmployeeSalary.fxml");
 
         // //HR Scenes

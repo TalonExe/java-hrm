@@ -1,14 +1,8 @@
 package com.talon.models;
 
-public class DepartmentManager extends Employee{
+public class DepartmentManager{
 
-
-    public DepartmentManager(){
-
-    }
-
-    @Override
     public String toString() {
-        return super.toString();
+        return "hi";
     }
 }

@@ -4,13 +4,16 @@ import java.io.IOException;
 
 import com.talon.Router;
 import com.talon.models.Employee;
+import com.talon.models.LoggedInEmployee;
+import com.talon.models.UpdatableController;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
-public class EmployeeController {
+public class EmployeeController implements UpdatableController {
     private final Router route = Router.getInstance();
-    public Employee employee = null;
 
     @FXML
     private TextField loginUsername;
@@ -44,13 +47,15 @@ public class EmployeeController {
         String passwordInput = loginPassword.getText();
 
         try {
-            employee = Employee.findByUsername(usernameInput);
-            System.out.println(employee.payroll);
-            if (employee.getPassword().equals(passwordInput)) {
-                if (employee.getRole().equals("HR")) {
+            Employee loggedInEmployee = Employee.findByUsername(usernameInput);
+            LoggedInEmployee.getInstance().setEmployee(loggedInEmployee);
+
+            System.out.println(loggedInEmployee);
+            if (loggedInEmployee.getPassword().equals(passwordInput)) {
+                if (loggedInEmployee.getRole().equals("HR")) {
                     route.switchToScene("MainLobbyHR");
                 } else {
-                    route.switchToScene("MainLobbyEmployee");
+                    route.switchToScene("EmployeePersonal");
                 }
             } else {
                 System.out.println("Invalid username or password");
@@ -85,13 +90,11 @@ public class EmployeeController {
      * TO DO:
      * Fetch user data
     */
-
     @FXML
     private TextField employeeMonthlySalary;
 
     @FXML
     private void switchToEmployeeSalary() throws IOException {
-        employeeMonthlySalary.setText(employee.payroll.getEmployeeSalary());
         route.switchToScene("EmployeeSalary");
     }
 
@@ -104,13 +107,46 @@ public class EmployeeController {
         route.switchToScene("EmployeeProfile");
     }
 
+    @FXML
+    private TextField nameField;
+
+    @FXML
+    private TextField ageField;
+
+    @FXML
+    private TextField addressField;
+
+    @FXML
+    private DatePicker dobPicker;
+
+    @FXML
+    private RadioButton maleRadioButton;
+
+    @FXML
+    private RadioButton femaleRadioButton;
+
+    @FXML
+    private TextField contactNumberField;
+
+    @FXML
+    private TextField emergencyContactField;
+
+    @FXML
+    private TextField emailField;
+
+    @FXML
+    private void switchToEmployeePersonal() throws IOException {
+        route.switchToScene("EmployeePersonal");
+    }
+
     /*
      * TO DO:
      * Implement Attendance Checkout
-     * Clear user details chache
+     * Clear user details chache : DONE
     */
     @FXML
     private void logOut() throws Exception {
+        LoggedInEmployee.getInstance().setEmployee(null);
         switchToLogin();
     }
 
@@ -118,4 +154,14 @@ public class EmployeeController {
     private void exit() throws Exception {
         System.exit(0);
     }
+
+    @Override
+    public void updateUI() {
+        Employee currentEmployee = LoggedInEmployee.getInstance().getEmployee();
+        //setup for employee payroll
+        if (route.getCurrentSceneName().equals("EmployeeSalary") && currentEmployee != null) {
+            employeeMonthlySalary.setText(String.format("RM %.2f", currentEmployee.payroll.getEmployeeSalary()));
+        }
+    }
+
 }
