@@ -1,6 +1,8 @@
 package com.talon.controllers;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Period;
 
 import com.talon.Router;
 import com.talon.models.Employee;
@@ -11,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 
 public class EmployeeController implements UpdatableController {
     private final Router route = Router.getInstance();
@@ -120,6 +123,9 @@ public class EmployeeController implements UpdatableController {
     private DatePicker dobPicker;
 
     @FXML
+    private ToggleGroup genderGroup;
+
+    @FXML
     private RadioButton maleRadioButton;
 
     @FXML
@@ -158,15 +164,30 @@ public class EmployeeController implements UpdatableController {
     @Override
     public void updateUI() {
         Employee currentEmployee = LoggedInEmployee.getInstance().getEmployee();
+        
         //setup for employee payroll
         if (route.getCurrentSceneName().equals("EmployeeSalary") && currentEmployee != null) {
             employeeMonthlySalary.setText(String.format("RM %.2f", currentEmployee.payroll.getEmployeeSalary()));
         }
         if (route.getCurrentSceneName().equals("EmployeePersonal") && currentEmployee != null) {
+
             nameField.setText(currentEmployee.getName());
-            ageField.setText(currentEmployee.getBirthDate());
+
+            if (currentEmployee.getGender().equals("Male")) {
+                genderGroup.selectToggle(maleRadioButton);
+            } else {
+                genderGroup.selectToggle(femaleRadioButton);
+            }
+            
+            
             addressField.setText(currentEmployee.getAddress());
-            // dobPicker.setValue(currentEmployee.getBirthDate());
+
+            LocalDate birthDate = LocalDate.parse(currentEmployee.getBirthDate());
+            LocalDate currentDate = LocalDate.now();
+            Period period = Period.between(birthDate, currentDate);
+
+            ageField.setText(String.format("%d", period.getYears()));
+            dobPicker.setValue(birthDate);
             contactNumberField.setText(currentEmployee.getPhoneNumber());
             emergencyContactField.setText(currentEmployee.getEmergencyContact());
             emailField.setText(currentEmployee.getEmail());

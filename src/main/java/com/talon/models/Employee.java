@@ -53,6 +53,16 @@ public class Employee {
         this.name = name;
     }
 
+    private String gender;
+
+    public final String getGender() {
+        return this.gender;
+    }
+
+    public final void setGender(final String gender){
+        this.gender = gender;
+    }
+
     private String passport;
 
     public final String getPassport() {

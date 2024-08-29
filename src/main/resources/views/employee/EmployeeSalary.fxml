@@ -15,7 +15,7 @@
    <children>
       <AnchorPane prefHeight="401.0" prefWidth="179.0" style="-fx-background-color: #86C232;">
          <children>
-            <Button layoutY="87.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" onAction="#switchToEmployeeProfile"/>
+            <Button layoutY="87.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" onAction="#switchToEmployeePersonal"/>
             <Button layoutY="155.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave"/>
             <Button layoutY="236.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Payroll" onAction="#switchToEmployeeSalary"/>
             <Button layoutY="317.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" onAction="#logOut"/>
