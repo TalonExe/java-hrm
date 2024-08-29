@@ -55,10 +55,16 @@ public class EmployeeController implements UpdatableController {
 
             System.out.println(loggedInEmployee);
             if (loggedInEmployee.getPassword().equals(passwordInput)) {
-                if (loggedInEmployee.getRole().equals("HR")) {
-                    route.switchToScene("MainLobbyHR");
-                } else {
-                    route.switchToScene("EmployeePersonal");
+                switch (loggedInEmployee.getRole()) {
+                    case "HR":
+                        route.switchToScene("MainLobbyHR");
+                        break;
+                    case "Payroll Manager":
+                        // route.switchToScene("Payroll_Lobby");
+                        break;
+                    default:
+                        route.switchToScene("EmployeePersonal");
+                        break;
                 }
             } else {
                 System.out.println("Invalid username or password");
