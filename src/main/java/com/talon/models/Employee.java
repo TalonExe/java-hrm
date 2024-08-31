@@ -157,7 +157,7 @@ public class Employee {
         this.position = position;
     }
 
-    public Department department;
+    // public Department department;
 
     //History of salary increment and change of position
 

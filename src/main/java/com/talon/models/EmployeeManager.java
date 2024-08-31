@@ -16,6 +16,10 @@ public class EmployeeManager {
         loadEmployees();
     }
 
+    public Map<String, Employee> getEmployeeMap() {
+        return employeeMap;
+    }
+
     private void loadEmployees() throws IOException {
         // Load employees from JSON
         Gson gson = new Gson();

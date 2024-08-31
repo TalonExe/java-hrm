@@ -17,7 +17,7 @@
          <children>
             <Button layoutY="87.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" onAction="#switchToEmployeePersonal"/>
             <Button layoutY="155.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave"/>
-            <Button layoutY="236.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Payroll" onAction="#switchToEmployeeSalary"/>
+            <Button layoutY="236.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Payroll" />
             <Button layoutY="317.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" onAction="#logOut"/>
             <Circle fill="DODGERBLUE" layoutX="91.0" layoutY="45.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
@@ -31,9 +31,9 @@
                         <Font size="24.0" />
                      </font>
                   </Text>
-                  <Button layoutX="254.0" layoutY="17.0" mnemonicParsing="false" text="PERSONAL " />
-                  <Button layoutX="349.0" layoutY="17.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="57.0" text="WORK" />
-                  <Button layoutX="425.0" layoutY="17.0" mnemonicParsing="false" text="SALARY " />
+                  <Button layoutX="254.0" layoutY="17.0" mnemonicParsing="false" text="PERSONAL" onAction="#switchToEmployeePersonal"/>
+                  <Button layoutX="349.0" layoutY="17.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="57.0" text="WORK" onAction="#switchToEmployeeProfile"/>
+                  <Button layoutX="425.0" layoutY="17.0" mnemonicParsing="false" text="SALARY" onAction="#switchToEmployeeSalary" />
                   <Text fill="WHITE" layoutX="14.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MONTHLY GROSS SALARY " wrappingWidth="121.98907470703125">
                      <font>
                         <Font size="16.0" />

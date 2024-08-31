@@ -55,6 +55,8 @@ public class EmployeeController implements UpdatableController {
 
             System.out.println(loggedInEmployee);
             if (loggedInEmployee.getPassword().equals(passwordInput)) {
+                loginUsername.setText("");
+                loginPassword.setText("");
                 switch (loggedInEmployee.getRole()) {
                     case "HR":
                         route.switchToScene("MainLobbyHR");
@@ -112,6 +114,21 @@ public class EmployeeController implements UpdatableController {
      * Fetch user data
     */
     @FXML
+    private TextField roleLabel;
+
+    @FXML
+    private TextField departmentLabel;
+
+    @FXML
+    private TextField positionLabel;
+
+    @FXML
+    private TextField workExperienceLabel;
+
+    @FXML
+    private TextField workExperienceLabel2;
+
+    @FXML
     private void switchToEmployeeProfile() throws IOException {
         route.switchToScene("EmployeeProfile");
     }
@@ -159,7 +176,7 @@ public class EmployeeController implements UpdatableController {
     @FXML
     private void logOut() throws Exception {
         LoggedInEmployee.getInstance().setEmployee(null);
-        switchToLogin();
+        route.switchToScene("LoginPage");
     }
 
     @FXML
@@ -167,15 +184,18 @@ public class EmployeeController implements UpdatableController {
         System.exit(0);
     }
 
+    //update ui too bloated find some way to alleviate the pain of having to read this, split rendering into functions based on pages???
+
     @Override
     public void updateUI() {
         Employee currentEmployee = LoggedInEmployee.getInstance().getEmployee();
         
         //setup for employee payroll
+        //profile stuff todo: if not in edit mode disable text fields
         if (route.getCurrentSceneName().equals("EmployeeSalary") && currentEmployee != null) {
             employeeMonthlySalary.setText(String.format("RM %.2f", currentEmployee.payroll.getEmployeeSalary()));
         }
-        if (route.getCurrentSceneName().equals("EmployeePersonal") && currentEmployee != null) {
+        else if (route.getCurrentSceneName().equals("EmployeePersonal") && currentEmployee != null) {
 
             nameField.setText(currentEmployee.getName());
 
@@ -183,20 +203,33 @@ public class EmployeeController implements UpdatableController {
                 genderGroup.selectToggle(maleRadioButton);
             } else {
                 genderGroup.selectToggle(femaleRadioButton);
-            }
-            
-            
-            addressField.setText(currentEmployee.getAddress());
-
+            } 
             LocalDate birthDate = LocalDate.parse(currentEmployee.getBirthDate());
             LocalDate currentDate = LocalDate.now();
             Period period = Period.between(birthDate, currentDate);
 
+            addressField.setText(currentEmployee.getAddress());
             ageField.setText(String.format("%d", period.getYears()));
             dobPicker.setValue(birthDate);
             contactNumberField.setText(currentEmployee.getPhoneNumber());
             emergencyContactField.setText(currentEmployee.getEmergencyContact());
             emailField.setText(currentEmployee.getEmail());
+
+            nameField.setDisable(true);
+            addressField.setDisable(true);
+            ageField.setDisable(true);
+            dobPicker.setDisable(true);
+            contactNumberField.setDisable(true);
+            emergencyContactField.setDisable(true);
+            emailField.setDisable(true);
+            maleRadioButton.setDisable(true);
+            femaleRadioButton.setDisable(true);
+        } else if(route.getCurrentSceneName().equals("EmployeeProfile") && currentEmployee != null) {
+            roleLabel.setText(currentEmployee.getRole());
+            departmentLabel.setText("smtg");
+            positionLabel.setText(currentEmployee.getPosition());
+            workExperienceLabel.setText("work 1");
+            workExperienceLabel2.setText("work 2");
         }
     }
 

@@ -21,7 +21,7 @@ public class App extends Application{
 
         //Employee Scenes
         route.addScenes("EmployeeLeave", "/views/employee/EmployeeLeave.fxml");
-        // route.addScenes("ApplyLeave", "/views/employee/ApplyLeave.fxml");
+        route.addScenes("ApplyLeave", "/views/employee/ApplyLeave.fxml");
         route.addScenes("EmployeeProfile", "/views/employee/EmployeeProfile.fxml");
         route.addScenes("EmployeePersonal", "/views/employee/EmployeePersonal.fxml");
         route.addScenes("EmployeeSalary", "/views/employee/EmployeeSalary.fxml");
