@@ -37,7 +37,7 @@
                 </configuration>
             </plugin>
             <!--For x86 machines please uncomment the plugin below-->
-            <!-- <plugin> 
+            <plugin> 
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
@@ -49,7 +49,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin> -->
+            </plugin>
         </plugins>
     </build>
 </project>

@@ -20,30 +20,50 @@ public class EmployeeController implements UpdatableController {
 
     @FXML
     private TextField loginUsername;
-
     @FXML
     private TextField loginPassword;
-
     @FXML
     private TextField newPassword;
-
     @FXML
     private TextField confirmNewPassword;
+    @FXML
+    private TextField employeeMonthlySalary;
+    @FXML
+    private TextField roleLabel;
+    @FXML
+    private TextField departmentLabel;
+    @FXML
+    private TextField positionLabel;
+    @FXML
+    private TextField workExperienceLabel;
+    @FXML
+    private TextField workExperienceLabel2;
+    @FXML
+    private TextField nameField;
+    @FXML
+    private TextField ageField;
+    @FXML
+    private TextField addressField;
+    @FXML
+    private DatePicker dobPicker;
+    @FXML
+    private ToggleGroup genderGroup;
+    @FXML
+    private RadioButton maleRadioButton;
+    @FXML
+    private RadioButton femaleRadioButton;
+    @FXML
+    private TextField contactNumberField;
+    @FXML
+    private TextField emergencyContactField;
+    @FXML
+    private TextField emailField;
 
     @FXML
     private void switchToLogin() throws Exception {
         route.switchToScene("LoginPage");
     }
 
-    /*
-     * TO DO:
-     * Implement error handling and error message
-     * username should be lowercase
-     * Implement password decryption
-     * Implement user details chaching
-     * Implement attendance tracking
-     * Change Scenes according to user roles
-    */
     @FXML
     private void loginProcess() throws IOException {
         String usernameInput = loginUsername.getText();
@@ -53,28 +73,38 @@ public class EmployeeController implements UpdatableController {
             Employee loggedInEmployee = Employee.findByUsername(usernameInput);
             LoggedInEmployee.getInstance().setEmployee(loggedInEmployee);
 
-            System.out.println(loggedInEmployee);
             if (loggedInEmployee.getPassword().equals(passwordInput)) {
-                loginUsername.setText("");
-                loginPassword.setText("");
-                switch (loggedInEmployee.getRole()) {
-                    case "HR":
-                        route.switchToScene("MainLobbyHR");
-                        break;
-                    case "Payroll Manager":
-                        // route.switchToScene("Payroll_Lobby");
-                        break;
-                    default:
-                        route.switchToScene("EmployeePersonal");
-                        break;
-                }
+                clearLoginFields();
+                switchSceneBasedOnRole(loggedInEmployee.getRole());
             } else {
-                System.out.println("Invalid username or password");
+                handleLoginError("Invalid username or password");
             }
-            
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            handleLoginError(e.getMessage());
         }
+    }
+
+    private void switchSceneBasedOnRole(String role) throws IOException {
+        switch (role) {
+            case "HR":
+                route.switchToScene("MainLobbyHR");
+                break;
+            case "Payroll Manager":
+                route.switchToScene("PayrollLobby");
+                break;
+            default:
+                route.switchToScene("EmployeePersonal");
+                break;
+        }
+    }
+
+    private void clearLoginFields() {
+        loginUsername.setText("");
+        loginPassword.setText("");
+    }
+
+    private void handleLoginError(String message) {
+        System.err.println(message);  // Replace with actual user feedback
     }
 
     @FXML
@@ -82,51 +112,22 @@ public class EmployeeController implements UpdatableController {
         route.switchToScene("PasswordChange");
     }
 
-    /*
-     * TO DO:
-     * Add username field
-     * Implement Password Validation
-     * Implement Password Encryption
-    */
     @FXML
     private void resetPassword() throws IOException {
         String passwordInput = newPassword.getText();
         String confirmPasswordInput = confirmNewPassword.getText();
         if (passwordInput.equals(confirmPasswordInput)) {
+            // TODO: Implement Password Encryption
             route.switchToScene("PasswordConfirmation");
+        } else {
+            // TODO: Show error message
         }
     }
-
-    /*
-     * TO DO:
-     * Fetch user data
-    */
-    @FXML
-    private TextField employeeMonthlySalary;
 
     @FXML
     private void switchToEmployeeSalary() throws IOException {
         route.switchToScene("EmployeeSalary");
     }
-
-    /*
-     * TO DO:
-     * Fetch user data
-    */
-    @FXML
-    private TextField roleLabel;
-
-    @FXML
-    private TextField departmentLabel;
-
-    @FXML
-    private TextField positionLabel;
-
-    @FXML
-    private TextField workExperienceLabel;
-
-    @FXML
-    private TextField workExperienceLabel2;
 
     @FXML
     private void switchToEmployeeProfile() throws IOException {
@@ -134,49 +135,15 @@ public class EmployeeController implements UpdatableController {
     }
 
     @FXML
-    private TextField nameField;
-
-    @FXML
-    private TextField ageField;
-
-    @FXML
-    private TextField addressField;
-
-    @FXML
-    private DatePicker dobPicker;
-
-    @FXML
-    private ToggleGroup genderGroup;
-
-    @FXML
-    private RadioButton maleRadioButton;
-
-    @FXML
-    private RadioButton femaleRadioButton;
-
-    @FXML
-    private TextField contactNumberField;
-
-    @FXML
-    private TextField emergencyContactField;
-
-    @FXML
-    private TextField emailField;
-
-    @FXML
     private void switchToEmployeePersonal() throws IOException {
         route.switchToScene("EmployeePersonal");
     }
 
-    @FXML private void switchToApplyLeave() throws IOException {
+    @FXML
+    private void switchToApplyLeave() throws IOException {
         route.switchToScene("ApplyLeave");
     }
 
-    /*
-     * TO DO:
-     * Implement Attendance Checkout
-     * Clear user details chache : DONE
-    */
     @FXML
     private void logOut() throws Exception {
         LoggedInEmployee.getInstance().setEmployee(null);
@@ -188,53 +155,77 @@ public class EmployeeController implements UpdatableController {
         System.exit(0);
     }
 
-    //update ui too bloated find some way to alleviate the pain of having to read this, split rendering into functions based on pages???
-
     @Override
     public void updateUI() {
         Employee currentEmployee = LoggedInEmployee.getInstance().getEmployee();
-        
-        //setup for employee payroll
-        //profile stuff todo: if not in edit mode disable text fields
-        if (route.getCurrentSceneName().equals("EmployeeSalary") && currentEmployee != null) {
-            employeeMonthlySalary.setText(String.format("RM %.2f", currentEmployee.payroll.getEmployeeSalary()));
-        }
-        else if (route.getCurrentSceneName().equals("EmployeePersonal") && currentEmployee != null) {
 
-            nameField.setText(currentEmployee.getName());
+        if (currentEmployee == null) return;
 
-            if (currentEmployee.getGender().equals("Male")) {
-                genderGroup.selectToggle(maleRadioButton);
-            } else {
-                genderGroup.selectToggle(femaleRadioButton);
-            } 
-            LocalDate birthDate = LocalDate.parse(currentEmployee.getBirthDate());
-            LocalDate currentDate = LocalDate.now();
-            Period period = Period.between(birthDate, currentDate);
+        String currentScene = route.getCurrentSceneName();
 
-            addressField.setText(currentEmployee.getAddress());
-            ageField.setText(String.format("%d", period.getYears()));
-            dobPicker.setValue(birthDate);
-            contactNumberField.setText(currentEmployee.getPhoneNumber());
-            emergencyContactField.setText(currentEmployee.getEmergencyContact());
-            emailField.setText(currentEmployee.getEmail());
-
-            nameField.setDisable(true);
-            addressField.setDisable(true);
-            ageField.setDisable(true);
-            dobPicker.setDisable(true);
-            contactNumberField.setDisable(true);
-            emergencyContactField.setDisable(true);
-            emailField.setDisable(true);
-            maleRadioButton.setDisable(true);
-            femaleRadioButton.setDisable(true);
-        } else if(route.getCurrentSceneName().equals("EmployeeProfile") && currentEmployee != null) {
-            roleLabel.setText(currentEmployee.getRole());
-            departmentLabel.setText("smtg");
-            positionLabel.setText(currentEmployee.getPosition());
-            workExperienceLabel.setText("work 1");
-            workExperienceLabel2.setText("work 2");
+        switch (currentScene) {
+            case "EmployeeSalary":
+                updateSalaryUI(currentEmployee);
+                break;
+            case "EmployeePersonal":
+                updatePersonalUI(currentEmployee);
+                break;
+            case "EmployeeProfile":
+                updateProfileUI(currentEmployee);
+                break;
+            default:
+                break;
         }
     }
 
+    private void updateSalaryUI(Employee employee) {
+        employeeMonthlySalary.setText(String.format("RM %.2f", employee.payroll.getEmployeeSalary()));
+    }
+
+    private void updatePersonalUI(Employee employee) {
+        nameField.setText(employee.getName());
+        selectGender(employee.getGender());
+        setAgeAndDOB(employee.getBirthDate());
+        addressField.setText(employee.getAddress());
+        contactNumberField.setText(employee.getPhoneNumber());
+        emergencyContactField.setText(employee.getEmergencyContact());
+        emailField.setText(employee.getEmail());
+
+        disablePersonalFields();
+    }
+
+    private void selectGender(String gender) {
+        if ("Male".equals(gender)) {
+            genderGroup.selectToggle(maleRadioButton);
+        } else {
+            genderGroup.selectToggle(femaleRadioButton);
+        }
+    }
+
+    private void setAgeAndDOB(String birthDateStr) {
+        LocalDate birthDate = LocalDate.parse(birthDateStr);
+        Period period = Period.between(birthDate, LocalDate.now());
+        ageField.setText(String.valueOf(period.getYears()));
+        dobPicker.setValue(birthDate);
+    }
+
+    private void disablePersonalFields() {
+        nameField.setDisable(true);
+        addressField.setDisable(true);
+        ageField.setDisable(true);
+        dobPicker.setDisable(true);
+        contactNumberField.setDisable(true);
+        emergencyContactField.setDisable(true);
+        emailField.setDisable(true);
+        maleRadioButton.setDisable(true);
+        femaleRadioButton.setDisable(true);
+    }
+
+    private void updateProfileUI(Employee employee) {
+        roleLabel.setText(employee.getRole());
+        departmentLabel.setText("smtg"); // TODO: Fetch actual department
+        positionLabel.setText(employee.getPosition());
+        workExperienceLabel.setText("work 1"); // TODO: Fetch actual work experience
+        workExperienceLabel2.setText("work 2"); // TODO: Fetch actual work experience
+    }
 }
