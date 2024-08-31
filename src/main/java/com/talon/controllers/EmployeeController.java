@@ -168,6 +168,10 @@ public class EmployeeController implements UpdatableController {
         route.switchToScene("EmployeePersonal");
     }
 
+    @FXML private void switchToApplyLeave() throws IOException {
+        route.switchToScene("ApplyLeave");
+    }
+
     /*
      * TO DO:
      * Implement Attendance Checkout
