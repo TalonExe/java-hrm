@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public class Payroll {
+    // Todo  : add payroll change history
     private static final String PAYROLL_JSON_PATH = "/data/payrollDetails.json";
 
     private final float epf_employee = 0.13f;
