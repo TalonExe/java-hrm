@@ -1,17 +1,17 @@
 package com.talon.models;
 
-public class LoggedInEmployee {
+public class SessionState {
 
-    private static LoggedInEmployee instance;
+    private static SessionState instance;
     private Employee employee;
 
-    private LoggedInEmployee(){
+    private SessionState(){
 
     }
 
-    public static LoggedInEmployee getInstance(){
+    public static SessionState getInstance(){
         if (instance == null){
-            instance = new LoggedInEmployee();
+            instance = new SessionState();
         }
         return instance;
     }
@@ -22,5 +22,5 @@ public class LoggedInEmployee {
 
     public void setEmployee(Employee employee){
         this.employee = employee;
-        }
+    }
 }

@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.PasswordField?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #222629;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.talon.controllers.EmployeeController">
    <children>
@@ -13,9 +14,8 @@
          <children>
             <Label layoutX="130.0" layoutY="46.0" style="-fx-text-fill: #86C232;" text="Sign In" textFill="WHITE" />
             <Button layoutX="81.0" layoutY="215.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: #86C232;" text="Login" onAction="#loginProcess"/>
-            <Hyperlink layoutX="92.0" layoutY="256.0" style="-fx-text-fill: #86C232;" text="Forgot Password?" textFill="WHITE" onAction="#switchToPasswordChange"/>
             <TextField layoutX="42.0" layoutY="86.0" prefHeight="30.0" prefWidth="230.0" promptText="Username" fx:id="loginUsername"/>
-            <TextField layoutX="42.0" layoutY="145.0" prefHeight="30.0" prefWidth="230.0" promptText="Password" fx:id="loginPassword"/>
+            <PasswordField layoutX="42.0" layoutY="145.0" prefHeight="30.0" prefWidth="230.0" promptText="Password" fx:id="loginPassword"/>
          </children>
       </AnchorPane>
    </children>

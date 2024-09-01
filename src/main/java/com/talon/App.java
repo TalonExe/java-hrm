@@ -1,7 +1,6 @@
 package com.talon;
 
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -16,8 +15,6 @@ public class App extends Application{
 
         //login
         route.addScenes("LoginPage", "/views/login/LoginPage.fxml");
-        route.addScenes("PasswordChange", "/views/login/PasswordChange.fxml");
-        route.addScenes("PasswordConfirmation", "/views/login/PasswordConfirmation.fxml");
 
         //Employee Scenes
         route.addScenes("EmployeeLeave", "/views/employee/EmployeeLeave.fxml");
@@ -32,16 +29,18 @@ public class App extends Application{
         // route.addScenes("MainLobbyHR", "/views/hr/MainLobbyHR.fxml");
         // route.addScenes("MonthlyAttendance", "/views/hr/MonthlyAttendance.fxml");
 
+        // System Administrator
+        route.addScenes("SystemAdminHomepage", "/views/SystemAdmin/Homepage.fxml");
+
+        //Redirect to LoginPage upon starting the application
         route.switchToScene("LoginPage");
 
         primaryStage.setTitle("La Fimosa");
         primaryStage.setScene(route.getCurrentScene());
         primaryStage.show();
-
     }
 
     public static void main(String[] args) throws IOException{
         launch();
     }
-
 }

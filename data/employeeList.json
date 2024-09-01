@@ -1,0 +1,19 @@
+{
+  "863b16b3-c07c-49ce-8a41-2cad37b411f8": {
+    "username": "Dave0204",
+    "password": "$2a$12$TQHfoUo46HXLI/ijTfzXZ.tdYFLXais0AluYIwrYXOAglu7IqbB42",
+    "name": "Dave Johnson",
+    "gender": "Male",
+    "passport": "234567890",
+    "identificationCard": "041109121205",
+    "phoneNumber": "0168919330",
+    "birthDate": "1985-07-14",
+    "email": "dave@gmail.com",
+    "address": "Sri Lagenda Villa",
+    "emergencyContact": "0198979647",
+    "role": "System Administrator",
+    "position": "IT Support",
+    "loginAttempts": 3,
+    "accountStatus": "LOCKED"
+  }
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Circle?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="700.0" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.talon.controllers.SystemAdministratorController">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="162.0" style="-fx-background-color: #86C232;">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="90.0" layoutY="42.0" radius="34.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button layoutY="88.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Dashboard"/>
+            <Button layoutY="158.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="User Management"/>
+            <Button layoutY="232.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Settings"/>
+            <Button layoutY="322.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout"/>
+         </children>
+      </AnchorPane>
+
+      <VBox layoutX="180.0" layoutY="30.0" spacing="20">
+         <Label text="System Administrator Homepage" style="-fx-text-fill: #FFFFFF; -fx-font-size: 24px;"/>
+         <Button text="View Users" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;"/>
+         <Button text="Unlock Accounts" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;"/>
+         <Button text="View Logs" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;"/>
+         <Button text="System Settings" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;"/>
+      </VBox>
+   </children>
+</AnchorPane>

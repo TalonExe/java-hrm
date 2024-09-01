@@ -3,13 +3,11 @@ package com.talon;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import com.talon.models.UpdatableController;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import com.talon.controllers.UpdatableController;;
 
 public class Router{
 
