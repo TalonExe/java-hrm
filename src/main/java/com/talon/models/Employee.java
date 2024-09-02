@@ -17,6 +17,7 @@ public class Employee {
     private String position;
     private Integer loginAttempts;
     private String accountStatus;
+    private boolean accountDisabled;
 
     // Constructor
     public Employee(String username, String password, String role) {
@@ -129,6 +130,13 @@ public class Employee {
     }
     public void setAccountStatus(String accountStatus) {
         this.accountStatus = accountStatus;
+    }
+
+    public boolean getAccountDisabled() {
+        return accountDisabled;
+    }
+    public void setAccountDisabled(boolean accountDisabled) {
+        this.accountDisabled = accountDisabled;
     }
 
     // Class Methods

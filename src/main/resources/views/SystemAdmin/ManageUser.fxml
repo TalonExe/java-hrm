@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.cell.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.controllers.SystemAdministratorController">
+   <children>
+      <AnchorPane prefHeight="500.0" prefWidth="200.0" style="-fx-background-color: #86C232;">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="90.0" layoutY="42.0" radius="34.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button layoutY="88.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF; -fx-cursor: hand;" text="Unlock Accounts" onAction="#switchToHome"/>
+            <Button layoutY="232.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF; -fx-cursor: hand;" text="Add User"/>
+            <Button layoutY="158.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF; -fx-cursor: hand;" text="User Management" onAction="#switchToManageUser"/>
+            <Button layoutY="322.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF; -fx-cursor: hand;" text="Logout" onAction="#logOut"/>
+         </children>
+      </AnchorPane>
+      <VBox layoutX="220.0" layoutY="30.0" spacing="20">
+         <children>
+            <Label style="-fx-text-fill: #FFFFFF; -fx-font-size: 24px;" text="Manage Users" />
+         </children>
+      </VBox>
+      <TableView layoutX="220.0" layoutY="125.0" prefHeight="400.0" prefWidth="800.0" fx:id="userManagementTable">
+         <columns>
+            <TableColumn text="No." prefWidth="100">
+               <cellValueFactory>
+                  <PropertyValueFactory property="number"/>
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Username" prefWidth="200">
+               <cellValueFactory>
+                  <PropertyValueFactory property="username"/>
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Role" prefWidth="200">
+               <cellValueFactory>
+                  <PropertyValueFactory property="role"/>
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Edit" prefWidth="150" fx:id="editButtonColumn">
+               <cellValueFactory>
+                  <PropertyValueFactory property="editButton"/>
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Disable" prefWidth="150" fx:id="disableButtonColumn">
+               <cellValueFactory>
+                  <PropertyValueFactory property="disableButton"/>
+               </cellValueFactory>
+            </TableColumn>
+         </columns>
+      </TableView>
+      <Button layoutX="800.0" layoutY="30.0" mnemonicParsing="false" text="Add User"/>
+   </children>
+</AnchorPane>

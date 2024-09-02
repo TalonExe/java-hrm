@@ -28,16 +28,7 @@ public class EmployeeController implements UpdatableController {
     private void switchToLogin() throws Exception {
         route.switchToScene("LoginPage");
     }
-
-    /*
-     * TO DO:
-     * Implement error handling and error message
-     * username should be lowercase
-     * Implement password decryption
-     * Implement user details chaching
-     * Implement attendance tracking
-     * Change Scenes according to user roles
-     */
+    
     @FXML
     private void loginProcess() throws IOException {
         String usernameInput = loginUsername.getText();
@@ -47,6 +38,8 @@ public class EmployeeController implements UpdatableController {
             Employee loggedInEmployee = EmployeeUtils.findByUsername(usernameInput);
             if (loggedInEmployee == null) {
                 ErrorAlert("Invalid username or password");
+            } else if (loggedInEmployee.getAccountDisabled()) {
+                ErrorAlert("Your account has been disabled");
             } else if (loggedInEmployee.getAccountStatus().equalsIgnoreCase("LOCKED")) {
                 ErrorAlert("Your account has been locked");
             } else if (EmployeeUtils.verifyPassword(passwordInput, loggedInEmployee.getPassword())) {
@@ -63,6 +56,7 @@ public class EmployeeController implements UpdatableController {
                         break;
                     case "System Administrator":
                         route.switchToScene("SystemAdminHomepage");
+                        ((SystemAdministratorController) route.getCurrentController()).refreshHomepage();
                         break;
                     default:
                         route.switchToScene("EmployeePersonal");
@@ -166,7 +160,7 @@ public class EmployeeController implements UpdatableController {
      * Clear user details chache : DONE
      */
     @FXML
-    private void logOut() throws Exception {
+    protected void logOut() throws Exception {
         SessionState.getInstance().setEmployee(null);
         route.switchToScene("LoginPage");
     }
@@ -176,12 +170,15 @@ public class EmployeeController implements UpdatableController {
         System.exit(0);
     }
 
-    private void ErrorAlert(String message) {
+    protected void ErrorAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(message);
         alert.showAndWait();
     }
+
+    protected void WarningAlert(String message) {
+    };
 
     // update ui too bloated find some way to alleviate the pain of having to read
     // this, split rendering into functions based on pages???

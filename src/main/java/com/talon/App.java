@@ -31,6 +31,8 @@ public class App extends Application{
 
         // System Administrator
         route.addScenes("SystemAdminHomepage", "/views/SystemAdmin/Homepage.fxml");
+        route.addScenes("ManageUser", "/views/SystemAdmin/ManageUser.fxml");
+        route.addScenes("AddUser", "/views/SystemAdmin/CreateUser.fxml");
 
         //Redirect to LoginPage upon starting the application
         route.switchToScene("LoginPage");

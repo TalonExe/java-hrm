@@ -13,7 +13,44 @@
     "emergencyContact": "0198979647",
     "role": "System Administrator",
     "position": "IT Support",
-    "loginAttempts": 3,
-    "accountStatus": "LOCKED"
+    "loginAttempts": 0,
+    "accountStatus": "ACTIVE",
+    "accountDisabled": false
+  },
+  "08517aa5-e2ab-4d44-98af-e81afc3aec23": {
+    "username": "Alice2345",
+    "password": "$2a$12$TQHfoUo46HXLI/ijTfzXZ.tdYFLXais0AluYIwrYXOAglu7IqbB42",
+    "name": "Alice Johnson",
+    "gender": "Female",
+    "passport": "1234567890",
+    "identificationCard": "051109121204",
+    "phoneNumber": "0168919331",
+    "birthDate": "1980-06-20",
+    "email": "alice@gmail.com",
+    "address": "Sri Lagenda Villa",
+    "emergencyContact": "0198979648",
+    "role": "System Administrator",
+    "position": "IT Support",
+    "loginAttempts": 0,
+    "accountStatus": "ACTIVE",
+    "accountDisabled": true
+  },
+  "8070f1c5-f2b5-4a71-873b-c2c3697a6b40": {
+    "username": "george343",
+    "password": "$2a$12$TQHfoUo46HXLI/ijTfzXZ.tdYFLXais0AluYIwrYXOAglu7IqbB42",
+    "name": "George Johnson",
+    "gender": "Male",
+    "passport": "9876543210",
+    "identificationCard": "061109121203",
+    "phoneNumber": "0168919332",
+    "birthDate": "1975-05-15",
+    "email": "george@gmail.com",
+    "address": "Sri Lagenda Villa",
+    "emergencyContact": "0198979649",
+    "role": "System Administrator",
+    "position": "IT Support",
+    "loginAttempts": 0,
+    "accountStatus": "ACTIVE",
+    "accountDisabled": false
   }
 }

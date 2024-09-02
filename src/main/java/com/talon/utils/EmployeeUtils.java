@@ -84,6 +84,10 @@ public class EmployeeUtils {
         return BCrypt.verifyer().verify(password.toCharArray(), hashedPassword).verified;
     }
 
+    public static String hashPassword(String password) {
+        return BCrypt.withDefaults().hashToString(12, password.toCharArray());
+    }
+
     public static Employee createEmployee(String username, String password, String role) throws Exception {
         try {
             // Check if username already exists
@@ -93,7 +97,7 @@ public class EmployeeUtils {
                     throw new Exception("Username already exists");
                 }
             }
-            String hashedPassword = BCrypt.withDefaults().hashToString(12, password.toCharArray());
+            String hashedPassword = hashPassword(password);
             String id = UUID.randomUUID().toString();
             employees.put(id, new Employee(username, hashedPassword, role));
             WriteData(employees);
@@ -107,7 +111,7 @@ public class EmployeeUtils {
     public static void updatePassword(String username, String newPassword) throws Exception {
         try {
             Map<String, Employee> employees = ReadData();
-            String hashedPassword = BCrypt.withDefaults().hashToString(12, newPassword.toCharArray());
+            String hashedPassword = hashPassword(newPassword);
             employees.get(username).setPassword(hashedPassword);
             WriteData(employees);
         } catch (Exception e) {
@@ -125,10 +129,25 @@ public class EmployeeUtils {
         }
     }
 
-    public static void unlockAccount(String username) throws Exception {
+    public static void unlockAccount(String key) throws Exception {
         try {
             Map<String, Employee> employees = ReadData();
-            employees.get(username).setAccountStatus("ACTIVE");
+            employees.get(key).setAccountStatus("ACTIVE");
+            employees.get(key).setLoginAttempts(0);
+            WriteData(employees);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void disableAccount(String key, String command) throws Exception {
+        try {
+            Map<String, Employee> employees = ReadData();
+            if (command.equalsIgnoreCase("disable")) {
+                employees.get(key).setAccountDisabled(true);
+            } else {
+                employees.get(key).setAccountDisabled(false);
+            }
             WriteData(employees);
         } catch (Exception e) {
             e.printStackTrace();
