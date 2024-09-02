@@ -1,31 +1,69 @@
 package com.talon.utils;
 
-import com.talon.models.Employee;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
-import at.favre.lib.crypto.bcrypt.BCrypt;
-import com.google.gson.reflect.TypeToken;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.talon.models.Employee;
+
+import at.favre.lib.crypto.bcrypt.BCrypt;
 
 public class EmployeeUtils {
     private static final String FILE_PATH = "data/employeeList.json";
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
+    // public static Map<String, Employee> ReadData() {
+    //     try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
+    //         return gson.fromJson(reader, new TypeToken<Map<String, Employee>>() {}.getType());
+    //     } catch (IOException e) {
+    //         e.printStackTrace();
+    //         return new HashMap<>();
+    //     }
+    // }
+
     public static Map<String, Employee> ReadData() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
-            return gson.fromJson(reader, new TypeToken<Map<String, Employee>>() {}.getType());
+    try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
+        // Parse the outer JSON object
+        JsonObject jsonObject = gson.fromJson(reader, JsonObject.class);
+
+        // Extract the "Users" array
+        JsonArray usersArray = jsonObject.getAsJsonArray("Users");
+
+        // Initialize the map to hold the UUIDs and Employee objects
+        Map<String, Employee> employees = new HashMap<>();
+
+        // Loop through each element in the "Users" array
+        for (JsonElement element : usersArray) {
+            // Each element in the array is a JSON object with one key-value pair
+            JsonObject userObject = element.getAsJsonObject();
+
+            // Extract the UUID (key) and the Employee object (value)
+            for (Map.Entry<String, JsonElement> entry : userObject.entrySet()) {
+                String uuid = entry.getKey();
+                Employee employee = gson.fromJson(entry.getValue(), Employee.class);
+                employees.put(uuid, employee);
+            }
+        }
+
+        return employees;
+
         } catch (IOException e) {
             e.printStackTrace();
             return new HashMap<>();
         }
     }
+
+    
 
     public static void WriteData(Map<String, Employee> employeeList) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {

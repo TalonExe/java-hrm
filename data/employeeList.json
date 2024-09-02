@@ -13,7 +13,7 @@
     "emergencyContact": "0198979647",
     "role": "System Administrator",
     "position": "IT Support",
-    "loginAttempts": 3,
-    "accountStatus": "LOCKED"
+    "loginAttempts": 0,
+    "accountStatus": "ACTIVE"
   }
 }
