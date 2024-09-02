@@ -2,25 +2,32 @@ package com.talon.models;
 
 public class SessionState {
 
-    private static SessionState instance;
+    // Volatile ensures visibility of changes to instance across threads
+    private static volatile SessionState instance;
     private Employee employee;
 
-    private SessionState(){
+    // Private constructor to prevent instantiation
+    private SessionState() {}
 
-    }
-
-    public static SessionState getInstance(){
-        if (instance == null){
-            instance = new SessionState();
+    // Double-checked locking for thread-safe lazy initialization
+    public static SessionState getInstance() {
+        if (instance == null) {
+            synchronized (SessionState.class) {
+                if (instance == null) {
+                    instance = new SessionState();
+                }
+            }
         }
         return instance;
     }
 
-    public Employee getEmployee(){
+    // Getter for Employee
+    public Employee getEmployee() {
         return employee;
     }
 
-    public void setEmployee(Employee employee){
+    // Setter for Employee
+    public void setEmployee(Employee employee) {
         this.employee = employee;
     }
 }

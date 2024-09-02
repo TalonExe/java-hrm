@@ -13,6 +13,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Alert;
 
 public class EmployeeController implements UpdatableController {
     private final Router route = Router.getInstance();
@@ -44,12 +45,15 @@ public class EmployeeController implements UpdatableController {
 
         try {
             Employee loggedInEmployee = EmployeeUtils.findByUsername(usernameInput);
-            if (loggedInEmployee.getAccountStatus().equalsIgnoreCase("LOCKED")) {
-                System.out.println("Invalid username or password");
+            if (loggedInEmployee == null) {
+                ErrorAlert("Invalid username or password");
+            } else if (loggedInEmployee.getAccountStatus().equalsIgnoreCase("LOCKED")) {
+                ErrorAlert("Your account has been locked");
             } else if (EmployeeUtils.verifyPassword(passwordInput, loggedInEmployee.getPassword())) {
                 loginUsername.setText("");
                 loginPassword.setText("");
                 EmployeeUtils.updateLoginStatus(usernameInput, "SUCCESS");
+                SessionState.getInstance().setEmployee(loggedInEmployee);
                 switch (loggedInEmployee.getRole()) {
                     case "HR":
                         route.switchToScene("MainLobbyHR");
@@ -65,12 +69,13 @@ public class EmployeeController implements UpdatableController {
                         break;
                 }
             } else {
-                System.out.println("Invalid username or password");
+                ErrorAlert("Invalid username or password");
                 EmployeeUtils.updateLoginStatus(usernameInput, "FAILED");
             }
 
         } catch (Exception e) {
             System.err.println(e.getMessage());
+            ErrorAlert("Invalid username or password");
         }
     }
 
@@ -169,6 +174,13 @@ public class EmployeeController implements UpdatableController {
     @FXML
     private void exit() throws Exception {
         System.exit(0);
+    }
+
+    private void ErrorAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(message);
+        alert.showAndWait();
     }
 
     // update ui too bloated find some way to alleviate the pain of having to read
