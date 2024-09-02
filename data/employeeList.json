@@ -1,5 +1,7 @@
 {
-  "863b16b3-c07c-49ce-8a41-2cad37b411f8": {
+  "Users":[
+    {
+      "863b16b3-c07c-49ce-8a41-2cad37b411f8": {
     "username": "Dave0204",
     "password": "$2a$12$TQHfoUo46HXLI/ijTfzXZ.tdYFLXais0AluYIwrYXOAglu7IqbB42",
     "name": "Dave Johnson",
@@ -16,4 +18,7 @@
     "loginAttempts": 0,
     "accountStatus": "ACTIVE"
   }
+    }
+  ]
+  
 }

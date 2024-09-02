@@ -185,6 +185,7 @@ public class EmployeeController implements UpdatableController {
 
     // update ui too bloated find some way to alleviate the pain of having to read
     // this, split rendering into functions based on pages???
+    
     @Override
     public void updateUI() {
         Employee currentEmployee = SessionState.getInstance().getEmployee();
