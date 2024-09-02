@@ -17,6 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class PayrollManagerController extends EmployeeController{
     private final Router route = Router.getInstance();
+    private Payroll selectedPayroll; // Store the selected Payroll object
 
     @FXML
     private TableView<Payroll> employeeTable;
@@ -53,11 +54,10 @@ public class PayrollManagerController extends EmployeeController{
     private void loadEmployeeData() {
         
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        salaryColumn.setCellValueFactory(new PropertyValueFactory<>("salary"));
+        salaryColumn.setCellValueFactory(new PropertyValueFactory<>("grossSalary"));
 
         // Reading employee and payroll data
         Map<String, Employee> employees = EmployeeUtils.ReadData();
-        Map<String, Float> payrolls = PayrollUtils.ReadPayrollData(); // Assuming this method returns a map of IDs to salaries
 
         // Creating an observable list to hold the EmployeePayroll objects
         ObservableList<Payroll> employeePayrollList = FXCollections.observableArrayList();
@@ -67,11 +67,7 @@ public class PayrollManagerController extends EmployeeController{
             String employeeId = entry.getKey();
             Employee employee = entry.getValue();
 
-            // Fetching the corresponding payroll for the employee
-            Float salary = payrolls.getOrDefault(employeeId, 0.0f); // Default to 0.0 salary if not found
-
-            // Creating an EmployeePayroll object (with employee name and salary) and adding it to the list
-            Payroll employeePayroll = new Payroll(employee.getName(), salary);
+            Payroll employeePayroll = new Payroll(employee.getUsername(), PayrollUtils.findPayrollByID(employeeId).getGrossSalary());
             employeePayrollList.add(employeePayroll);
         }
 
@@ -79,19 +75,27 @@ public class PayrollManagerController extends EmployeeController{
         employeeTable.setItems(employeePayrollList);
 
         employeeTable.setOnMouseClicked(event -> {
-            // Check if the click was on a valid row
             if (event.getClickCount() == 1 && !employeeTable.getSelectionModel().isEmpty()) {
-                Payroll selectedPayroll = employeeTable.getSelectionModel().getSelectedItem();
-                if (selectedPayroll != null) {
-                    String selectedName = selectedPayroll.getName();
-                    System.out.println("Selected Employee Name: " + selectedName);
-                    // You can also perform other actions here
-                }
+                selectedPayroll = employeeTable.getSelectionModel().getSelectedItem();
+                System.out.println("Selected Employee Name: " + selectedPayroll.getName());
             }
         });
+
     }
 
-    
+    @FXML
+    private void onCreateButtonClick() {
+        if (selectedPayroll != null) {
+            // Assuming there's a TextField for inputting the new salary
+            try {
+                
+            } catch (Exception ex) {
+                System.out.println("Error saving payroll: " + ex.getMessage());
+            }
+        } else {
+            System.out.println("No employee selected");
+        }
+    }
 
 }
 

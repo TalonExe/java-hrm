@@ -188,7 +188,7 @@ public class EmployeeUtils {
     }
 
     // Helper method to get an employee's UUID by their username
-    private static String getEmployeeIdByUsername(Map<String, Employee> employees, String username) {
+    public static String getEmployeeIdByUsername(Map<String, Employee> employees, String username) {
         for (Map.Entry<String, Employee> entry : employees.entrySet()) {
             if (entry.getValue().getUsername().equalsIgnoreCase(username)) {
                 return entry.getKey();

@@ -1,5 +1,7 @@
 package com.talon.models;
 
+import java.time.LocalDate;
+
 public class Payroll {
     
     // EPF (Employee Provident Fund) contribution rates
@@ -16,18 +18,24 @@ public class Payroll {
 
     // Salary
     private String name;
-    private float salary;
+    private float grossSalary;  // Store the original gross salary
+    private float netSalary;    // Store the calculated net salary
+    private LocalDate creationDate;
 
     // Constructor
-    public Payroll(String name, float salary) {
+    public Payroll(String name, float grossSalary) {
         this.name = name;
-        this.salary = salary;
+        this.grossSalary = grossSalary;
+        this.netSalary = calculateNetSalary(grossSalary); // Calculate net salary during instantiation
+        this.creationDate = LocalDate.now();
     }
 
-    public Payroll(float salary, float eis, float pcb) {
-        this.salary = salary;
+    public Payroll(float grossSalary, float eis, float pcb, LocalDate creationDate) {
+        this.grossSalary = grossSalary;
         this.eis = eis;
         this.pcb = pcb;
+        this.netSalary = calculateNetSalary(grossSalary); // Calculate net salary during instantiation
+        this.creationDate = creationDate;
     }
 
     // Getters for EPF and SOCSO contributions
@@ -54,6 +62,7 @@ public class Payroll {
 
     public void setEis(float eis) {
         this.eis = eis;
+        this.netSalary = calculateNetSalary(this.grossSalary); // Recalculate net salary if rates change
     }
 
     public float getPcb() {
@@ -62,19 +71,25 @@ public class Payroll {
 
     public void setPcb(float pcb) {
         this.pcb = pcb;
+        this.netSalary = calculateNetSalary(this.grossSalary); // Recalculate net salary if rates change
     }
 
     // Getter and setter for salary
-    public float getSalary() {
-        return this.salary;
+    public float getGrossSalary() {
+        return this.grossSalary;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setSalary(float salary) {
-        this.salary = salary;
+    public float getNetSalary() {
+        return this.netSalary;
+    }
+
+    public void setGrossSalary(float grossSalary) {
+        this.grossSalary = grossSalary;
+        this.netSalary = calculateNetSalary(grossSalary); // Recalculate net salary when gross salary changes
     }
 
     public void setName(String name) {
@@ -82,25 +97,33 @@ public class Payroll {
     }
 
     // Calculate total deductions
-    public float calculateTotalDeductions() {
-        return (EPF_EMPLOYEE * salary) + (SOCSO_EMPLOYEE * salary) + (eis * salary) + (pcb * salary);
+    private float calculateTotalDeductions(float grossSalary) {
+        return (EPF_EMPLOYEE * grossSalary) + (SOCSO_EMPLOYEE * grossSalary) + (eis * grossSalary) + (pcb * grossSalary);
     }
 
     // Calculate net salary after deductions
-    public float calculateNetSalary() {
-        return salary - calculateTotalDeductions();
+    private float calculateNetSalary(float grossSalary) {
+        return grossSalary - calculateTotalDeductions(grossSalary);
+    }
+
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
     }
 
     @Override
     public String toString() {
         return String.format(
-            "Salary: %.2f, EPF (Employee): %.2f, SOCSO (Employee): %.2f, EIS: %.2f, PCB: %.2f, Net Salary: %.2f",
-            salary, 
-            getEmployeeEpf() * salary, 
-            getEmployeeSocso() * salary, 
-            getEis() * salary, 
-            getPcb() * salary, 
-            calculateNetSalary()
+            "Gross Salary: %.2f, Net Salary: %.2f, EPF (Employee): %.2f, SOCSO (Employee): %.2f, EIS: %.2f, PCB: %.2f",
+            grossSalary, 
+            netSalary, 
+            getEmployeeEpf() * grossSalary, 
+            getEmployeeSocso() * grossSalary, 
+            getEis() * grossSalary, 
+            getPcb() * grossSalary
         );
     }
 }
