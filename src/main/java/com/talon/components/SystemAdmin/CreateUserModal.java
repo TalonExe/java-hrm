@@ -1,15 +1,14 @@
 package com.talon.components.SystemAdmin;
 
-import com.talon.models.Employee;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import com.talon.utils.EmployeeUtils;
-import java.util.Map;
+import com.talon.models.Employee;
 
-public class EditEmployeeModal extends BaseModal {
+public class CreateUserModal extends BaseModal {
     @FXML
     private TextField usernameField;
     @FXML
@@ -18,16 +17,6 @@ public class EditEmployeeModal extends BaseModal {
     private PasswordField passwordField;
     @FXML
     private PasswordField confirmPasswordField;
-
-    private Employee employee;
-    private String employeeId;
-
-    public void setEmployeeData(String employeeId, Employee employee) {
-        this.employeeId = employeeId;
-        this.employee = employee;
-        usernameField.setText(employee.getUsername());
-        roleComboBox.setValue(employee.getRole());
-    }
 
     @FXML
     private void initialize() {
@@ -43,34 +32,46 @@ public class EditEmployeeModal extends BaseModal {
     @FXML
     private void handleConfirm() {
         // Validate username length
+        String role = roleComboBox.getValue();
         String username = usernameField.getText();
         if (username.length() < 4) {
             showErrorAlert("Username must be at least 4 characters long");
             return;
         }
-        employee.setRole(roleComboBox.getValue());
-        employee.setUsername(usernameField.getText());
+
+        // Find if username already exists
+        try {
+            Employee employee = EmployeeUtils.findByUsername(username);
+            if (employee != null) {
+                showErrorAlert("Username already exists");
+                return;
+            }
+        } catch (Exception e) {
+            showErrorAlert(e.getMessage());
+        }
+
+        if (role == null) {
+            showErrorAlert("Role cannot be empty");
+            return;
+        }
 
         // Validate and save changes
         String newPassword = passwordField.getText();
         String confirmPassword = confirmPasswordField.getText();
-        Map<String, Employee> employees = EmployeeUtils.ReadData();
         
         if (newPassword.equals(confirmPassword) && !newPassword.isEmpty() && !confirmPassword.isEmpty()) {
             if (newPassword.length() < 8) {
                 showErrorAlert("Password must be at least 8 characters long");
                 return;
             }
-            String hashedPassword = EmployeeUtils.hashPassword(newPassword);
-            employee.setPassword(hashedPassword);
-            
-            employees.put(employeeId, employee);
-            EmployeeUtils.WriteData(employees);
-            closeModal();
-        } else if (newPassword.isEmpty() && confirmPassword.isEmpty()) {
-            employees.put(employeeId, employee);
-            EmployeeUtils.WriteData(employees);
-            closeModal();
+            try {
+                EmployeeUtils.createEmployee(username, newPassword, role);
+                closeModal();
+            } catch (Exception e) {
+                showErrorAlert(e.getMessage());
+            }
+        } else if (newPassword.isEmpty() || confirmPassword.isEmpty()) {
+            showErrorAlert("Password cannot be empty");
         } else {
             showErrorAlert("Passwords do not match");
         }

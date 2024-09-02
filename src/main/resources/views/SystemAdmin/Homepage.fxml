@@ -16,9 +16,8 @@
          <children>
             <Circle fill="DODGERBLUE" layoutX="90.0" layoutY="42.0" radius="34.0" stroke="BLACK" strokeType="INSIDE" />
             <Button layoutY="88.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF; -fx-cursor: hand;" text="Unlock Accounts" onAction="#switchToHome"/>
-            <Button layoutY="232.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF; -fx-cursor: hand;" text="Add User"/>
             <Button layoutY="158.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF; -fx-cursor: hand;" text="User Management" onAction="#switchToManageUser"/>
-            <Button layoutY="322.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF; -fx-cursor: hand;" text="Logout" onAction="#logOut"/>
+            <Button layoutY="228.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF; -fx-cursor: hand;" text="Logout" onAction="#logOut"/>
          </children>
       </AnchorPane>
 

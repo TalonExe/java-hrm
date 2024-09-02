@@ -18,8 +18,8 @@
     "accountDisabled": false
   },
   "08517aa5-e2ab-4d44-98af-e81afc3aec23": {
-    "username": "Alice2345",
-    "password": "$2a$12$TQHfoUo46HXLI/ijTfzXZ.tdYFLXais0AluYIwrYXOAglu7IqbB42",
+    "username": "Alice23",
+    "password": "$2a$12$MRZQvSOcrc0zxlwjS4yUr.i4NcTYXtqkylqU0ggJj7O1.fXYjvss6",
     "name": "Alice Johnson",
     "gender": "Female",
     "passport": "1234567890",
@@ -49,6 +49,14 @@
     "emergencyContact": "0198979649",
     "role": "System Administrator",
     "position": "IT Support",
+    "loginAttempts": 0,
+    "accountStatus": "ACTIVE",
+    "accountDisabled": false
+  },
+  "c5ded723-a90e-4a4a-acb3-eac1d86f5586": {
+    "username": "jeffDham",
+    "password": "$2a$12$SkkuMn9TbPXgjFCoqZ4nCeD4pwgTSn35cxIQNnxu/V6XL1VqDkMTy",
+    "role": "HR Officer",
     "loginAttempts": 0,
     "accountStatus": "ACTIVE",
     "accountDisabled": false

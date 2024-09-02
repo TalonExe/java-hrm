@@ -11,6 +11,7 @@ import com.talon.utils.EmployeeUtils;
 import com.talon.components.SystemAdmin.UserManagementRow;
 import com.talon.components.SystemAdmin.HomepageTableRow;
 import com.talon.components.SystemAdmin.EditEmployeeModal;
+import com.talon.components.SystemAdmin.CreateUserModal;
 import com.talon.Router;
 import javafx.scene.control.cell.PropertyValueFactory;
 import java.util.Map;
@@ -60,22 +61,39 @@ public class SystemAdministratorController extends EmployeeController {
     }
 
     @FXML
-    private void showEditEmployeeModal(Employee employee) {
+    private void showEditEmployeeModal(String employeeId, Employee employee) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/SystemAdmin/EditEmployeeModal.fxml"));
             AnchorPane modalRoot = loader.load();
             EditEmployeeModal controller = loader.getController();
-            controller.setEmployeeData(employee);
+            controller.setEmployeeData(employeeId, employee);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(userManagementTable.getScene().getWindow());
             stage.setScene(new Scene(modalRoot));
             stage.showAndWait();
+            refreshManageUserData();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    @FXML
+    private void showCreateUserModal() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/SystemAdmin/CreateUserModal.fxml"));
+            AnchorPane modalRoot = loader.load();
+            CreateUserModal controller = loader.getController();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initOwner(userManagementTable.getScene().getWindow());
+            stage.setScene(new Scene(modalRoot));
+            stage.showAndWait();
+            refreshManageUserData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void refreshHomepage() {
         ChangeValueOfAccountStatusColumn();
@@ -138,7 +156,7 @@ public class SystemAdministratorController extends EmployeeController {
                 // Show edit user dialog
                 editButton.setOnAction(event -> {
                     // Implement edit functionality here
-                    showEditEmployeeModal(employee);
+                    showEditEmployeeModal(userKey, employee);
                 });
                 disableButton.setOnAction(event -> {
                     if (employee.getAccountDisabled()) {

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="300.0" prefWidth="420.0" style="-fx-background-color: #474B4F;" fx:controller="com.talon.components.SystemAdmin.CreateUserModal">
+    <children>
+        <Label layoutX="20.0" layoutY="20.0" text="Edit Employee" style="-fx-text-fill: white; -fx-font-size: 20px;"/>
+        <Label layoutX="20.0" layoutY="60.0" text="Username:" style="-fx-text-fill: white;"/>
+        <TextField fx:id="usernameField" layoutX="140.0" layoutY="60.0" prefWidth="250.0"/>
+        
+        <Label layoutX="20.0" layoutY="100.0" text="Role:" style="-fx-text-fill: white;"/>
+        <ComboBox fx:id="roleComboBox" layoutX="140.0" layoutY="100.0" prefWidth="250.0"/>
+        
+        <Label layoutX="20.0" layoutY="140.0" text="Password:" style="-fx-text-fill: white;"/>
+        <PasswordField fx:id="passwordField" layoutX="140.0" layoutY="140.0" prefWidth="250.0"/>
+        
+        <Label layoutX="20.0" layoutY="180.0" text="Confirm Password:" style="-fx-text-fill: white;"/>
+        <PasswordField fx:id="confirmPasswordField" layoutX="140.0" layoutY="180.0" prefWidth="250.0"/>
+        
+        <Button layoutX="20.0" layoutY="220.0" text="Confirm" onAction="#handleConfirm"/>
+        <Button layoutX="120.0" layoutY="220.0" text="Cancel" onAction="#handleCancel"/>
+    </children>
+</AnchorPane>

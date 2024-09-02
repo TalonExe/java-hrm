@@ -99,7 +99,11 @@ public class EmployeeUtils {
             }
             String hashedPassword = hashPassword(password);
             String id = UUID.randomUUID().toString();
-            employees.put(id, new Employee(username, hashedPassword, role));
+            Employee newEmployee = new Employee(username, hashedPassword, role);
+            newEmployee.setLoginAttempts(0);
+            newEmployee.setAccountStatus("ACTIVE");
+            newEmployee.setAccountDisabled(false);
+            employees.put(id, newEmployee);
             WriteData(employees);
             return employees.get(id);
         } catch (Exception e) {
