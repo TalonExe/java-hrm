@@ -7,12 +7,12 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.controllers.PayrollManagerController">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="170.0" style="-fx-background-color: #86C232;">
          <children>
             <Button layoutY="175.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" />
-            <Button layoutY="250.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Payroll" />
+            <Button layoutY="250.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Payroll" onAction="#switchToPayrollList"/>
             <Button layoutY="100.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" />
             <Circle fill="DODGERBLUE" layoutX="85.0" layoutY="54.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
             <Button layoutY="325.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" />

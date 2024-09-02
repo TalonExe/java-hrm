@@ -1,6 +1,25 @@
 {
   "Users": [
     {
+      "9544e3b5-0930-44c5-92fe-46629a473ffa": {
+        "username": "yousuf",
+        "password": "$2a$12$3X4cwrl6WNLHCD9QkkfG0ejvhL8zWOz2uZSpFWKpNKIHvUzaCXZaa",
+        "name": "HR Manager",
+        "gender": "Other",
+        "passport": "040907121203",
+        "identificationCard": "020301918918",
+        "phoneNumber": "016891932833",
+        "birthDate": "2024-10-05",
+        "email": "hav@nn.com",
+        "address": "sdfasfas",
+        "emergencyContact": "923498742",
+        "role": "HR Manager",
+        "position": "cleaner",
+        "loginAttempts": 0,
+        "accountStatus": "ACTIVE"
+      }
+    },
+    {
       "863b16b3-c07c-49ce-8a41-2cad37b411f8": {
         "username": "losmanos",
         "password": "$2a$12$TQHfoUo46HXLI/ijTfzXZ.tdYFLXais0AluYIwrYXOAglu7IqbB42",
@@ -15,6 +34,25 @@
         "emergencyContact": "0198979647",
         "role": "System Administrator",
         "position": "IT Support",
+        "loginAttempts": 0,
+        "accountStatus": "ACTIVE"
+      }
+    },
+    {
+      "30e8d5b0-14e6-465f-b84f-789b73964f16": {
+        "username": "paparich",
+        "password": "$2a$12$fGsVLyBdLlF8PxgPZKJBGeTgqs/AxCkldi9UoMGncJoAv8qwHgo/C",
+        "name": "Payroll Manager",
+        "gender": "Male",
+        "passport": "123",
+        "identificationCard": "123",
+        "phoneNumber": "123",
+        "birthDate": "2024-08-27",
+        "email": "123",
+        "address": "aaad",
+        "emergencyContact": "12312",
+        "role": "Payroll Manager",
+        "position": "mafia",
         "loginAttempts": 0,
         "accountStatus": "ACTIVE"
       }

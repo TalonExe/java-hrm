@@ -34,6 +34,12 @@ public class App extends Application{
         route.addScenes("SystemAdminHomepage", "/views/SystemAdmin/Homepage.fxml");
         route.addScenes("AddUser", "/views/SystemAdmin/AddUser.fxml");
 
+        //Payroll Scenes
+        // System Administrator
+        route.addScenes("selectEmployeePayroll", "/views/payroll/selectEmployeePayroll.fxml");
+        route.addScenes("payrollList", "/views/payroll/payrollList.fxml");
+        route.addScenes("viewPayroll", "/views/payroll/viewPayroll.fxml");
+
         //Redirect to LoginPage upon starting the application
         route.switchToScene("LoginPage");
 

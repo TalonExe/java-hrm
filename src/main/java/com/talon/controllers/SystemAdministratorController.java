@@ -7,7 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -55,9 +54,6 @@ public class SystemAdministratorController extends EmployeeController {
     private TextField positionField;
 
     @FXML
-    private Button createUserButton;
-
-    @FXML
     private Label statusLabel;
 
     @FXML
@@ -87,7 +83,7 @@ public class SystemAdministratorController extends EmployeeController {
         } catch (Exception ex) {
         }
         clearFields();
-        showAlert("Add User", "This would open the Add User dialog.");
+        showAlert("Add User", String.format("This would open the Add User dialog."));
     }
 
     @FXML

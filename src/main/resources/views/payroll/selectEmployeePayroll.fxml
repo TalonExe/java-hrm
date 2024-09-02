@@ -7,21 +7,21 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.controllers.PayrollManagerController">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="170.0" style="-fx-background-color: #86C232;">
          <children>
             <Button layoutY="175.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" />
-            <Button layoutY="250.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Payroll" />
+            <Button layoutY="250.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Payroll" onAction="#switchToPayrollList" />
             <Button layoutY="100.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" />
             <Circle fill="DODGERBLUE" layoutX="85.0" layoutY="54.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
             <Button layoutY="325.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" />
          </children>
       </AnchorPane>
-      <TableView layoutX="170.0" layoutY="129.0" prefHeight="271.0" prefWidth="531.0">
+      <TableView layoutX="170.0" layoutY="129.0" prefHeight="271.0" prefWidth="531.0" fx:id="employeeTable">
          <columns>
-            <TableColumn prefWidth="188.0" text="Employee Id" />
-            <TableColumn prefWidth="145.0" text="Name" />
+            <TableColumn prefWidth="145.0" text="Name" fx:id="nameColumn"/>
+            <TableColumn prefWidth="145.0" text="Current Salary" fx:id="salaryColumn"/>
          </columns>
       </TableView>
       <Text fill="WHITE" layoutX="272.0" layoutY="44.0" scaleX="3.0" scaleY="3.0" scaleZ="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Payroll" wrappingWidth="80.0" />

@@ -63,7 +63,7 @@ public class EmployeeController implements UpdatableController {
                         route.switchToScene("MainLobbyHR");
                         break;
                     case "Payroll Manager":
-                        // route.switchToScene("Payroll_Lobby");
+                        route.switchToScene("payrollList");
                         break;
                     case "System Administrator":
                         route.switchToScene("SystemAdminHomepage");
