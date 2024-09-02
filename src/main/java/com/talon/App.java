@@ -1,6 +1,7 @@
 package com.talon;
 
 import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -31,6 +32,7 @@ public class App extends Application{
 
         // System Administrator
         route.addScenes("SystemAdminHomepage", "/views/SystemAdmin/Homepage.fxml");
+        route.addScenes("AddUser", "/views/SystemAdmin/AddUser.fxml");
 
         //Redirect to LoginPage upon starting the application
         route.switchToScene("LoginPage");

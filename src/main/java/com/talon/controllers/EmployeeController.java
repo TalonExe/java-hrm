@@ -1,19 +1,23 @@
 package com.talon.controllers;
 
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
+
 import com.talon.Router;
 import com.talon.models.Employee;
 import com.talon.models.SessionState;
 import com.talon.utils.EmployeeUtils;
+
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.Alert;
 
 public class EmployeeController implements UpdatableController {
     private final Router route = Router.getInstance();
@@ -76,6 +80,27 @@ public class EmployeeController implements UpdatableController {
         } catch (Exception e) {
             System.err.println(e.getMessage());
             ErrorAlert("Invalid username or password");
+        }
+    }
+
+    @FXML
+    private CheckBox PasswordHide;
+
+    @FXML
+    private TextField LoginPasswordReveal;
+
+    @FXML
+    private void togglePasswordVisibility() {
+        if (PasswordHide.isSelected()) {
+            // Show the password in the TextField
+            loginPassword.setText(LoginPasswordReveal.getText());
+            LoginPasswordReveal.setVisible(false);
+            loginPassword.setVisible(true);
+        } else {
+            // Hide the password in the PasswordField
+            LoginPasswordReveal.setText(loginPassword.getText());
+            LoginPasswordReveal.setVisible(true);
+            loginPassword.setVisible(false);
         }
     }
 
