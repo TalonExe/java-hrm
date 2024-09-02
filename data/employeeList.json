@@ -18,6 +18,25 @@
         "loginAttempts": 0,
         "accountStatus": "ACTIVE"
       }
+    },
+    {
+      "0c8fce7c-ab9b-47ee-ba45-7f18f45cd55a": {
+        "username": "Pepe",
+        "password": "$2a$12$AD9QCbxGqZf..xXPjH6T1OA.eLVpH3OA1Klrcbu5L9Ao81N5g2lnK",
+        "name": "Employee",
+        "gender": "Male",
+        "passport": "090807131200",
+        "identificationCard": "080906515234",
+        "phoneNumber": "0168919328",
+        "birthDate": "2024-08-26",
+        "email": "pepe@mail.com",
+        "address": "sri ladneeee",
+        "emergencyContact": "0197882837",
+        "role": "Employee",
+        "position": "CEO",
+        "loginAttempts": 0,
+        "accountStatus": "ACTIVE"
+      }
     }
   ]
 }

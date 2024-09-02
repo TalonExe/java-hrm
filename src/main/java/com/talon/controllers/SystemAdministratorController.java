@@ -1,6 +1,7 @@
 package com.talon.controllers;
 
 import com.talon.Router;
+import com.talon.utils.EmployeeUtils;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -80,6 +81,11 @@ public class SystemAdministratorController extends EmployeeController {
         String role = roleComboBox.getValue();
         String position = positionField.getText();
 
+        try {
+            EmployeeUtils.createEmployee(username, password, role, gender, passportNo, icNo, phoneNo, birthday, email, address, emergencyContact, role, position);
+            System.out.println(EmployeeUtils.ReadData());
+        } catch (Exception ex) {
+        }
         clearFields();
         showAlert("Add User", "This would open the Add User dialog.");
     }

@@ -122,7 +122,10 @@ public class EmployeeUtils {
         return BCrypt.verifyer().verify(password.toCharArray(), hashedPassword).verified;
     }
 
-    public static Employee createEmployee(String username, String password, String role) throws Exception {
+    public static Employee createEmployee(String username, String password, String name, String gender, 
+                                        String passport, String identificationCard, String phoneNumber, 
+                                        String birthDate, String email, String address, String emergencyContact, 
+                                        String role, String position) throws Exception {
         try {
             Map<String, Employee> employees = ReadData();
             for (Employee employee : employees.values()) {
@@ -132,7 +135,9 @@ public class EmployeeUtils {
             }
             String hashedPassword = BCrypt.withDefaults().hashToString(12, password.toCharArray());
             String id = UUID.randomUUID().toString();
-            Employee newEmployee = new Employee(username, hashedPassword, role);
+            Employee newEmployee = new Employee(username, hashedPassword, name, gender, passport, 
+                                            identificationCard, phoneNumber, birthDate, email, 
+                                            address, emergencyContact, role, position, 0, "ACTIVE");
             employees.put(id, newEmployee);
             WriteData(employees);
             return newEmployee;

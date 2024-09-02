@@ -18,11 +18,26 @@ public class Employee {
     private Integer loginAttempts;
     private String accountStatus;
 
-    // Constructor
-    public Employee(String username, String password, String role) {
+    // Full Constructor
+    public Employee(String username, String password, String name, String gender, String passport,
+                    String identificationCard, String phoneNumber, String birthDate, String email,
+                    String address, String emergencyContact, String role, String position,
+                    Integer loginAttempts, String accountStatus) {
         this.username = username;
         this.password = password;
+        this.name = name;
+        this.gender = gender;
+        this.passport = passport;
+        this.identificationCard = identificationCard;
+        this.phoneNumber = phoneNumber;
+        this.birthDate = birthDate;
+        this.email = email;
+        this.address = address;
+        this.emergencyContact = emergencyContact;
         this.role = role;
+        this.position = position;
+        this.loginAttempts = loginAttempts;
+        this.accountStatus = accountStatus;
     }
 
     // Getters and Setters
@@ -64,8 +79,8 @@ public class Employee {
     public final String getIdentificationCard() {
         return this.identificationCard;
     }
-    public final void setIdentificationCard(final String idenficationCard) {
-        this.identificationCard = idenficationCard;
+    public final void setIdentificationCard(final String identificationCard) {
+        this.identificationCard = identificationCard;
     }
 
     public final String getPhoneNumber() {
@@ -99,8 +114,8 @@ public class Employee {
     public final String getEmergencyContact() {
         return this.emergencyContact;
     }
-    public final void setEmergencyContact(final String emergencyProperty) {
-        this.emergencyContact = emergencyProperty;
+    public final void setEmergencyContact(final String emergencyContact) {
+        this.emergencyContact = emergencyContact;
     }
 
     public final String getRole() {
