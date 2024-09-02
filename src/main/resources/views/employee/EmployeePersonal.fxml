@@ -3,25 +3,25 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #86C232;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.talon.controllers.EmployeeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.controllers.EmployeeController">
    <children>
-      <Button layoutY="168.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" onAction="#switchToApplyLeave"/>
-      <Button layoutY="243.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Payroll" onAction="#switchToEmployeeSalary"/>
-      <Button layoutY="93.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" onAction="#switchToEmployeePersonal"/>
+      <AnchorPane prefHeight="576.0" prefWidth="179.0" style="-fx-background-color: #86C232;" />
+      <Button layoutY="168.0" mnemonicParsing="false" onAction="#switchToApplyLeave" prefHeight="75.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" />
+      <Button layoutY="243.0" mnemonicParsing="false" onAction="#switchToEmployeeSalary" prefHeight="80.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Payroll" />
+      <Button layoutY="93.0" mnemonicParsing="false" onAction="#switchToEmployeePersonal" prefHeight="75.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" />
       <Circle fill="DODGERBLUE" layoutX="97.0" layoutY="47.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button layoutY="319.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" onAction="#logOut"/>
-      <ScrollPane layoutX="179.0" prefHeight="451.0" prefWidth="522.0" style="-fx-background-color: #474B4F;">
+      <Button layoutY="319.0" mnemonicParsing="false" onAction="#logOut" prefHeight="80.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" />
+      <ScrollPane layoutX="179.0" prefHeight="576.0" prefWidth="844.0" style="-fx-background-color: #474B4F;">
          <content>
-            <AnchorPane prefHeight="546.0" prefWidth="522.0" style="-fx-background-color: #474B4F;">
+            <AnchorPane prefHeight="574.0" prefWidth="843.0" style="-fx-background-color: #474B4F;">
                <children>
                   <Text fill="WHITE" layoutX="26.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPLOYEE PROFILE " wrappingWidth="279.32618713378906">
                      <font>
@@ -53,36 +53,40 @@
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="166.0" layoutY="76.0" prefHeight="26.0" prefWidth="324.0" fx:id="nameField"/>
-                  <TextField layoutX="166.0" layoutY="119.0" prefHeight="26.0" prefWidth="325.0" fx:id="ageField"/>
-                  <TextField layoutX="166.0" layoutY="265.0" prefHeight="26.0" prefWidth="330.0" fx:id="addressField"/>
-                  <DatePicker layoutX="166.0" layoutY="165.0" fx:id="dobPicker"/>
+                  <TextField fx:id="nameField" layoutX="166.0" layoutY="76.0" prefHeight="26.0" prefWidth="324.0" />
+                  <TextField fx:id="ageField" layoutX="166.0" layoutY="119.0" prefHeight="26.0" prefWidth="325.0" />
+                  <TextField fx:id="addressField" layoutX="166.0" layoutY="265.0" prefHeight="26.0" prefWidth="330.0" />
+                  <DatePicker fx:id="dobPicker" layoutX="166.0" layoutY="165.0" />
                   <fx:define>
-                     <ToggleGroup fx:id="genderGroup"/>
+                     <ToggleGroup fx:id="genderGroup" />
                   </fx:define>
-                  <RadioButton layoutX="166.0" layoutY="220.0" mnemonicParsing="false" text="MALE " textFill="WHITE" fx:id="maleRadioButton" toggleGroup="$genderGroup"/>
-                  <RadioButton layoutX="262.0" layoutY="220.0" mnemonicParsing="false" text="FEMALE " textFill="#faf8f8" fx:id="femaleRadioButton" toggleGroup="$genderGroup"/>
+                  <RadioButton fx:id="maleRadioButton" layoutX="166.0" layoutY="220.0" mnemonicParsing="false" text="MALE " textFill="WHITE">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="genderGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="femaleRadioButton" layoutX="262.0" layoutY="220.0" mnemonicParsing="false" text="FEMALE " textFill="#faf8f8" toggleGroup="$genderGroup" />
                   <Text fill="#efe8e8" layoutX="25.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONTACT NUMBER " wrappingWidth="130.25933837890625">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="166.0" layoutY="309.0" prefHeight="26.0" prefWidth="331.0" fx:id="contactNumberField"/>
+                  <TextField fx:id="contactNumberField" layoutX="166.0" layoutY="309.0" prefHeight="26.0" prefWidth="331.0" />
                   <Text fill="WHITE" layoutX="23.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMERGENCY CONTACT NUMBER " wrappingWidth="93.59997558593756">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="166.0" layoutY="368.0" prefHeight="26.0" prefWidth="330.0" fx:id="emergencyContactField"/>
-                  <Button layoutX="263.0" layoutY="20.0" mnemonicParsing="false" text="PERSONAL" onAction="#switchToEmployeePersonal" />
-                  <Button layoutX="356.0" layoutY="20.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="57.0" text="WORK" onAction="#switchToEmployeeProfile"/>
-                  <Button layoutX="429.0" layoutY="20.0" mnemonicParsing="false" text="SALARY" onAction="#switchToEmployeeSalary"/>
+                  <TextField fx:id="emergencyContactField" layoutX="166.0" layoutY="368.0" prefHeight="26.0" prefWidth="330.0" />
+                  <Button layoutX="605.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToEmployeePersonal" text="PERSONAL" />
+                  <Button layoutX="698.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToEmployeeProfile" prefHeight="26.0" prefWidth="57.0" text="WORK" />
+                  <Button layoutX="771.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToEmployeeSalary" text="SALARY" />
                   <Text fill="WHITE" layoutX="30.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMAIL">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="166.0" layoutY="457.0" prefHeight="26.0" prefWidth="329.0" fx:id="emailField"/>
+                  <TextField fx:id="emailField" layoutX="166.0" layoutY="457.0" prefHeight="26.0" prefWidth="329.0" />
                </children>
             </AnchorPane>
          </content>

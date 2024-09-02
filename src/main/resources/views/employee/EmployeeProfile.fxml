@@ -7,15 +7,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="700.0" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.talon.controllers.EmployeeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.controllers.EmployeeController">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="162.0" style="-fx-background-color: #86C232;">
+      <AnchorPane prefHeight="576.0" prefWidth="179.0" style="-fx-background-color: #86C232;">
          <children>
-            <Button layoutY="158.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" onAction="#switchToApplyLeave"/>
-            <Button layoutY="88.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" onAction="#switchToEmployeePersonal"/>
-            <Button layoutY="232.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Payroll"/>
-            <Button layoutY="322.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" onAction="#logOut"/>
+            <Button layoutY="158.0" mnemonicParsing="false" onAction="#switchToApplyLeave" prefHeight="88.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" />
+            <Button layoutY="88.0" mnemonicParsing="false" onAction="#switchToEmployeePersonal" prefHeight="70.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" />
+            <Button layoutY="232.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Payroll" />
+            <Button layoutY="322.0" mnemonicParsing="false" onAction="#logOut" prefHeight="80.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" />
             <Circle fill="DODGERBLUE" layoutX="90.0" layoutY="42.0" radius="34.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </AnchorPane>
@@ -24,9 +23,9 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Button layoutX="440.0" layoutY="17.0" mnemonicParsing="false" text="PERSONAL" onAction="#switchToEmployeePersonal"/>
-      <Button layoutX="535.0" layoutY="17.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="57.0" text="WORK" onAction="#switchToEmployeeProfile" />
-      <Button layoutX="605.0" layoutY="17.0" mnemonicParsing="false" text="SALARY" onAction="#switchToEmployeeSalary" />
+      <Button layoutX="787.0" layoutY="17.0" mnemonicParsing="false" onAction="#switchToEmployeePersonal" text="PERSONAL" />
+      <Button layoutX="882.0" layoutY="17.0" mnemonicParsing="false" onAction="#switchToEmployeeProfile" prefHeight="26.0" prefWidth="57.0" text="WORK" />
+      <Button layoutX="952.0" layoutY="17.0" mnemonicParsing="false" onAction="#switchToEmployeeSalary" text="SALARY" />
       <Text fill="WHITE" layoutX="193.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROLE  ">
          <font>
             <Font size="16.0" />
@@ -47,10 +46,10 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <TextField layoutX="321.0" layoutY="104.0" prefHeight="26.0" prefWidth="354.0" fx:id="roleLabel"/>
-      <TextField layoutX="321.0" layoutY="163.0" prefHeight="26.0" prefWidth="354.0" fx:id="positionLabel"/>
-      <TextField layoutX="321.0" layoutY="225.0" prefHeight="26.0" prefWidth="354.0" fx:id="departmentLabel"/>
-      <TextField layoutX="321.0" layoutY="301.0" prefHeight="26.0" prefWidth="354.0" fx:id="workExperienceLabel"/>
-      <TextField layoutX="321.0" layoutY="356.0" prefHeight="26.0" prefWidth="354.0" fx:id="workExperienceLabel2"/>
+      <TextField fx:id="roleLabel" layoutX="321.0" layoutY="104.0" prefHeight="26.0" prefWidth="354.0" />
+      <TextField fx:id="positionLabel" layoutX="321.0" layoutY="163.0" prefHeight="26.0" prefWidth="354.0" />
+      <TextField fx:id="departmentLabel" layoutX="321.0" layoutY="225.0" prefHeight="26.0" prefWidth="354.0" />
+      <TextField fx:id="workExperienceLabel" layoutX="321.0" layoutY="301.0" prefHeight="26.0" prefWidth="354.0" />
+      <TextField fx:id="workExperienceLabel2" layoutX="321.0" layoutY="356.0" prefHeight="26.0" prefWidth="354.0" />
    </children>
 </AnchorPane>

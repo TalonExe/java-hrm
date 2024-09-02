@@ -6,10 +6,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="166.0" style="-fx-background-color: #86C232;">
+      <AnchorPane prefHeight="576.0" prefWidth="170.0" style="-fx-background-color: #86C232;">
          <children>
             <Button layoutY="96.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" />
             <Button layoutY="171.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" />
@@ -23,10 +22,10 @@
             <Font size="21.0" />
          </font>
       </Text>
-      <AnchorPane layoutX="288.0" layoutY="106.0" prefHeight="200.0" prefWidth="279.0" style="-fx-background-color: #6B6E70;">
+      <AnchorPane layoutX="324.0" layoutY="105.0" prefHeight="366.0" prefWidth="529.0" style="-fx-background-color: #6B6E70;">
          <children>
-            <Button layoutX="46.0" layoutY="43.0" mnemonicParsing="false" text="ANNUAL ATTENDANCE REPORT" />
-            <Button layoutX="41.0" layoutY="131.0" mnemonicParsing="false" text="MONTHLY ATTENDANCE REPORT" />
+            <Button layoutX="171.0" layoutY="125.0" mnemonicParsing="false" text="ANNUAL ATTENDANCE REPORT" />
+            <Button layoutX="167.0" layoutY="245.0" mnemonicParsing="false" text="MONTHLY ATTENDANCE REPORT" />
          </children>
       </AnchorPane>
    </children>

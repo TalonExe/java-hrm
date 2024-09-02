@@ -10,37 +10,36 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.talon.controllers.EmployeeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.controllers.EmployeeController">
    <children>
-      <AnchorPane prefHeight="401.0" prefWidth="179.0" style="-fx-background-color: #86C232;">
+      <AnchorPane prefHeight="576.0" prefWidth="179.0" style="-fx-background-color: #86C232;">
          <children>
-            <Button layoutY="87.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" onAction="#switchToEmployeePersonal"/>
-            <Button layoutY="155.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" onAction="#switchToApplyLeave"/>
+            <Button layoutY="87.0" mnemonicParsing="false" onAction="#switchToEmployeePersonal" prefHeight="84.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" />
+            <Button layoutY="155.0" mnemonicParsing="false" onAction="#switchToApplyLeave" prefHeight="91.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" />
             <Button layoutY="236.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Payroll" />
-            <Button layoutY="317.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" onAction="#logOut"/>
+            <Button layoutY="317.0" mnemonicParsing="false" onAction="#logOut" prefHeight="84.0" prefWidth="179.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" />
             <Circle fill="DODGERBLUE" layoutX="91.0" layoutY="45.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </AnchorPane>
-      <ScrollPane layoutX="179.0" layoutY="1.0" prefHeight="400.0" prefWidth="522.0">
+      <ScrollPane layoutX="179.0" layoutY="-5.0" prefHeight="576.0" prefWidth="843.0">
          <content>
-            <AnchorPane prefHeight="398.0" prefWidth="521.0" style="-fx-background-color: #474B4F;">
+            <AnchorPane prefHeight="544.0" prefWidth="843.0" style="-fx-background-color: #474B4F;">
                <children>
                   <Text fill="WHITE" layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPLOYEE PROFILE " wrappingWidth="279.32618713378906">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Text>
-                  <Button layoutX="254.0" layoutY="17.0" mnemonicParsing="false" text="PERSONAL" onAction="#switchToEmployeePersonal"/>
-                  <Button layoutX="349.0" layoutY="17.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="57.0" text="WORK" onAction="#switchToEmployeeProfile"/>
-                  <Button layoutX="425.0" layoutY="17.0" mnemonicParsing="false" text="SALARY" onAction="#switchToEmployeeSalary" />
-                  <Text fill="WHITE" layoutX="14.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MONTHLY GROSS SALARY " wrappingWidth="121.98907470703125">
+                  <Button layoutX="599.0" layoutY="17.0" mnemonicParsing="false" onAction="#switchToEmployeePersonal" text="PERSONAL" />
+                  <Button layoutX="694.0" layoutY="17.0" mnemonicParsing="false" onAction="#switchToEmployeeProfile" prefHeight="26.0" prefWidth="57.0" text="WORK" />
+                  <Button layoutX="770.0" layoutY="17.0" mnemonicParsing="false" onAction="#switchToEmployeeSalary" text="SALARY" />
+                  <Text fill="WHITE" layoutX="16.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MONTHLY GROSS SALARY " wrappingWidth="121.98907470703125">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="154.0" layoutY="92.0" prefHeight="26.0" prefWidth="336.0" fx:id="employeeMonthlySalary"/>
-                  <TableView layoutY="178.0" prefHeight="207.0" prefWidth="506.0">
+                  <TextField fx:id="employeeMonthlySalary" layoutX="156.0" layoutY="204.0" prefHeight="26.0" prefWidth="336.0" />
+                  <TableView layoutY="257.0" prefHeight="304.0" prefWidth="828.0">
                     <columns>
                       <TableColumn prefWidth="134.39989930391312" text="POSITION " />
                         <TableColumn prefWidth="131.19996643066406" text="DEPARTMENT" />

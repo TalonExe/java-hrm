@@ -8,10 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #222629;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: #222629;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="35.0" layoutY="22.0" prefHeight="351.0" prefWidth="630.0" style="-fx-background-color: #474B4F;">
+      <AnchorPane layoutX="31.0" layoutY="23.0" prefHeight="530.0" prefWidth="909.0" style="-fx-background-color: #474B4F;">
          <children>
             <Button layoutY="1.0" mnemonicParsing="false" style="-fx-background-color: #86C232;" text="BACK" />
             <Text fill="#f7f5f5" layoutX="78.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MONTHLY ATTENDANCE REPORT" wrappingWidth="331.95721435546875">
@@ -19,7 +18,7 @@
                   <Font size="22.0" />
                </font>
             </Text>
-            <TableView layoutY="127.0" prefHeight="223.0" prefWidth="630.0">
+            <TableView layoutY="127.0" prefHeight="402.0" prefWidth="962.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="LEAVE TYPE" />
                 <TableColumn prefWidth="75.0" text="FROM" />
