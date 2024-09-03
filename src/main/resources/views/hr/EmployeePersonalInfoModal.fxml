@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" styleClass="main-background" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.controllers.hr.EmployeePersonalInfoModalController">
+   <children>
+      <VBox spacing="20" AnchorPane.topAnchor="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+         <Label text="Employee Details" styleClass="header-label">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Label>
+         
+         <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button fx:id="toggleViewButton" mnemonicParsing="false" onAction="#toggleView" text="Toggle View" styleClass="action-button" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="editButton" mnemonicParsing="false" onAction="#handleEdit" text="Edit" styleClass="action-button" />
+         </HBox>
+         
+         <ScrollPane fitToWidth="true" styleClass="custom-scroll-pane" VBox.vgrow="ALWAYS">
+            <VBox spacing="20">
+               <VBox fx:id="personalInfoBox" spacing="10.0" styleClass="info-box">
+                  <Label text="Full Name:" styleClass="field-label" />
+                  <TextField fx:id="fullNameField" editable="false" styleClass="info-field" />
+                  
+                  <Label text="Email:" styleClass="field-label" />
+                  <TextField fx:id="emailField" editable="false" styleClass="info-field" />
+                  
+                  <Label text="Gender:" styleClass="field-label" />
+                  <ComboBox fx:id="genderComboBox" editable="false" styleClass="info-field" />
+                  
+                  <Label text="Identification/Passport Number:" styleClass="field-label" />
+                  <TextField fx:id="idPassportField" editable="false" styleClass="info-field" />
+                  
+                  <Label text="Nationality:" styleClass="field-label" />
+                  <TextField fx:id="nationalityField" editable="false" styleClass="info-field" />
+                  
+                  <Label text="Birth Date:" styleClass="field-label" />
+                  <TextField fx:id="birthDateField" editable="false" styleClass="info-field" />
+                  
+                  <Label text="Phone Number:" styleClass="field-label" />
+                  <TextField fx:id="phoneNumberField" editable="false" styleClass="info-field" />
+                  
+                  <Label text="Address:" styleClass="field-label" />
+                  <TextArea fx:id="addressField" editable="false" styleClass="info-field" />
+               </VBox>
+               
+               <VBox fx:id="emergencyContactBox" spacing="10.0" styleClass="info-box" visible="false" managed="false" VBox.vgrow="ALWAYS">
+                  <Label text="Emergency Contact Name:" styleClass="field-label" />
+                  <TextField fx:id="emergencyNameField" editable="false" styleClass="info-field" />
+                  
+                  <Label text="Emergency Contact Phone:" styleClass="field-label" />
+                  <TextField fx:id="emergencyPhoneField" editable="false" styleClass="info-field" />
+                  
+                  <Label text="Relationship:" styleClass="field-label" />
+                  <TextField fx:id="emergencyRelationshipField" editable="false" styleClass="info-field" />
+                  <VBox VBox.vgrow="ALWAYS" /> <!-- This will push the content to the top -->
+               </VBox>
+            </VBox>
+         </ScrollPane>
+      </VBox>
+   </children>
+</AnchorPane>

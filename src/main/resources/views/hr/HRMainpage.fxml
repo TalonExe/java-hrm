@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<AnchorPane fx:id="rootPane" prefWidth="1920" prefHeight="1080" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.controllers.hr.MainpageController">
+   <stylesheets>
+      <URL value="@../../styles/styles.css" />
+   </stylesheets>
+   <children>
+      <HBox AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <fx:include source="./SideNavigation.fxml" />
+         <VBox HBox.hgrow="ALWAYS" spacing="20" alignment="TOP_CENTER">
+            <padding>
+               <Insets top="30" right="30" bottom="30" left="30" />
+            </padding>
+            <Label text="Employee Personal Information Management" style="-fx-text-fill: #FFFFFF; -fx-font-size: 32px;"/>
+            <TableView fx:id="mainTable" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn text="No." prefWidth="100">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="number"/>
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn text="Username" prefWidth="300">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="username"/>
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn text="Full Name" prefWidth="300">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="fullName"/>
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn text="Role" prefWidth="200">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="role"/>
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="viewMoreColumn" text="View More" prefWidth="150">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="viewMore"/>
+                     </cellValueFactory>
+                  </TableColumn>
+               </columns>
+            </TableView>
+         </VBox>
+      </HBox>
+   </children>
+</AnchorPane>

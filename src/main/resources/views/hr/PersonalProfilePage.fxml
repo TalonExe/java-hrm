@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import java.net.URL?>
+
+<AnchorPane fx:id="rootPane" prefWidth="1920" prefHeight="1080" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.controllers.common.PersonalProfilePageController">
+   <stylesheets>
+      <URL value="@../styles/styles.css" />
+   </stylesheets>
+   <children>
+      <HBox AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <fx:include source="./SideNavigation.fxml" />
+         <VBox spacing="20" alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
+            <padding>
+               <javafx.geometry.Insets top="30" right="30" bottom="30" left="30" />
+            </padding>
+            <Label text="Personal Profile" styleClass="header-label"/>
+            <TabPane VBox.vgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
+               <Tab text="Personal Information">
+                  <ScrollPane fitToWidth="true" styleClass="custom-scroll-pane">
+                     <VBox spacing="10" styleClass="info-box">
+                        <Label text="Full Name:" styleClass="field-label" />
+                        <TextField fx:id="fullNameField" editable="false" styleClass="info-field" />
+                        <Label text="Email:" styleClass="field-label" />
+                        <TextField fx:id="emailField" editable="false" styleClass="info-field" />
+                        <Label text="Gender:" styleClass="field-label" />
+                        <TextField fx:id="genderField" editable="false" styleClass="info-field" />
+                        <Label text="Identification/Passport Number:" styleClass="field-label" />
+                        <TextField fx:id="idPassportField" editable="false" styleClass="info-field" />
+                        <Label text="Nationality:" styleClass="field-label" />
+                        <TextField fx:id="nationalityField" editable="false" styleClass="info-field" />
+                        <Label text="Birth Date:" styleClass="field-label" />
+                        <TextField fx:id="birthDateField" editable="false" styleClass="info-field" />
+                        <Label text="Phone Number:" styleClass="field-label" />
+                        <TextField fx:id="phoneNumberField" editable="false" styleClass="info-field" />
+                        <Label text="Address:" styleClass="field-label" />
+                        <TextArea fx:id="addressField" editable="false" styleClass="info-field" />
+                     </VBox>
+                  </ScrollPane>
+               </Tab>
+               <Tab text="Employment Details">
+                  <ScrollPane fitToWidth="true" styleClass="custom-scroll-pane">
+                     <VBox spacing="10" styleClass="info-box">
+                        <Label text="Role:" styleClass="field-label" />
+                        <TextField fx:id="roleField" editable="false" styleClass="info-field" />
+                        <Label text="Position:" styleClass="field-label" />
+                        <TextField fx:id="positionField" editable="false" styleClass="info-field" />
+                        <Label text="Department:" styleClass="field-label" />
+                        <TextField fx:id="departmentField" editable="false" styleClass="info-field" />
+                        <Label text="Gross Salary:" styleClass="field-label" />
+                        <TextField fx:id="grossSalaryField" editable="false" styleClass="info-field" />
+                     </VBox>
+                  </ScrollPane>
+               </Tab>
+               <Tab text="Leave Entitlement">
+                  <ScrollPane fitToWidth="true" styleClass="custom-scroll-pane">
+                     <GridPane hgap="20" vgap="20" styleClass="info-box">
+                        <columnConstraints>
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="100" prefWidth="200" />
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="100" prefWidth="200" />
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="100" prefWidth="200" />
+                        </columnConstraints>
+                        
+                        <Label text="Leave Type" styleClass="field-label" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                        <Label text="Entitled Days" styleClass="field-label" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                        <Label text="Taken Days" styleClass="field-label" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+                        
+                        <Label text="Annual Leave:" styleClass="field-label" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                        <TextField fx:id="annualLeaveEntitled" editable="false" styleClass="info-field" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                        <TextField fx:id="annualLeaveTaken" editable="false" styleClass="info-field" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+                        
+                        <Label text="Medical Leave:" styleClass="field-label" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                        <TextField fx:id="medicalLeaveEntitled" editable="false" styleClass="info-field" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                        <TextField fx:id="medicalLeaveTaken" editable="false" styleClass="info-field" GridPane.rowIndex="2" GridPane.columnIndex="2" />
+                        
+                        <Label text="Maternity Leave:" styleClass="field-label" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                        <TextField fx:id="maternityLeaveEntitled" editable="false" styleClass="info-field" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                        <TextField fx:id="maternityLeaveTaken" editable="false" styleClass="info-field" GridPane.rowIndex="3" GridPane.columnIndex="2" />
+                        
+                        <Label text="Unpaid Leave:" styleClass="field-label" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                        <TextField fx:id="unpaidLeaveEntitled" editable="false" styleClass="info-field" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                        <TextField fx:id="unpaidLeaveTaken" editable="false" styleClass="info-field" GridPane.rowIndex="4" GridPane.columnIndex="2" />
+                     </GridPane>
+                  </ScrollPane>
+               </Tab>
+               <Tab text="Emergency Contact">
+                  <ScrollPane fitToWidth="true" styleClass="custom-scroll-pane">
+                     <VBox spacing="10" styleClass="info-box">
+                        <Label text="Name:" styleClass="field-label" />
+                        <TextField fx:id="emergencyNameField" editable="false" styleClass="info-field" />
+                        <Label text="Phone Number:" styleClass="field-label" />
+                        <TextField fx:id="emergencyPhoneField" editable="false" styleClass="info-field" />
+                        <Label text="Relationship:" styleClass="field-label" />
+                        <TextField fx:id="emergencyRelationshipField" editable="false" styleClass="info-field" />
+                     </VBox>
+                  </ScrollPane>
+               </Tab>
+               <Tab text="Internal Work Experience">
+                  <ScrollPane fitToWidth="true" styleClass="custom-scroll-pane">
+                     <TableView fx:id="internalWorkExperienceTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                           <TableColumn text="Position" fx:id="internalPositionColumn" />
+                           <TableColumn text="Department" fx:id="internalDepartmentColumn" />
+                           <TableColumn text="Start Date" fx:id="internalStartDateColumn" />
+                           <TableColumn text="End Date" fx:id="internalEndDateColumn" />
+                           <TableColumn text="Gross Salary" fx:id="internalGrossSalaryColumn" />
+                        </columns>
+                     </TableView>
+                  </ScrollPane>
+               </Tab>
+               <Tab text="External Work Experience">
+                  <ScrollPane fitToWidth="true" styleClass="custom-scroll-pane">
+                     <TableView fx:id="externalWorkExperienceTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                           <TableColumn text="Company Name" fx:id="externalCompanyNameColumn" />
+                           <TableColumn text="Position" fx:id="externalPositionColumn" />
+                           <TableColumn text="Start Date" fx:id="externalStartDateColumn" />
+                           <TableColumn text="End Date" fx:id="externalEndDateColumn" />
+                           <TableColumn text="Reason for Leaving" fx:id="externalReasonForLeavingColumn" />
+                        </columns>
+                     </TableView>
+                  </ScrollPane>
+               </Tab>
+               <Tab text="Attendance Record">
+                  <VBox spacing="10">
+                     <HBox spacing="10">
+                        <ComboBox fx:id="attendanceMonthComboBox" promptText="Select Month" />
+                        <ComboBox fx:id="attendanceYearComboBox" promptText="Select Year" />
+                        <Button text="View" onAction="#handleViewAttendance" />
+                     </HBox>
+                     <TableView fx:id="attendanceTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                           <TableColumn text="Date" fx:id="attendanceDateColumn" />
+                           <TableColumn text="Status" fx:id="attendanceStatusColumn" />
+                           <TableColumn text="Time In" fx:id="attendanceTimeInColumn" />
+                           <TableColumn text="Time Out" fx:id="attendanceTimeOutColumn" />
+                        </columns>
+                     </TableView>
+                  </VBox>
+               </Tab>
+            </TabPane>
+         </VBox>
+      </HBox>
+   </children>
+</AnchorPane>

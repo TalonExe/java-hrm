@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.geometry.Insets?>
+
+<VBox fx:id="sideNavigation" prefWidth="300.0" style="-fx-background-color: #86C232;" spacing="10" alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.controllers.hr.SideNavigationController">
+    <padding>
+        <Insets top="20" right="10" bottom="20" left="10" />
+    </padding>
+    <Circle fill="DODGERBLUE" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
+    <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" onAction="#switchToPersonalProfile"/>
+    <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Manage Personal Details" onAction="#switchToHome"/>
+    <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Manage Employment Details" wrapText="true" onAction="#switchToEmploymentDetailsManagement"/>
+    <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" onAction="#switchToApplyLeaveHR"/>
+    <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Change Password" onAction="#switchToChangePassword"/>
+    <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" onAction="#logOut"/>
+</VBox>

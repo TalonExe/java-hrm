@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import java.net.URL?>
+
+<AnchorPane fx:id="rootPane" prefWidth="1920" prefHeight="1080" style="-fx-background-color: #222629;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.talon.controllers.login.LoginController">
+   <stylesheets>
+      <URL value="@../../styles/styles.css" />
+   </stylesheets>
+   <children>
+      <StackPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <AnchorPane maxWidth="600.0" maxHeight="600.0" style="-fx-background-color: #474B4F;">
+               <children>
+                  <VBox spacing="20" alignment="CENTER" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <Label style="-fx-text-fill: #86C232;" text="Sign In">
+                        <font>
+                           <Font size="36.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="loginUsername" maxWidth="300.0" promptText="Username">
+                        <font>
+                           <Font size="18.0" />
+                        </font>
+                     </TextField>
+                     <PasswordField fx:id="loginPassword" maxWidth="300.0" promptText="Password">
+                        <font>
+                           <Font size="18.0" />
+                        </font>
+                     </PasswordField>
+                     <Button styleClass="hover-button" mnemonicParsing="false" onAction="#loginProcess" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #86C232;" text="Login">
+                        <font>
+                           <Font size="24.0" />
+                        </font>
+                     </Button>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

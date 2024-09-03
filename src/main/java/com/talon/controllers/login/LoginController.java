@@ -1,0 +1,113 @@
+package com.talon.controllers.login;
+
+import com.talon.controllers.BaseController;
+import com.talon.models.Employee;
+import com.talon.utils.EmployeeUtils;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
+import javafx.scene.layout.AnchorPane;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Map;
+import com.talon.utils.SessionState;
+import com.talon.controllers.common.PersonalProfilePageController;
+
+public class LoginController extends BaseController {
+    @FXML
+    private TextField loginUsername;
+    @FXML
+    private PasswordField loginPassword;
+    @FXML
+    private AnchorPane rootPane;
+
+    @FXML
+    private void loginProcess() {
+        String usernameInput = loginUsername.getText();
+        String passwordInput = loginPassword.getText();
+
+        try {
+            Employee loggedInEmployee = EmployeeUtils.findByUsername(usernameInput);
+            if (loggedInEmployee == null || !EmployeeUtils.verifyPassword(passwordInput, loggedInEmployee.getPassword())) {
+                handleFailedLogin(usernameInput);
+                return;
+            }
+
+            if (isAccountInvalid(loggedInEmployee)) {
+                return;
+            }
+
+            handleSuccessfulLogin(loggedInEmployee);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            ErrorAlert("An error occurred during login");
+        }
+    }
+
+    private boolean isAccountInvalid(Employee employee) {
+        if (employee.getAccountDisabled()) {
+            ErrorAlert("Your account has been disabled");
+            return true;
+        }
+        if (employee.getAccountStatus().equalsIgnoreCase("LOCKED")) {
+            ErrorAlert("Your account has been locked");
+            return true;
+        }
+        return false;
+    }
+
+    private void handleFailedLogin(String username) throws Exception {
+        ErrorAlert("Invalid username or password");
+        EmployeeUtils.updateLoginStatus(username, "FAILED");
+    }
+
+    private void handleSuccessfulLogin(Employee employee) throws Exception {
+        clearLoginFields();
+        EmployeeUtils.updateLoginStatus(employee.getUsername(), "SUCCESS");
+        Map<String, Employee> employees = EmployeeUtils.ReadData();
+        String employeeId = null;
+        for (Map.Entry<String, Employee> entry : employees.entrySet()) {
+            if (entry.getValue().getUsername().equals(employee.getUsername())) {
+                employeeId = entry.getKey();
+                break;
+            }
+        }
+        
+        // Set the logged-in user ID in the SessionState
+        SessionState.getInstance().setLoggedInUserId(employeeId);
+        
+        EmployeeUtils.createAttendanceRecord(employeeId, LocalDate.now().toString(), LocalTime.now().toString());
+        switchToAppropriateScene(employee.getRole());
+        
+        // Load user data in the PersonalProfilePageController
+        PersonalProfilePageController profileController = (PersonalProfilePageController) router.getController("personalProfileHR");
+        if (profileController != null) {
+            profileController.loadUserData();
+        }
+    }
+
+    private void clearLoginFields() {
+        loginUsername.setText("");
+        loginPassword.setText("");
+    }
+
+    private void switchToAppropriateScene(String role) {
+        String sceneName = switch (role) {
+            case "HR Officer" -> "hrMain";
+            case "Payroll Manager" -> "Payroll_Lobby";
+            case "System Administrator" -> "SystemAdminHomepage";
+            default -> "EmployeePersonal";
+        };
+        router.switchScene(sceneName);
+    }
+
+    @FXML
+    public void initialize() {
+        rootPane.sceneProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                rootPane.prefWidthProperty().bind(newValue.widthProperty());
+                rootPane.prefHeightProperty().bind(newValue.heightProperty());
+            }
+        });
+    }
+}

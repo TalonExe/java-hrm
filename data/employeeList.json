@@ -1,0 +1,124 @@
+{
+  "863b16b3-c07c-49ce-8a41-2cad37b411f8": {
+    "username": "Dave0204",
+    "password": "$2a$12$TQHfoUo46HXLI/ijTfzXZ.tdYFLXais0AluYIwrYXOAglu7IqbB42",
+    "fullName": "Dave Johnson",
+    "gender": "Male",
+    "identificationCard": "041109121205",
+    "phoneNumber": "0168919330",
+    "birthDate": "1985-07-14",
+    "email": "dave@gmail.com",
+    "address": "Sri Lagenda Villa",
+    "emergencyContact": {
+      "name": "Jeff",
+      "phoneNumber": "0168919330",
+      "relationship": "Father"
+    },
+    "role": "System Administrator",
+    "position": "IT Support",
+    "loginAttempts": 0,
+    "accountStatus": "ACTIVE",
+    "accountDisabled": false,
+    "nationality": "Malaysian",
+    "department": "IT",
+    "grossSalary": 25000,
+    "internalWorkExperiences": [
+      {
+        "department": "IT",
+        "role": "System Administrator",
+        "grossSalary": 2200,
+        "position": "IT Support",
+        "startDate": "2015-01-02",
+        "endDate": "ongoing"
+      }
+    ],
+    "externalWorkExperiences": [
+      {
+        "reasonForLeaving": "Bad Culture",
+        "companyName": "Google",
+        "position": "Software Engineer",
+        "startDate": "2009-01-01",
+        "endDate": "2009-11-01"
+      }
+    ],
+    "leaveApplications": [
+      {
+        "leaveType": "Annual Leave",
+        "startDate": "2024-01-01",
+        "endDate": "2024-01-05",
+        "reason": "Personal Leave",
+        "status": "APPROVED"
+      }
+    ],
+    "attendanceRecords": [
+      {
+        "date": "2024-01-01",
+        "status": "ONTIME",
+        "timeIn": "08:00:00",
+        "timeOut": "17:00:00"
+      }
+    ]
+  },
+  "08517aa5-e2ab-4d44-98af-e81afc3aec23": {
+    "username": "Alice23",
+    "password": "$2a$12$MRZQvSOcrc0zxlwjS4yUr.i4NcTYXtqkylqU0ggJj7O1.fXYjvss6",
+    "fullName": "Alice Johnson",
+    "gender": "Female",
+    "identificationCard": "051109121204",
+    "phoneNumber": "0168919331",
+    "birthDate": "1980-06-20",
+    "email": "alice@gmail.com",
+    "address": "Sri Lagenda Villa",
+    "role": "System Administrator",
+    "position": "IT Support",
+    "loginAttempts": 0,
+    "accountStatus": "ACTIVE",
+    "accountDisabled": true,
+    "nationality": "Malaysian"
+  },
+  "8070f1c5-f2b5-4a71-873b-c2c3697a6b40": {
+    "username": "george343",
+    "password": "$2a$12$TQHfoUo46HXLI/ijTfzXZ.tdYFLXais0AluYIwrYXOAglu7IqbB42",
+    "fullName": "George Johnson",
+    "gender": "Male",
+    "identificationCard": "9876543210",
+    "phoneNumber": "0168919332",
+    "birthDate": "1975-05-15",
+    "email": "george@gmail.com",
+    "address": "Sri Lagenda Villa",
+    "emergencyContact": {
+      "name": "",
+      "phoneNumber": "",
+      "relationship": ""
+    },
+    "role": "System Administrator",
+    "position": "IT Support",
+    "loginAttempts": 0,
+    "accountStatus": "ACTIVE",
+    "accountDisabled": false,
+    "nationality": "Singaporean"
+  },
+  "c5ded723-a90e-4a4a-acb3-eac1d86f5586": {
+    "username": "jeffDham",
+    "password": "$2a$12$MRZQvSOcrc0zxlwjS4yUr.i4NcTYXtqkylqU0ggJj7O1.fXYjvss6",
+    "role": "HR Officer",
+    "loginAttempts": 0,
+    "accountStatus": "ACTIVE",
+    "accountDisabled": false,
+    "leaveApplications": [],
+    "attendanceRecords": [
+      {
+        "date": "2024-09-03",
+        "status": "LATE",
+        "timeIn": "22:17:21.134070",
+        "timeOut": "23:37:18.673184"
+      },
+      {
+        "date": "2024-09-04",
+        "status": "ONTIME",
+        "timeIn": "00:00:15.174669",
+        "timeOut": "03:07:28.105832"
+      }
+    ]
+  }
+}

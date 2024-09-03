@@ -1,0 +1,67 @@
+.hover-button {
+    -fx-background-color: #86C232;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #474B4F;
+    -fx-cursor: hand;
+}
+
+.hover-button:hover {
+    -fx-background-color: #61892F;
+}
+
+.header-label {
+    -fx-text-fill: #86C232;
+    -fx-font-size: 28px;
+}
+
+.action-button {
+    -fx-background-color: #3498DB;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+}
+
+.action-button:hover {
+    -fx-background-color: #2980B9;
+}
+
+.custom-scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.custom-scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.info-box {
+    -fx-background-color: #34495E;
+    -fx-padding: 20;
+    -fx-spacing: 15;
+    -fx-opacity: 1;
+    -fx-min-height: 500px; /* Adjust this value as needed */
+}
+
+.field-label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+}
+
+.info-field {
+    -fx-background-color: #2C3E50;
+    -fx-text-fill: #ECF0F1;
+    -fx-font-size: 14px;
+    -fx-padding: 8;
+}
+
+.main-background {
+    -fx-background-color: #474B4F;
+}
+
+.combo-box:disabled {
+    -fx-opacity: 1.0;
+}
+
+.combo-box:disabled .list-cell {
+    -fx-text-fill: white;
+}
