@@ -23,10 +23,10 @@ public class App extends Application{
         route.addScenes("EmployeePersonal", "/views/employee/EmployeePersonal.fxml");
         route.addScenes("EmployeeSalary", "/views/employee/EmployeeSalary.fxml");
 
-        // //HR Scenes
+        //HR Scenes
+        route.addScenes("MainLobbyHR", "/views/hr/MainLobbyHR.fxml");
         // route.addScenes("AttendanceMonthlyYearly", "/views/hr/AttendanceMonthlyYearly.fxml");
         // route.addScenes("AttendanceYearly", "/views/hr/AttendanceYearly.fxml");
-        // route.addScenes("MainLobbyHR", "/views/hr/MainLobbyHR.fxml");
         // route.addScenes("MonthlyAttendance", "/views/hr/MonthlyAttendance.fxml");
 
         // System Administrator

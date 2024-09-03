@@ -2,56 +2,53 @@
   "863b16b3-c07c-49ce-8a41-2cad37b411f8": {
     "username": "Dave0204",
     "password": "$2a$12$TQHfoUo46HXLI/ijTfzXZ.tdYFLXais0AluYIwrYXOAglu7IqbB42",
-    "name": "Dave Johnson",
+    "fullName": "Dave Johnson",
     "gender": "Male",
-    "passport": "234567890",
     "identificationCard": "041109121205",
     "phoneNumber": "0168919330",
     "birthDate": "1985-07-14",
     "email": "dave@gmail.com",
     "address": "Sri Lagenda Villa",
-    "emergencyContact": "0198979647",
     "role": "System Administrator",
     "position": "IT Support",
     "loginAttempts": 0,
     "accountStatus": "ACTIVE",
-    "accountDisabled": false
+    "accountDisabled": false,
+    "nationality": "Malaysian"
   },
   "08517aa5-e2ab-4d44-98af-e81afc3aec23": {
     "username": "Alice23",
     "password": "$2a$12$MRZQvSOcrc0zxlwjS4yUr.i4NcTYXtqkylqU0ggJj7O1.fXYjvss6",
-    "name": "Alice Johnson",
+    "fullName": "Alice Johnson",
     "gender": "Female",
-    "passport": "1234567890",
     "identificationCard": "051109121204",
     "phoneNumber": "0168919331",
     "birthDate": "1980-06-20",
     "email": "alice@gmail.com",
     "address": "Sri Lagenda Villa",
-    "emergencyContact": "0198979648",
     "role": "System Administrator",
     "position": "IT Support",
     "loginAttempts": 0,
     "accountStatus": "ACTIVE",
-    "accountDisabled": true
+    "accountDisabled": true,
+    "nationality": "Malaysian"
   },
   "8070f1c5-f2b5-4a71-873b-c2c3697a6b40": {
     "username": "george343",
     "password": "$2a$12$TQHfoUo46HXLI/ijTfzXZ.tdYFLXais0AluYIwrYXOAglu7IqbB42",
-    "name": "George Johnson",
+    "fullName": "George Johnson",
     "gender": "Male",
     "passport": "9876543210",
-    "identificationCard": "061109121203",
     "phoneNumber": "0168919332",
     "birthDate": "1975-05-15",
     "email": "george@gmail.com",
     "address": "Sri Lagenda Villa",
-    "emergencyContact": "0198979649",
     "role": "System Administrator",
     "position": "IT Support",
     "loginAttempts": 0,
     "accountStatus": "ACTIVE",
-    "accountDisabled": false
+    "accountDisabled": false,
+    "nationality": "Singaporean"
   },
   "c5ded723-a90e-4a4a-acb3-eac1d86f5586": {
     "username": "jeffDham",
@@ -59,6 +56,7 @@
     "role": "HR Officer",
     "loginAttempts": 0,
     "accountStatus": "ACTIVE",
-    "accountDisabled": false
+    "accountDisabled": false,
+    "nationality": "fjksbfsfbskjf"
   }
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.components.HRO.EmployeePersonal">
+   <children>
+      <Label layoutX="20.0" layoutY="20.0" text="Employee Details" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="editButton" layoutX="700.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleEdit" text="Edit" />
+      <Button fx:id="toggleViewButton" layoutX="20.0" layoutY="60.0" mnemonicParsing="false" onAction="#toggleView" text="Toggle View" />
+      
+      <VBox fx:id="personalInfoBox" layoutX="20.0" layoutY="100.0" spacing="10.0">
+         <Label text="Full Name:" textFill="WHITE" />
+         <TextField fx:id="fullNameField" editable="false" />
+         
+         <Label text="Email:" textFill="WHITE" />
+         <TextField fx:id="emailField" editable="false" />
+         
+         <Label text="Gender:" textFill="WHITE" />
+         <TextField fx:id="genderField" editable="false" />
+         
+         <Label text="Identification/Passport Number:" textFill="WHITE" />
+         <TextField fx:id="idPassportField" editable="false" />
+         
+         <Label text="Nationality:" textFill="WHITE" />
+         <TextField fx:id="nationalityField" editable="false" />
+         
+         <Label text="Birth Date:" textFill="WHITE" />
+         <TextField fx:id="birthDateField" editable="false" />
+         
+         <Label text="Phone Number:" textFill="WHITE" />
+         <TextField fx:id="phoneNumberField" editable="false" />
+      </VBox>
+      
+      <VBox fx:id="emergencyContactBox" layoutX="20.0" layoutY="100.0" spacing="10.0" visible="false">
+         <Label text="Emergency Contact Name:" textFill="WHITE" />
+         <TextField fx:id="emergencyNameField" editable="false" />
+         
+         <Label text="Emergency Contact Phone:" textFill="WHITE" />
+         <TextField fx:id="emergencyPhoneField" editable="false" />
+         
+         <Label text="Relationship:" textFill="WHITE" />
+         <TextField fx:id="emergencyRelationshipField" editable="false" />
+      </VBox>
+   </children>
+</AnchorPane>

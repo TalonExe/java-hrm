@@ -11,7 +11,6 @@ import com.talon.utils.EmployeeUtils;
 import com.talon.components.SystemAdmin.UserManagementRow;
 import com.talon.components.SystemAdmin.HomepageTableRow;
 import com.talon.components.SystemAdmin.EditEmployeeModal;
-import com.talon.components.SystemAdmin.CreateUserModal;
 import com.talon.Router;
 import javafx.scene.control.cell.PropertyValueFactory;
 import java.util.Map;
@@ -83,7 +82,6 @@ public class SystemAdministratorController extends EmployeeController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/SystemAdmin/CreateUserModal.fxml"));
             AnchorPane modalRoot = loader.load();
-            CreateUserModal controller = loader.getController();
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(userManagementTable.getScene().getWindow());

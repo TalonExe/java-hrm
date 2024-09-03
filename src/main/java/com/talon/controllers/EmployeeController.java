@@ -48,8 +48,9 @@ public class EmployeeController implements UpdatableController {
                 EmployeeUtils.updateLoginStatus(usernameInput, "SUCCESS");
                 SessionState.getInstance().setEmployee(loggedInEmployee);
                 switch (loggedInEmployee.getRole()) {
-                    case "HR":
+                    case "HR Officer":
                         route.switchToScene("MainLobbyHR");
+                        ((HROController) route.getCurrentController()).refreshLobbyTable();
                         break;
                     case "Payroll Manager":
                         // route.switchToScene("Payroll_Lobby");
@@ -193,7 +194,7 @@ public class EmployeeController implements UpdatableController {
             // currentEmployee.payroll.getEmployeeSalary()));
         } else if (route.getCurrentSceneName().equals("EmployeePersonal") && currentEmployee != null) {
 
-            nameField.setText(currentEmployee.getName());
+            nameField.setText(currentEmployee.getFullName());
 
             if (currentEmployee.getGender().equals("Male")) {
                 genderGroup.selectToggle(maleRadioButton);
@@ -208,7 +209,7 @@ public class EmployeeController implements UpdatableController {
             ageField.setText(String.format("%d", period.getYears()));
             dobPicker.setValue(birthDate);
             contactNumberField.setText(currentEmployee.getPhoneNumber());
-            emergencyContactField.setText(currentEmployee.getEmergencyContact());
+            // emergencyContactField.setText(currentEmployee.getEmergencyContact());
             emailField.setText(currentEmployee.getEmail());
 
             nameField.setDisable(true);

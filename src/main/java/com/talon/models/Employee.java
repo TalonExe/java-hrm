@@ -1,10 +1,12 @@
 package com.talon.models;
 
+import com.talon.models.EmergencyContact;
+
 public class Employee {
     // Attributes
     private String username;
     private String password;
-    private String name;
+    private String fullName;
     private String gender;
     private String passport;
     private String identificationCard;
@@ -12,13 +14,13 @@ public class Employee {
     private String birthDate;
     private String email;
     private String address;
-    private String emergencyContact;
+    private EmergencyContact emergencyContact;
     private String role;
     private String position;
     private Integer loginAttempts;
     private String accountStatus;
     private boolean accountDisabled;
-
+    private String nationality;
     // Constructor
     public Employee(String username, String password, String role) {
         this.username = username;
@@ -41,11 +43,11 @@ public class Employee {
         this.password = password;
     }
 
-    public final String getName() {
-        return this.name;
+    public final String getFullName() {
+        return this.fullName;
     }
-    public final void setName(final String name) {
-        this.name = name;
+    public final void setFullName(final String fullName) {
+        this.fullName = fullName;
     }
 
     public final String getGender() {
@@ -97,11 +99,11 @@ public class Employee {
         this.address = address;
     }
 
-    public final String getEmergencyContact() {
+    public final EmergencyContact getEmergencyContact() {
         return this.emergencyContact;
     }
-    public final void setEmergencyContact(final String emergencyProperty) {
-        this.emergencyContact = emergencyProperty;
+    public final void setEmergencyContact(final EmergencyContact emergencyContact) {
+        this.emergencyContact = emergencyContact;
     }
 
     public final String getRole() {
@@ -139,9 +141,16 @@ public class Employee {
         this.accountDisabled = accountDisabled;
     }
 
+    public String getNationality() {
+        return nationality;
+    }
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
     // Class Methods
     @Override
     public String toString() {
-        return String.format("%s %s", this.role, this.name);
+        return String.format("%s %s", this.role, this.fullName);
     }
 }

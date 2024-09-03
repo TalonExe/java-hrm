@@ -10,6 +10,8 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
 
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #86C232;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.talon.controllers.EmployeeController">
@@ -55,13 +57,14 @@
                   </Text>
                   <TextField layoutX="166.0" layoutY="76.0" prefHeight="26.0" prefWidth="324.0" fx:id="nameField"/>
                   <TextField layoutX="166.0" layoutY="119.0" prefHeight="26.0" prefWidth="325.0" fx:id="ageField"/>
-                  <TextField layoutX="166.0" layoutY="265.0" prefHeight="26.0" prefWidth="330.0" fx:id="addressField"/>
+                  <ComboBox fx:id="genderComboBox" />
                   <DatePicker layoutX="166.0" layoutY="165.0" fx:id="dobPicker"/>
                   <fx:define>
                      <ToggleGroup fx:id="genderGroup"/>
                   </fx:define>
                   <RadioButton layoutX="166.0" layoutY="220.0" mnemonicParsing="false" text="MALE " textFill="WHITE" fx:id="maleRadioButton" toggleGroup="$genderGroup"/>
                   <RadioButton layoutX="262.0" layoutY="220.0" mnemonicParsing="false" text="FEMALE " textFill="#faf8f8" fx:id="femaleRadioButton" toggleGroup="$genderGroup"/>
+                  <TextArea fx:id="addressField" wrapText="true" />
                   <Text fill="#efe8e8" layoutX="25.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONTACT NUMBER " wrappingWidth="130.25933837890625">
                      <font>
                         <Font size="16.0" />

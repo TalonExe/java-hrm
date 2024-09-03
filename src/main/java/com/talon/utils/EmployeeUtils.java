@@ -51,6 +51,16 @@ public class EmployeeUtils {
         }
         return null;
     }
+    
+    public static Employee getEmployeeById(String id) throws Exception {
+        try {
+            Map<String, Employee> employees = ReadData();
+            return employees.get(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public static void updateLoginStatus(String username, String loginStatus) throws Exception {
         try {
