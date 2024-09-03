@@ -7,6 +7,7 @@ import java.util.Map;
 import com.talon.Router;
 import com.talon.models.Employee;
 import com.talon.models.Payroll;
+import com.talon.models.SessionState;
 import com.talon.utils.EmployeeUtils;
 
 import javafx.collections.FXCollections;
@@ -113,6 +114,12 @@ public class PayrollManagerController extends EmployeeController {
             }
         });
 
+    }
+
+    @FXML
+    private void logOut() throws Exception {
+        SessionState.getInstance().setEmployee(null);
+        route.switchToScene("LoginPage");
     }
 
     @FXML

@@ -40,7 +40,10 @@
             "eis": 6.0000005,
             "pcb": 150.0
           }
-        ]
+        ],
+        "annualLeaveBalance": 0,
+        "medicalLeaveBalance": 0,
+        "unpaidLeaveBalance": 0
       }
     },
     {
@@ -60,7 +63,10 @@
         "position": "IT Support",
         "loginAttempts": 0,
         "accountStatus": "ACTIVE",
-        "payrollRecords": []
+        "payrollRecords": [],
+        "annualLeaveBalance": 0,
+        "medicalLeaveBalance": 0,
+        "unpaidLeaveBalance": 0
       }
     },
     {
@@ -103,7 +109,10 @@
             "eis": 6.0000005,
             "pcb": 150.0
           }
-        ]
+        ],
+        "annualLeaveBalance": 0,
+        "medicalLeaveBalance": 0,
+        "unpaidLeaveBalance": 0
       }
     },
     {
@@ -157,7 +166,10 @@
             "eis": 6.0000005,
             "pcb": 150.0
           }
-        ]
+        ],
+        "annualLeaveBalance": 0,
+        "medicalLeaveBalance": 0,
+        "unpaidLeaveBalance": 0
       }
     }
   ]

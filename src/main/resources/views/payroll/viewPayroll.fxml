@@ -15,7 +15,7 @@
             <Button layoutY="250.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Payroll" onAction="#switchToPayrollList"/>
             <Button layoutY="100.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" />
             <Circle fill="DODGERBLUE" layoutX="85.0" layoutY="54.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
-            <Button layoutY="325.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" />
+            <Button layoutY="325.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" onAction="#logOut" />
          </children>
       </AnchorPane>
       <Button layoutX="617.0" layoutY="14.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: #86C232; -fx-text-fill: #FFFFFF;" text="Update" />

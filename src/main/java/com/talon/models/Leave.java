@@ -8,7 +8,7 @@ public class Leave {
         ANNUAL_LEAVE,
         MEDICAL_LEAVE,
         UNPAID_LEAVE,
-        MATERNITY_LEAVE
+        MATERNITY_LEAVE;
     }
 
     public enum LeaveStatus {
@@ -17,32 +17,21 @@ public class Leave {
         REJECTED
     }
 
-    private String leaveId;
     private String employeeId;
     private LeaveType leaveType;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private String startDate;
+    private String endDate;
     private String reason;
     private LeaveStatus status;
 
     // Constructor
-    public Leave(String leaveId, String employeeId, LeaveType leaveType, LocalDate startDate, LocalDate endDate, String reason) {
-        this.leaveId = leaveId;
+    public Leave( String employeeId, LeaveType leaveType, LocalDate startDate, LocalDate endDate, String reason) {
         this.employeeId = employeeId;
         this.leaveType = leaveType;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.startDate = startDate.toString();
+        this.endDate = endDate.toString();
         this.reason = reason;
         this.status = LeaveStatus.PENDING; // Default status when a leave is applied
-    }
-
-    // Getters and Setters
-    public String getLeaveId() {
-        return leaveId;
-    }
-
-    public void setLeaveId(String leaveId) {
-        this.leaveId = leaveId;
     }
 
     public String getEmployeeId() {
@@ -62,19 +51,19 @@ public class Leave {
     }
 
     public LocalDate getStartDate() {
-        return startDate;
+        return LocalDate.parse(startDate);
     }
 
     public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
+        this.startDate = startDate.toString();
     }
 
     public LocalDate getEndDate() {
-        return endDate;
+        return LocalDate.parse(endDate);
     }
 
     public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
+        this.endDate = endDate.toString();
     }
 
     public String getReason() {
@@ -116,8 +105,8 @@ public class Leave {
     
     @Override
     public String toString() {
-        return String.format("Leave [leaveId=%s, employeeId=%s, leaveType=%s, startDate=%s, endDate=%s, reason=%s, status=%s]",
-                leaveId, employeeId, leaveType, startDate, endDate, reason, status);
+        return String.format("Leave [employeeId=%s, leaveType=%s, startDate=%s, endDate=%s, reason=%s, status=%s]",
+                employeeId, leaveType, startDate, endDate, reason, status);
     }
 }
 

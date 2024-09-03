@@ -16,6 +16,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.talon.models.Employee;
+import com.talon.models.Leave;
 import com.talon.models.Payroll;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
@@ -223,5 +224,48 @@ public class EmployeeUtils {
         }
 
         return allPayrollRecords;
+    }
+
+    public static void updateLeaveBalance(String employeeId, Leave.LeaveType leaveType, int daysUsed) throws Exception {
+        Map<String, Employee> employees = ReadData();
+        Employee employee = employees.get(employeeId);
+        
+        if (employee != null) {
+            switch (leaveType) {
+                case ANNUAL_LEAVE:
+                    employee.setAnnualLeaveBalance(employee.getAnnualLeaveBalance() - daysUsed);
+                    break;
+                case MEDICAL_LEAVE:
+                    employee.setMedicalLeaveBalance(employee.getMedicalLeaveBalance() - daysUsed);
+                    break;
+                case UNPAID_LEAVE:
+                    employee.setUnpaidLeaveBalance(employee.getUnpaidLeaveBalance() - daysUsed);
+                    break;
+                // Handle other leave types if necessary
+                default:
+                    break;
+            }
+            WriteData(employees);
+        }
+    }
+
+    public static int getLeaveBalance(String employeeId, Leave.LeaveType leaveType) throws Exception {
+        Map<String, Employee> employees = ReadData();
+        Employee employee = employees.get(employeeId);
+        
+        if (employee != null) {
+            switch (leaveType) {
+                case ANNUAL_LEAVE:
+                    return employee.getAnnualLeaveBalance();
+                case MEDICAL_LEAVE:
+                    return employee.getMedicalLeaveBalance();
+                case UNPAID_LEAVE:
+                    return employee.getUnpaidLeaveBalance();
+                // Handle other leave types if necessary
+                default:
+                    return 0;
+            }
+        }
+        return 0;
     }
 }

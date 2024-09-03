@@ -21,6 +21,9 @@ public class Employee {
     private Integer loginAttempts;
     private String accountStatus;
     private List<Payroll> payrollRecords;
+    private int annualLeaveBalance;
+    private int medicalLeaveBalance;
+    private int unpaidLeaveBalance;
 
     // Full Constructor
     public Employee(String username, String password, String name, String gender, String passport,
@@ -157,6 +160,30 @@ public class Employee {
 
     public void setPayrollRecords(List<Payroll> payrollRecords) {
         this.payrollRecords = payrollRecords;
+    }
+
+    public int getAnnualLeaveBalance() {
+        return annualLeaveBalance;
+    }
+
+    public void setAnnualLeaveBalance(int annualLeaveBalance) {
+        this.annualLeaveBalance = annualLeaveBalance;
+    }
+
+    public int getMedicalLeaveBalance() {
+        return medicalLeaveBalance;
+    }
+
+    public void setMedicalLeaveBalance(int medicalLeaveBalance) {
+        this.medicalLeaveBalance = medicalLeaveBalance;
+    }
+
+    public int getUnpaidLeaveBalance() {
+        return unpaidLeaveBalance;
+    }
+
+    public void setUnpaidLeaveBalance(int unpaidLeaveBalance) {
+        this.unpaidLeaveBalance = unpaidLeaveBalance;
     }
 
     // Add a payroll record

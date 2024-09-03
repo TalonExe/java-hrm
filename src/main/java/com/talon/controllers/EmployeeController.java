@@ -1,21 +1,24 @@
 package com.talon.controllers;
 
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
 
 import com.talon.Router;
 import com.talon.models.Employee;
+import com.talon.models.Leave;
 import com.talon.models.SessionState;
 import com.talon.utils.EmployeeUtils;
+import com.talon.utils.LeaveUtils;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
@@ -185,6 +188,24 @@ public class EmployeeController implements UpdatableController {
         route.switchToScene("ApplyLeave");
     }
 
+    @FXML
+    private TextField leaveBalanceField;
+
+    //get id of leave text fields
+    @FXML
+    private DatePicker startDatePicker;
+
+    @FXML
+    private DatePicker endDatePicker;
+
+    @FXML
+    private TextArea reasonTextArea;
+
+    @FXML
+    private ComboBox<Leave.LeaveType> leaveTypeComboBox;
+
+
+
     /*
      * TO DO:
      * Implement Attendance Checkout
@@ -255,6 +276,54 @@ public class EmployeeController implements UpdatableController {
             positionLabel.setText(currentEmployee.getPosition());
             workExperienceLabel.setText("work 1");
             workExperienceLabel2.setText("work 2");
+        } else if (route.getCurrentSceneName().equals("ApplyLeave") && currentEmployee != null) {
+            leaveBalanceField.setText(String.valueOf(currentEmployee.getAnnualLeaveBalance()));
+            startDatePicker.setValue(LocalDate.now());
+            endDatePicker.setValue(LocalDate.now());
+            // set leave types to a more prettier version
+            leaveTypeComboBox.getItems().setAll(Leave.LeaveType.values());
         }
+    }
+
+    @FXML
+    private void submitLeave() {
+        Leave.LeaveType leaveType = leaveTypeComboBox.getValue();
+        LocalDate startDate = startDatePicker.getValue();
+        LocalDate endDate = endDatePicker.getValue();
+        String reason = reasonTextArea.getText();
+
+        if (leaveType == null || startDate == null || endDate == null || reason.isEmpty()) {
+            ErrorAlert("Please fill in all fields");
+            return;
+        }
+
+        Employee currentEmployee = SessionState.getInstance().getEmployee();
+        if (currentEmployee == null) {
+            ErrorAlert("Error: No employee logged in");
+            return;
+        }
+
+        String employeeUuid = EmployeeUtils.getEmployeeIdByUsername(EmployeeUtils.ReadData(), currentEmployee.getUsername());
+        if (employeeUuid == null) {
+            ErrorAlert("Error: Could not find employee UUID");
+            return;
+        }
+
+        Leave leave = new Leave(employeeUuid, leaveType, startDate, endDate, reason);
+
+        try {
+            LeaveUtils.addLeaveApplication(employeeUuid, leave);
+            clearLeaveFields();
+            ErrorAlert("Leave application submitted successfully");
+        } catch (Exception e) {
+            ErrorAlert("Error submitting leave application: " + e.getMessage());
+        }
+    }
+
+    private void clearLeaveFields() {
+        leaveTypeComboBox.setValue(null);
+        startDatePicker.setValue(null);
+        endDatePicker.setValue(null);
+        reasonTextArea.clear();
     }
 }
