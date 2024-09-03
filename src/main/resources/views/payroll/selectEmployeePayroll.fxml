@@ -22,7 +22,9 @@
       <TableView fx:id="employeeTable" layoutX="170.0" layoutY="162.0" prefHeight="414.0" prefWidth="853.0">
          <columns>
             <TableColumn fx:id="nameColumn" prefWidth="145.0" text="Name" />
-            <TableColumn fx:id="salaryColumn" prefWidth="145.0" text="Current Salary" />
+            <TableColumn fx:id="departmentColumn" prefWidth="145.0" text="Department" />
+            <TableColumn fx:id="roleColumn" prefWidth="145.0" text="Role" />
+            <TableColumn fx:id="positionColumn" prefWidth="145.0" text="Position" />
          </columns>
       </TableView>
       <Text fill="WHITE" layoutX="272.0" layoutY="44.0" scaleX="3.0" scaleY="3.0" scaleZ="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Payroll" wrappingWidth="80.0" />

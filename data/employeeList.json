@@ -16,7 +16,31 @@
         "role": "HR Manager",
         "position": "cleaner",
         "loginAttempts": 0,
-        "accountStatus": "ACTIVE"
+        "accountStatus": "ACTIVE",
+        "payrollRecords": [
+          {
+            "grossSalary": 3000.0,
+            "netSalary": 2439.0,
+            "createdDate": "2024-09-03",
+            "epfEmployee": 390.0,
+            "epfEmployer": 330.0,
+            "socsoEmployee": 15.0,
+            "socsoEmployer": 540.0,
+            "eis": 6.0000005,
+            "pcb": 150.0
+          },
+          {
+            "grossSalary": 3000.0,
+            "netSalary": 2439.0,
+            "createdDate": "2024-09-03",
+            "epfEmployee": 390.0,
+            "epfEmployer": 330.0,
+            "socsoEmployee": 15.0,
+            "socsoEmployer": 540.0,
+            "eis": 6.0000005,
+            "pcb": 150.0
+          }
+        ]
       }
     },
     {
@@ -35,7 +59,8 @@
         "role": "System Administrator",
         "position": "IT Support",
         "loginAttempts": 0,
-        "accountStatus": "ACTIVE"
+        "accountStatus": "ACTIVE",
+        "payrollRecords": []
       }
     },
     {
@@ -54,7 +79,31 @@
         "role": "Payroll Manager",
         "position": "mafia",
         "loginAttempts": 0,
-        "accountStatus": "ACTIVE"
+        "accountStatus": "ACTIVE",
+        "payrollRecords": [
+          {
+            "grossSalary": 3000.0,
+            "netSalary": 2439.0,
+            "createdDate": "2024-09-03",
+            "epfEmployee": 390.0,
+            "epfEmployer": 330.0,
+            "socsoEmployee": 15.0,
+            "socsoEmployer": 540.0,
+            "eis": 6.0000005,
+            "pcb": 150.0
+          },
+          {
+            "grossSalary": 3000.0,
+            "netSalary": 2439.0,
+            "createdDate": "2024-09-03",
+            "epfEmployee": 390.0,
+            "epfEmployer": 330.0,
+            "socsoEmployee": 15.0,
+            "socsoEmployer": 540.0,
+            "eis": 6.0000005,
+            "pcb": 150.0
+          }
+        ]
       }
     },
     {
@@ -73,7 +122,42 @@
         "role": "Employee",
         "position": "CEO",
         "loginAttempts": 0,
-        "accountStatus": "ACTIVE"
+        "accountStatus": "ACTIVE",
+        "payrollRecords": [
+          {
+            "grossSalary": 3000.0,
+            "netSalary": 2439.0,
+            "createdDate": "2024-09-03",
+            "epfEmployee": 390.0,
+            "epfEmployer": 330.0,
+            "socsoEmployee": 15.0,
+            "socsoEmployer": 540.0,
+            "eis": 6.0000005,
+            "pcb": 150.0
+          },
+          {
+            "grossSalary": 3000.0,
+            "netSalary": 2439.0,
+            "createdDate": "2024-09-03",
+            "epfEmployee": 390.0,
+            "epfEmployer": 330.0,
+            "socsoEmployee": 15.0,
+            "socsoEmployer": 540.0,
+            "eis": 6.0000005,
+            "pcb": 150.0
+          },
+          {
+            "grossSalary": 3000.0,
+            "netSalary": 2439.0,
+            "createdDate": "2024-09-03",
+            "epfEmployee": 390.0,
+            "epfEmployer": 330.0,
+            "socsoEmployee": 15.0,
+            "socsoEmployer": 540.0,
+            "eis": 6.0000005,
+            "pcb": 150.0
+          }
+        ]
       }
     }
   ]

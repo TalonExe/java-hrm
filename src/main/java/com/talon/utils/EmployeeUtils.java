@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -15,6 +16,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.talon.models.Employee;
+import com.talon.models.Payroll;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
@@ -24,30 +26,18 @@ public class EmployeeUtils {
 
     public static Map<String, Employee> ReadData() {
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
-            // Parse the outer JSON object
             JsonObject jsonObject = gson.fromJson(reader, JsonObject.class);
-
-            // Extract the "Users" array
             JsonArray usersArray = jsonObject.getAsJsonArray("Users");
-
-            // Initialize the map to hold the UUIDs and Employee objects
             Map<String, Employee> employees = new HashMap<>();
-
-            // Loop through each element in the "Users" array
             for (JsonElement element : usersArray) {
-                // Each element in the array is a JSON object with one key-value pair
                 JsonObject userObject = element.getAsJsonObject();
-
-                // Extract the UUID (key) and the Employee object (value)
                 for (Map.Entry<String, JsonElement> entry : userObject.entrySet()) {
                     String uuid = entry.getKey();
                     Employee employee = gson.fromJson(entry.getValue(), Employee.class);
                     employees.put(uuid, employee);
                 }
             }
-
             return employees;
-
         } catch (IOException e) {
             e.printStackTrace();
             return new HashMap<>();
@@ -56,21 +46,14 @@ public class EmployeeUtils {
 
     public static void WriteData(Map<String, Employee> employeeList) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
-            // Create a JsonArray to hold all employee entries
             JsonArray usersArray = new JsonArray();
-            
-            // Wrap each employee entry in a JsonObject with the UUID as the key
             for (Map.Entry<String, Employee> entry : employeeList.entrySet()) {
                 JsonObject userObject = new JsonObject();
                 userObject.add(entry.getKey(), gson.toJsonTree(entry.getValue()));
                 usersArray.add(userObject);
             }
-    
-            // Create the final JsonObject to hold the Users array
             JsonObject finalObject = new JsonObject();
             finalObject.add("Users", usersArray);
-    
-            // Write the JSON object to the file
             gson.toJson(finalObject, writer);
         } catch (IOException e) {
             e.printStackTrace();
@@ -107,16 +90,13 @@ public class EmployeeUtils {
                         employee.setAccountStatus("LOCKED");
                     }
                 }
-                // Update the employee in the map
                 employees.put(employeeId, employee);
-                // Write the updated data back to the file
                 WriteData(employees);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
 
     public static boolean verifyPassword(String password, String hashedPassword) {
         return BCrypt.verifyer().verify(password.toCharArray(), hashedPassword).verified;
@@ -137,7 +117,7 @@ public class EmployeeUtils {
             String id = UUID.randomUUID().toString();
             Employee newEmployee = new Employee(username, hashedPassword, name, gender, passport, 
                                             identificationCard, phoneNumber, birthDate, email, 
-                                            address, emergencyContact, role, position, 0, "ACTIVE");
+                                            address, emergencyContact, role, position, 0, "ACTIVE", null);
             employees.put(id, newEmployee);
             WriteData(employees);
             return newEmployee;
@@ -187,7 +167,6 @@ public class EmployeeUtils {
         }
     }
 
-    // Helper method to get an employee's UUID by their username
     public static String getEmployeeIdByUsername(Map<String, Employee> employees, String username) {
         for (Map.Entry<String, Employee> entry : employees.entrySet()) {
             if (entry.getValue().getUsername().equalsIgnoreCase(username)) {
@@ -195,5 +174,54 @@ public class EmployeeUtils {
             }
         }
         return null;
+    }
+
+    // New methods for managing payroll records
+    public static void addPayrollRecord(String username, Payroll payrollRecord) throws Exception {
+        Map<String, Employee> employees = ReadData();
+        String employeeId = getEmployeeIdByUsername(employees, username);
+        if (employeeId != null) {
+            Employee employee = employees.get(employeeId);
+            employee.addPayrollRecord(payrollRecord);
+            WriteData(employees);
+        }
+    }
+
+    public static List<Payroll> getPayrollRecords(String username) throws Exception {
+        Map<String, Employee> employees = ReadData();
+        String employeeId = getEmployeeIdByUsername(employees, username);
+        if (employeeId != null) {
+            return employees.get(employeeId).getPayrollRecords();
+        }
+        return null;
+    }
+
+    public static Payroll getLatestPayrollRecord(String username) throws Exception {
+        Map<String, Employee> employees = ReadData();
+        String employeeId = getEmployeeIdByUsername(employees, username);
+        if (employeeId != null) {
+            return employees.get(employeeId).getLatestPayrollRecord();
+        }
+        return null;
+    }
+
+    public static Payroll getPayrollRecordByDate(String username, String date) throws Exception {
+        Map<String, Employee> employees = ReadData();
+        String employeeId = getEmployeeIdByUsername(employees, username);
+        if (employeeId != null) {
+            return employees.get(employeeId).getPayrollRecordByDate(date);
+        }
+        return null;
+    }
+
+    public static Map<String, List<Payroll>> getAllPayrollRecords() throws Exception {
+        Map<String, Employee> employees = ReadData();
+        Map<String, List<Payroll>> allPayrollRecords = new HashMap<>();
+
+        for (Employee employee : employees.values()) {
+            allPayrollRecords.put(employee.getUsername(), employee.getPayrollRecords());
+        }
+
+        return allPayrollRecords;
     }
 }

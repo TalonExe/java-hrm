@@ -1,5 +1,8 @@
 package com.talon.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Employee {
     // Attributes
     private String username;
@@ -17,12 +20,13 @@ public class Employee {
     private String position;
     private Integer loginAttempts;
     private String accountStatus;
+    private List<Payroll> payrollRecords;
 
     // Full Constructor
     public Employee(String username, String password, String name, String gender, String passport,
                     String identificationCard, String phoneNumber, String birthDate, String email,
                     String address, String emergencyContact, String role, String position,
-                    Integer loginAttempts, String accountStatus) {
+                    Integer loginAttempts, String accountStatus, List<Payroll> payrollRecords) {
         this.username = username;
         this.password = password;
         this.name = name;
@@ -38,6 +42,7 @@ public class Employee {
         this.position = position;
         this.loginAttempts = loginAttempts;
         this.accountStatus = accountStatus;
+        this.payrollRecords = payrollRecords;
     }
 
     // Getters and Setters
@@ -144,6 +149,43 @@ public class Employee {
     }
     public void setAccountStatus(String accountStatus) {
         this.accountStatus = accountStatus;
+    }
+
+    public List<Payroll> getPayrollRecords() {
+        return payrollRecords;
+    }
+
+    public void setPayrollRecords(List<Payroll> payrollRecords) {
+        this.payrollRecords = payrollRecords;
+    }
+
+    // Add a payroll record
+    public void addPayrollRecord(Payroll payrollRecord) {
+        if (this.payrollRecords == null) {
+            this.payrollRecords = new ArrayList<>();
+        }
+        this.payrollRecords.add(payrollRecord);
+    }
+
+    // Get the latest payroll record
+    public Payroll getLatestPayrollRecord() {
+        if (this.payrollRecords == null || this.payrollRecords.isEmpty()) {
+            return null;
+        }
+        return this.payrollRecords.get(this.payrollRecords.size() - 1);
+    }
+
+    // Get payroll record by date
+    public Payroll getPayrollRecordByDate(String date) {
+        if (this.payrollRecords == null || this.payrollRecords.isEmpty()) {
+            return null;
+        }
+        for (Payroll record : this.payrollRecords) {
+            if (record.getCreatedDate().toString().equals(date)) {
+                return record;
+            }
+        }
+        return null;
     }
 
     // Class Methods

@@ -5,27 +5,36 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.controllers.PayrollManagerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.controllers.PayrollManagerController">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="170.0" style="-fx-background-color: #86C232;">
+      <AnchorPane prefHeight="576.0" prefWidth="170.0" style="-fx-background-color: #86C232;">
          <children>
             <Button layoutY="175.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" />
-            <Button layoutY="250.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text=" Payroll management" onAction="#switchToPayrollList"/>
+            <Button layoutY="250.0" mnemonicParsing="false" onAction="#switchToPayrollList" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text=" Payroll management" />
             <Button layoutY="100.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" />
             <Circle fill="DODGERBLUE" layoutX="85.0" layoutY="54.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
             <Button layoutY="325.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="170.0" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" />
          </children>
       </AnchorPane>
-      <TableView layoutX="170.0" layoutY="89.0" prefHeight="311.0" prefWidth="530.0">
+      <TableView layoutX="170.0" layoutY="138.0" prefHeight="439.0" prefWidth="855.0" fx:id="payrollTable">
          <columns>
-            <TableColumn prefWidth="107.0" text=" Transaction Num" />
-            <TableColumn prefWidth="138.0" text="Name" />
-            <TableColumn minWidth="0.0" prefWidth="118.0" text=" Employee ID" />
-            <TableColumn minWidth="0.0" prefWidth="74.0" text="Final Salary" />
+            <TableColumn prefWidth="132.0" text="Username" fx:id="usernameColumn"/>
+            <TableColumn prefWidth="128.0" text="Gross salary" fx:id="grossColumn"/>
+            <TableColumn minWidth="0.0" prefWidth="143.0" text="Net Salary" fx:id="netColumn"/>
+            <TableColumn minWidth="0.0" prefWidth="137.0" text="Epf Employee" fx:id="epfColumn"/>
+            <TableColumn minWidth="0.0" prefWidth="156.0" text="Socso Employee" fx:id="socsoColumn"/>
+            <TableColumn minWidth="0.0" prefWidth="157.0" text=" PCB" fx:id="pcbColumn"/>
          </columns>
       </TableView>
-      <Button layoutX="182.0" layoutY="14.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="123.0" style="-fx-background-color: #86C232; -fx-text-fill: #FFFFFF;" text="Create Payroll" onAction="#switchToSelectEmployeePayroll"/>
-      <Button layoutX="635.0" layoutY="56.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="45.0" style="-fx-background-color: #86C232; -fx-text-fill: #FFFFFF;" text="View" />
+      <Button layoutX="188.0" layoutY="86.0" mnemonicParsing="false" onAction="#switchToSelectEmployeePayroll" prefHeight="35.0" prefWidth="123.0" style="-fx-background-color: #86C232; -fx-text-fill: #FFFFFF;" text="Create Payroll" />
+      <Button layoutX="946.0" layoutY="91.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="45.0" style="-fx-background-color: #86C232; -fx-text-fill: #FFFFFF;" text="View" />
+      <Text layoutX="188.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payroll List" wrappingWidth="223.6484375">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

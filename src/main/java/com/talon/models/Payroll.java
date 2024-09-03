@@ -1,129 +1,123 @@
 package com.talon.models;
 
+import java.text.NumberFormat;
 import java.time.LocalDate;
 
 public class Payroll {
-    
-    // EPF (Employee Provident Fund) contribution rates
-    private static final float EPF_EMPLOYEE = 0.13f;
-    private static final float EPF_EMPLOYER = 0.11f;
 
-    // SOCSO (Social Security Organization) contribution rates
-    private static final float SOCSO_EMPLOYER = 0.18f;
-    private static final float SOCSO_EMPLOYEE = 0.005f;
+    // Static final fields for contribution rates
+    private static final float EPF_EMPLOYEE_RATE = 0.13f;
+    private static final float EPF_EMPLOYER_RATE = 0.11f;
+    private static final float SOCSO_EMPLOYEE_RATE = 0.005f;
+    private static final float SOCSO_EMPLOYER_RATE = 0.18f;
+    private static final float EIS_RATE = 0.002f;
+    private static final float PCB_RATE = 0.05f;
 
-    // EIS (Employment Insurance System) and PCB (Scheduled Tax Deduction)
-    private float eis = 0.002f;
-    private float pcb = 0.05f;
+    private float grossSalary;
+    private float netSalary;
+    private String createdDate;
+    private float epfEmployee;
+    private float epfEmployer;
+    private float socsoEmployee;
+    private float socsoEmployer;
+    private float eis;
+    private float pcb;
+    private String username;
 
-    // Salary
-    private String name;
-    private float grossSalary;  // Store the original gross salary
-    private float netSalary;    // Store the calculated net salary
-    private LocalDate creationDate;
-
-    // Constructor
-    public Payroll(String name, float grossSalary) {
-        this.name = name;
+    // Constructor to initialize the payroll with gross salary and creation date
+    public Payroll(float grossSalary, LocalDate createdDate) {
         this.grossSalary = grossSalary;
-        this.netSalary = calculateNetSalary(grossSalary); // Calculate net salary during instantiation
-        this.creationDate = LocalDate.now();
+        this.createdDate = createdDate.toString();
+
+        // Calculate contributions based on static rates
+        recalculateValues();
     }
 
-    public Payroll(float grossSalary, float eis, float pcb, LocalDate creationDate) {
-        this.grossSalary = grossSalary;
-        this.eis = eis;
-        this.pcb = pcb;
-        this.netSalary = calculateNetSalary(grossSalary); // Calculate net salary during instantiation
-        this.creationDate = creationDate;
-    }
-
-    // Getters for EPF and SOCSO contributions
-    public float getEmployeeEpf() {
-        return EPF_EMPLOYEE;
-    }
-
-    public float getEmployerEpf() {
-        return EPF_EMPLOYER;
-    }
-
-    public float getEmployerSocso() {
-        return SOCSO_EMPLOYER;
-    }
-
-    public float getEmployeeSocso() {
-        return SOCSO_EMPLOYEE;
-    }
-
-    // Getters and setters for EIS and PCB
-    public float getEis() {
-        return this.eis;
-    }
-
-    public void setEis(float eis) {
-        this.eis = eis;
-        this.netSalary = calculateNetSalary(this.grossSalary); // Recalculate net salary if rates change
-    }
-
-    public float getPcb() {
-        return this.pcb;
-    }
-
-    public void setPcb(float pcb) {
-        this.pcb = pcb;
-        this.netSalary = calculateNetSalary(this.grossSalary); // Recalculate net salary if rates change
-    }
-
-    // Getter and setter for salary
-    public float getGrossSalary() {
-        return this.grossSalary;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public float getNetSalary() {
-        return this.netSalary;
-    }
-
-    public void setGrossSalary(float grossSalary) {
-        this.grossSalary = grossSalary;
-        this.netSalary = calculateNetSalary(grossSalary); // Recalculate net salary when gross salary changes
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    // Calculate total deductions
-    private float calculateTotalDeductions(float grossSalary) {
-        return (EPF_EMPLOYEE * grossSalary) + (SOCSO_EMPLOYEE * grossSalary) + (eis * grossSalary) + (pcb * grossSalary);
+    // Calculate total deductions (EPF, SOCSO, EIS, PCB)
+    private float calculateTotalDeductions() {
+        return epfEmployee + socsoEmployee + eis + pcb;
     }
 
     // Calculate net salary after deductions
-    private float calculateNetSalary(float grossSalary) {
-        return grossSalary - calculateTotalDeductions(grossSalary);
+    private float calculateNetSalary() {
+        return grossSalary - calculateTotalDeductions();
     }
 
-    public LocalDate getCreationDate() {
-        return creationDate;
+    // Set new gross salary and recalculate deductions and net salary
+    public void setGrossSalary(float grossSalary) {
+        this.grossSalary = grossSalary;
+        recalculateValues(); // Recalculate all dependent values
     }
 
-    public void setCreationDate(LocalDate creationDate) {
-        this.creationDate = creationDate;
+    // Getters and setters
+    public float getGrossSalary() {
+        return grossSalary;
+    }
+
+    public float getNetSalary() {
+        return netSalary;
+    }
+
+    public String getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public float getEpfEmployee() {
+        return epfEmployee;
+    }
+
+    public float getEpfEmployer() {
+        return epfEmployer;
+    }
+
+    public float getSocsoEmployee() {
+        return socsoEmployee;
+    }
+
+    public float getSocsoEmployer() {
+        return socsoEmployer;
+    }
+
+    public float getEis() {
+        return eis;
+    }
+
+    public float getPcb() {
+        return pcb;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    // Recalculate deductions and net salary after updating gross salary
+    private void recalculateValues() {
+        this.epfEmployee = EPF_EMPLOYEE_RATE * grossSalary;
+        this.epfEmployer = EPF_EMPLOYER_RATE * grossSalary;
+        this.socsoEmployee = SOCSO_EMPLOYEE_RATE * grossSalary;
+        this.socsoEmployer = SOCSO_EMPLOYER_RATE * grossSalary;
+        this.eis = EIS_RATE * grossSalary;
+        this.pcb = PCB_RATE * grossSalary;
+        this.netSalary = calculateNetSalary();
     }
 
     @Override
     public String toString() {
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
         return String.format(
-            "Gross Salary: %.2f, Net Salary: %.2f, EPF (Employee): %.2f, SOCSO (Employee): %.2f, EIS: %.2f, PCB: %.2f",
-            grossSalary, 
-            netSalary, 
-            getEmployeeEpf() * grossSalary, 
-            getEmployeeSocso() * grossSalary, 
-            getEis() * grossSalary, 
-            getPcb() * grossSalary
+            "Gross Salary: %s, Net Salary: %s, Created Date: %s, EPF (Employee): %s, EPF (Employer): %s, SOCSO (Employee): %s, SOCSO (Employer): %s, EIS: %s, PCB: %s",
+            currencyFormat.format(grossSalary), currencyFormat.format(netSalary), createdDate,
+            currencyFormat.format(epfEmployee), currencyFormat.format(epfEmployer),
+            currencyFormat.format(socsoEmployee), currencyFormat.format(socsoEmployer),
+            currencyFormat.format(eis), currencyFormat.format(pcb)
         );
     }
 }
