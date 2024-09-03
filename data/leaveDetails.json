@@ -1,9 +1,59 @@
 {
     "Leaves":[   
-    {
-        "863b16b3-c07c-49ce-8a41-2cad37b411f8":{
-            
+        {
+            "employeeUuid": "9544e3b5-0930-44c5-92fe-46629a473ffa",
+            "leaves": [
+              {
+                "leaveId": "L001",
+                "leaveType": "ANNUAL_LEAVE",
+                "startDate": "2023-07-01",
+                "endDate": "2023-07-05",
+                "reason": "Family vacation",
+                "status": "APPROVED"
+              },
+              {
+                "leaveId": "L002",
+                "leaveType": "MEDICAL_LEAVE",
+                "startDate": "2023-08-15",
+                "endDate": "2023-08-16",
+                "reason": "Dental appointment",
+                "status": "PENDING"
+              }
+            ]
+          },
+          {
+            "employeeUuid": "30e8d5b0-14e6-465f-b84f-789b73964f16",
+            "leaves": [
+              {
+                "leaveId": "L003",
+                "leaveType": "UNPAID_LEAVE",
+                "startDate": "2023-09-10",
+                "endDate": "2023-09-20",
+                "reason": "Personal development course",
+                "status": "APPROVED"
+              }
+            ]
+          },
+          {
+            "employeeUuid": "863b16b3-c07c-49ce-8a41-2cad37b411f8",
+            "leaves": [
+              {
+                "leaveId": "L004",
+                "leaveType": "MATERNITY_LEAVE",
+                "startDate": "2023-10-01",
+                "endDate": "2024-01-31",
+                "reason": "Maternity leave",
+                "status": "APPROVED"
+              },
+              {
+                "leaveId": "L005",
+                "leaveType": "ANNUAL_LEAVE",
+                "startDate": "2023-12-24",
+                "endDate": "2023-12-26",
+                "reason": "Christmas holidays",
+                "status": "REJECTED"
+              }
+            ]
         }
-    }
     ]
 }
