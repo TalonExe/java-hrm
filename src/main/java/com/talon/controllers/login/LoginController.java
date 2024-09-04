@@ -16,6 +16,7 @@ import java.time.LocalTime;
 import java.util.Map;
 import com.talon.utils.SessionState;
 import com.talon.controllers.common.PersonalProfilePageController;
+import com.talon.controllers.departmentManager.LeaveManagementPageController;
 
 public class LoginController extends BaseController {
     @FXML
@@ -103,6 +104,8 @@ public class LoginController extends BaseController {
                 return "personalProfilePayroll";
             case "System Administrator":
                 return "personalProfileAdmin";
+            case "Department Manager":
+                return "personalProfileDM";
             default:
                 return "personalProfileEmployee";
         }
@@ -118,12 +121,19 @@ public class LoginController extends BaseController {
             case "HR Officer" -> "hrMain";
             case "Payroll Manager" -> "Payroll_Lobby";
             case "System Administrator" -> "adminHomepage";
+            case "Department Manager" -> "departmentManagerMain";
             default -> "applyLeaveEmployee";
         };
         if (sceneName.equals("applyLeaveEmployee")) {
             ApplyLeavePageController controller = (ApplyLeavePageController) router.getController("applyLeaveEmployee");
             if (controller != null) {
                 controller.loadEmployeeData();
+            }
+        }
+        if (sceneName.equals("departmentManagerMain")) {
+            LeaveManagementPageController controller = (LeaveManagementPageController) router.getController("departmentManagerMain");
+            if (controller != null) {
+                controller.loadLeaveApplications();
             }
         }
         router.switchScene(sceneName);

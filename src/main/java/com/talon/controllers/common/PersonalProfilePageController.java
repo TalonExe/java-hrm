@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.stream.Collectors;
 import java.util.ArrayList;
+import javafx.beans.property.SimpleStringProperty;
 
 public class PersonalProfilePageController extends BaseController {
 
@@ -49,6 +50,7 @@ public class PersonalProfilePageController extends BaseController {
     @FXML private TableColumn<InternalWorkExperience, String> internalStartDateColumn;
     @FXML private TableColumn<InternalWorkExperience, String> internalEndDateColumn;
     @FXML private TableColumn<InternalWorkExperience, Integer> internalGrossSalaryColumn;
+    @FXML private TableColumn<InternalWorkExperience, String> internalSalaryIncrementColumn;
 
     @FXML private TableView<ExternalWorkExperience> externalWorkExperienceTable;
     @FXML private TableColumn<ExternalWorkExperience, String> externalCompanyNameColumn;
@@ -197,6 +199,21 @@ public class PersonalProfilePageController extends BaseController {
         internalStartDateColumn.setCellValueFactory(new PropertyValueFactory<>("startDate"));
         internalEndDateColumn.setCellValueFactory(new PropertyValueFactory<>("endDate"));
         internalGrossSalaryColumn.setCellValueFactory(new PropertyValueFactory<>("grossSalary"));
+        
+        if (internalSalaryIncrementColumn != null) {
+            internalSalaryIncrementColumn.setCellValueFactory(cellData -> {
+                int index = internalWorkExperienceTable.getItems().indexOf(cellData.getValue());
+                try {
+                    // Get employee id from session
+                    String employeeId = SessionState.getInstance().getLoggedInUserId();
+                    int increment = EmployeeUtils.calculateSalaryIncrement(employeeId, index);
+                    return new SimpleStringProperty(String.format("$%d", increment));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return new SimpleStringProperty("N/A");
+                }
+            });
+        }
 
         // External Work Experience Table
         externalCompanyNameColumn.setCellValueFactory(new PropertyValueFactory<>("companyName"));
@@ -215,6 +232,7 @@ public class PersonalProfilePageController extends BaseController {
     private void updateInternalWorkExperience() {
         List<InternalWorkExperience> internalExperiences = currentEmployee.getInternalWorkExperiences();
         if (internalExperiences != null) {
+            currentEmployee.sortInternalWorkExperiences();
             internalWorkExperienceTable.setItems(FXCollections.observableArrayList(internalExperiences));
         }
     }

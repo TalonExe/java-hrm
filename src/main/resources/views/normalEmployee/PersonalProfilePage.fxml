@@ -106,6 +106,7 @@
                            <TableColumn text="Start Date" fx:id="internalStartDateColumn" />
                            <TableColumn text="End Date" fx:id="internalEndDateColumn" />
                            <TableColumn text="Gross Salary" fx:id="internalGrossSalaryColumn" />
+                           <TableColumn text="Salary Increment" fx:id="internalSalaryIncrementColumn" />
                         </columns>
                      </TableView>
                   </ScrollPane>

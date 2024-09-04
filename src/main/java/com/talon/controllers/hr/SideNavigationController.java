@@ -1,6 +1,7 @@
 package com.talon.controllers.hr;
 
 import com.talon.controllers.common.ApplyLeavePageController;
+import com.talon.controllers.common.PersonalProfilePageController;
 import javafx.fxml.FXML;
 
 public class SideNavigationController extends HRMainController {
@@ -30,6 +31,10 @@ public class SideNavigationController extends HRMainController {
     @FXML
     private void switchToPersonalProfile() {
         router.switchScene("personalProfileHR");
+        PersonalProfilePageController controller = (PersonalProfilePageController) router.getController("personalProfileHR");
+        if (controller != null) {
+            controller.loadUserData();
+        }
     }
 
     @FXML

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import java.net.URL?>
+
+<AnchorPane fx:id="rootPane" prefWidth="1920" prefHeight="1080" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.controllers.departmentManager.LeaveManagementPageController">
+   <stylesheets>
+      <URL value="@../../styles/styles.css" />
+   </stylesheets>
+   <children>
+      <HBox AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <fx:include source="./SideNavigation.fxml" />
+         <VBox HBox.hgrow="ALWAYS" spacing="20" alignment="TOP_CENTER">
+            <padding>
+               <Insets top="30" right="30" bottom="30" left="30" />
+            </padding>
+            <Label text="Leave Applications Management" styleClass="header-label"/>
+            <TableView fx:id="leaveApplicationsTable" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn text="Employee Name" prefWidth="150">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="employeeName"/>
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn text="Leave Type" prefWidth="150">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="leaveType"/>
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn text="Start Date" prefWidth="150">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="startDate"/>
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn text="End Date" prefWidth="150">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="endDate"/>
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn text="Reason" prefWidth="300">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="reason"/>
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn text="Status" prefWidth="100">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="status"/>
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn text="Actions" prefWidth="200" fx:id="actionColumn">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="actionButton"/>
+                     </cellValueFactory>
+                  </TableColumn>
+               </columns>
+            </TableView>
+         </VBox>
+      </HBox>
+   </children>
+</AnchorPane>

@@ -1,6 +1,7 @@
 package com.talon.controllers.systemAdmin;
 
 import com.talon.controllers.common.ApplyLeavePageController;
+import com.talon.controllers.common.PersonalProfilePageController;
 
 import javafx.fxml.FXML;
 
@@ -17,6 +18,10 @@ public class SideNavigationController extends SystemAdminMainController {
     @FXML
     private void switchToPersonalProfile() {
         router.switchScene("personalProfileAdmin");
+        PersonalProfilePageController controller = (PersonalProfilePageController) router.getController("personalProfileAdmin");
+        if (controller != null) {
+            controller.loadUserData();
+        }
     }
 
     @FXML

@@ -59,18 +59,20 @@ public class ApplyLeavePageController extends BaseController {
             leaveApplicationsTable.getItems().clear(); // Clear existing items
             
             if (employee.getLeaveApplications() != null) {
-                changeValueOfDeleteColumn();
                 for (int i = 0; i < employee.getLeaveApplications().size(); i++) {
                     LeaveApplication leave = employee.getLeaveApplications().get(i);
                     final int index = i;  // Create a final variable to capture the index
-                    Button deleteButton = new Button("Delete");
+                    LeaveApplicationRow row = new LeaveApplicationRow(index, leave.getLeaveType(), leave.getStartDate(), leave.getEndDate(), leave.getReason(), leave.getStatus(), leave);
+                    
+                    Button deleteButton = row.getDeleteButton();
                     deleteButton.setOnAction(event -> handleDeleteLeaveApplication(leave, index));
                     if (leave.getStatus().equalsIgnoreCase("APPROVED")) {
                         deleteButton.setDisable(true);
                     }
-                    LeaveApplicationRow row = new LeaveApplicationRow(index, leave.getLeaveType(), leave.getStartDate(), leave.getEndDate(), leave.getReason(), leave.getStatus(), deleteButton, leave);
+                    
                     leaveApplicationsTable.getItems().add(row);
                 }
+                changeValueOfDeleteColumn();
             }
             return employee;
         } catch (Exception e) {
@@ -177,8 +179,6 @@ public class ApplyLeavePageController extends BaseController {
         if (deleteColumn != null) {
             deleteColumn.setCellValueFactory(new PropertyValueFactory<>("deleteButton"));
             deleteColumn.setCellFactory(column -> new TableCell<LeaveApplicationRow, Button>() {
-                private final Button deleteButton = new Button("Delete");
-
                 @Override
                 protected void updateItem(Button item, boolean empty) {
                     super.updateItem(item, empty);
@@ -186,9 +186,7 @@ public class ApplyLeavePageController extends BaseController {
                         setGraphic(null);
                     } else {
                         LeaveApplicationRow row = getTableView().getItems().get(getIndex());
-                        deleteButton.setOnAction(event -> handleDeleteLeaveApplication(row.getLeaveApplication(), row.getIndex()));
-                        deleteButton.setDisable(!"PENDING".equalsIgnoreCase(row.getStatus()));
-                        setGraphic(deleteButton);
+                        setGraphic(row.getDeleteButton());
                     }
                 }
             });

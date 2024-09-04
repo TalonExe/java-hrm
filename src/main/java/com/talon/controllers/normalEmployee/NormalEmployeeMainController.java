@@ -1,6 +1,7 @@
 package com.talon.controllers.normalEmployee;
 
 import com.talon.controllers.common.ApplyLeavePageController;
+import com.talon.controllers.common.PersonalProfilePageController;
 import com.talon.controllers.BaseController;
 import javafx.fxml.FXML;
 
@@ -9,6 +10,10 @@ public class NormalEmployeeMainController extends BaseController {
     @FXML
     private void switchToProfile() {
         router.switchScene("personalProfileEmployee");
+        PersonalProfilePageController controller = (PersonalProfilePageController) router.getController("personalProfileEmployee");
+        if (controller != null) {
+            controller.loadUserData();
+        }
     }
 
     @FXML

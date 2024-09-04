@@ -104,6 +104,7 @@
     "accountStatus": "ACTIVE",
     "accountDisabled": false,
     "nationality": "Singaporean",
+    "department": "IT",
     "attendanceRecords": [
       {
         "date": "2024-09-04",
@@ -147,7 +148,7 @@
         "date": "2024-09-04",
         "status": "ONTIME",
         "timeIn": "00:00:15.174669",
-        "timeOut": "13:04:19.931659"
+        "timeOut": "19:02:58.462281"
       }
     ]
   },
@@ -180,7 +181,127 @@
     "accountStatus": "ACTIVE",
     "accountDisabled": false,
     "nationality": "British",
-    "department": "Marketing",
+    "department": "IT",
+    "grossSalary": 2000,
+    "internalWorkExperiences": [
+      {
+        "department": "Marketing",
+        "role": "Normal Employee",
+        "grossSalary": 2000,
+        "companyName": "Talon",
+        "position": "Graphic Designer",
+        "startDate": "2021-10-10",
+        "endDate": "ongoing"
+      }
+    ],
+    "externalWorkExperiences": [
+      {
+        "reasonForLeaving": "Bad Pay",
+        "companyName": "Mcdonald\u0027s",
+        "position": "Cleaner",
+        "startDate": "2010-10-10",
+        "endDate": "2011-11-11"
+      }
+    ],
+    "leaveApplications": [
+      {
+        "leaveType": "Medical Leave",
+        "startDate": "2024-09-12",
+        "endDate": "2024-09-13",
+        "reason": "Fever",
+        "status": "REJECTED"
+      },
+      {
+        "leaveType": "Annual Leave",
+        "startDate": "2024-09-19",
+        "endDate": "2024-09-20",
+        "reason": "Vacation",
+        "status": "PENDING"
+      }
+    ],
+    "attendanceRecords": [
+      {
+        "date": "2024-09-04",
+        "status": "LATE",
+        "timeIn": "12:38:08.588344",
+        "timeOut": "19:03:16.773676"
+      }
+    ]
+  },
+  "ebb3770b-bb50-47da-bc72-b6cf74f47d42": {
+    "username": "codefish",
+    "password": "$2a$12$BdWvGKjvrRiz7mVhp3B.o.Rb9AIyJtgFILfGGX9scf7f34AHJozsG",
+    "emergencyContact": {
+      "name": "Jane Smith",
+      "phoneNumber": "0168919333",
+      "relationship": "Mother"
+    },
+    "role": "Department Manager",
+    "loginAttempts": 0,
+    "accountStatus": "ACTIVE",
+    "accountDisabled": false,
+    "department": "IT",
+    "grossSalary": 2500,
+    "internalWorkExperiences": [
+      {
+        "department": "IT",
+        "role": "Normal Employee",
+        "grossSalary": 2000,
+        "companyName": "Talon",
+        "position": "IT Intern",
+        "startDate": "2014-08-08",
+        "endDate": "2014-12-12"
+      },
+      {
+        "department": "IT",
+        "role": "Department Manager",
+        "grossSalary": 2500,
+        "companyName": "Talon",
+        "position": "IT Manager",
+        "startDate": "2024-09-01",
+        "endDate": "ongoing"
+      }
+    ],
+    "leaveApplications": [
+      {
+        "leaveType": "Annual Leave",
+        "startDate": "2024-09-05",
+        "endDate": "2024-09-06",
+        "reason": "Sick",
+        "status": "APPROVED"
+      }
+    ],
+    "attendanceRecords": [
+      {
+        "date": "2024-09-04",
+        "status": "LATE",
+        "timeIn": "12:38:08.588344",
+        "timeOut": "19:26:09.071915"
+      }
+    ]
+  },
+  "johnsmith": {
+    "username": "johnsmith",
+    "password": "$2a$12$cwP7tD4NmbvMQKMAZ.7qQOFKNMQPm2dMfcwrVMBXTxQLSb1adYMzm",
+    "fullName": "John Smithson",
+    "gender": "Male",
+    "identificationCard": "1234567890",
+    "phoneNumber": "0168919333",
+    "birthDate": "1990-01-01",
+    "email": "johnsmith@gmail.com",
+    "address": "Sri Lagenda Villa",
+    "emergencyContact": {
+      "name": "Jane Smith",
+      "phoneNumber": "0168919333",
+      "relationship": "Mother"
+    },
+    "role": "Normal Employee",
+    "position": "Graphic Designer",
+    "loginAttempts": 0,
+    "accountStatus": "ACTIVE",
+    "accountDisabled": false,
+    "nationality": "British",
+    "department": "IT",
     "grossSalary": 2000,
     "internalWorkExperiences": [
       {
@@ -223,7 +344,7 @@
         "date": "2024-09-04",
         "status": "LATE",
         "timeIn": "12:38:08.588344",
-        "timeOut": "13:57:05.467909"
+        "timeOut": "19:03:16.773676"
       }
     ]
   }

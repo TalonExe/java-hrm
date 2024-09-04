@@ -12,16 +12,17 @@ public class LeaveApplicationRow {
     private SimpleStringProperty status;
     private Button deleteButton;
     private LeaveApplication leaveApplication;
+    private Button actionButton;
     private int index;
 
-    public LeaveApplicationRow(int index, String leaveType, String startDate, String endDate, String reason, String status, Button deleteButton, LeaveApplication leaveApplication) {
+    public LeaveApplicationRow(int index, String leaveType, String startDate, String endDate, String reason, String status, LeaveApplication leaveApplication) {
         this.index = index;
         this.leaveType = new SimpleStringProperty(leaveType);
         this.startDate = new SimpleStringProperty(startDate);
         this.endDate = new SimpleStringProperty(endDate);
         this.reason = new SimpleStringProperty(reason);
         this.status = new SimpleStringProperty(status);
-        this.deleteButton = deleteButton;
+        this.deleteButton = new Button("Delete");
         this.leaveApplication = leaveApplication;
     }
 
@@ -79,5 +80,13 @@ public class LeaveApplicationRow {
 
     public int getIndex() {
         return index;
+    }
+
+    public Button getActionButton() {
+        return actionButton;
+    }
+
+    public void setDeleteButton(Button deleteButton) {
+        this.deleteButton = deleteButton;
     }
 }

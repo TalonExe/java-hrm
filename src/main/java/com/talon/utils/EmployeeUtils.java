@@ -347,8 +347,7 @@ public class EmployeeUtils {
 
     public static int calculateSalaryIncrement(String id, int indexOfExperience) throws Exception {
         try {
-            Map<String, Employee> employees = ReadData();
-            Employee employee = employees.get(id);
+            Employee employee = getEmployeeById(id);
             
             if (employee == null) {
                 throw new Exception("Employee not found");
@@ -362,19 +361,19 @@ public class EmployeeUtils {
             // Sort internalWorkExperiences by start date
             internalWorkExperiences.sort((e1, e2) -> e1.getStartDate().compareTo(e2.getStartDate()));
 
-            // If it's the first experience or invalid index, return 0
+            // If it's the first experience, return 0
             if (indexOfExperience <= 0 || indexOfExperience >= internalWorkExperiences.size()) {
                 return 0;
             }
 
-            InternalWorkExperience experience = internalWorkExperiences.get(indexOfExperience);
-            int grossSalary = experience.getGrossSalary();
-
+            InternalWorkExperience currentExperience = internalWorkExperiences.get(indexOfExperience);
             InternalWorkExperience previousExperience = internalWorkExperiences.get(indexOfExperience - 1);
-            int previousGrossSalary = previousExperience.getGrossSalary();
+
+            int currentSalary = currentExperience.getGrossSalary();
+            int previousSalary = previousExperience.getGrossSalary();
 
             // calculate increment
-            return grossSalary - previousGrossSalary;
+            return currentSalary - previousSalary;
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
