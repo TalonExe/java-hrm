@@ -279,5 +279,57 @@
         "timeOut": "20:49:42.893506"
       }
     ]
+  },
+  "2fbd2e81-b5ff-424a-8104-eb2d0ebd11ae": {
+    "username": "financeGuru",
+    "password": "$2a$12$pKCt88Ls6GrsMu72RzzX4.XDaQpUwiHrnpNdtWSegP.oW5pQwqMwC",
+    "fullName": "Fiona Lim",
+    "gender": "Female",
+    "identificationCard": "1234567890",
+    "phoneNumber": "0168919334",
+    "birthDate": "1990-01-01",
+    "email": "fiona@gmail.com",
+    "address": "Sri Lagenda Villa",
+    "emergencyContact": {
+      "name": "Jane Smith",
+      "phoneNumber": "0168919333",
+      "relationship": "Mother"
+    },
+    "role": "Payroll Officer",
+    "position": "Payroll Officer",
+    "loginAttempts": 0,
+    "accountStatus": "ACTIVE",
+    "accountDisabled": false,
+    "nationality": "Malaysian",
+    "department": "Finance",
+    "grossSalary": 3000,
+    "internalWorkExperiences": [
+      {
+        "department": "Finance",
+        "role": "Payroll Officer",
+        "grossSalary": 3000,
+        "companyName": "Talon",
+        "position": "Payroll Officer",
+        "startDate": "2024-09-01",
+        "endDate": "ongoing"
+      }
+    ],
+    "leaveApplications": [
+      {
+        "leaveType": "Annual Leave",
+        "startDate": "2024-09-05",
+        "endDate": "2024-09-06",
+        "reason": "Sick",
+        "status": "APPROVED"
+      }
+    ],
+    "attendanceRecords": [
+      {
+        "date": "2024-09-04",
+        "status": "LATE",
+        "timeIn": "12:38:08.588344",
+        "timeOut": "23:48:23.142561"
+      }
+    ]
   }
 }

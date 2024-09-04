@@ -4,20 +4,25 @@ import com.talon.controllers.common.ApplyLeavePageController;
 import com.talon.controllers.common.PersonalProfilePageController;
 import javafx.fxml.FXML;
 
-public class SideNavigationController extends PayrollOffiverMainController {
+public class SideNavigationController extends PayrollOfficerMainController {
     @FXML
-    private void switchToPersonalProfileDM() {
-        router.switchScene("personalProfileDM");
-        PersonalProfilePageController controller = (PersonalProfilePageController) router.getController("personalProfileDM");
+    private void switchToPayrollOfficerMain() {
+        router.switchScene("payrollOfficerMain");
+    }
+
+    @FXML
+    private void switchToPersonalProfilePO() {
+        router.switchScene("personalProfilePO");
+        PersonalProfilePageController controller = (PersonalProfilePageController) router.getController("personalProfilePO");
         if (controller != null) {
             controller.loadUserData();
         }
     }
 
     @FXML
-    private void switchToApplyLeaveDM() {
-        router.switchScene("applyLeaveDM");
-        ApplyLeavePageController controller = (ApplyLeavePageController) router.getController("applyLeaveDM");
+    private void switchToApplyLeavePO() {
+        router.switchScene("applyLeavePO");
+        ApplyLeavePageController controller = (ApplyLeavePageController) router.getController("applyLeavePO");
         if (controller != null) {
             controller.loadEmployeeData();
         }
@@ -25,6 +30,6 @@ public class SideNavigationController extends PayrollOffiverMainController {
 
     @FXML
     private void switchToPasswordChange() {
-        router.switchScene("passwordChangeDM");
+        router.switchScene("passwordChangePO");
     }
 }

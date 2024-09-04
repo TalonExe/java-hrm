@@ -5,13 +5,14 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.geometry.Insets?>
 
-<VBox fx:id="sideNavigation" prefWidth="300.0" style="-fx-background-color: #86C232;" spacing="10" alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.controllers.normalEmployee.NormalEmployeeMainController">
+<VBox fx:id="sideNavigation" prefWidth="300.0" style="-fx-background-color: #86C232;" spacing="10" alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.controllers.payrollOfficer.SideNavigationController">
     <padding>
         <Insets top="20" right="10" bottom="20" left="10" />
     </padding>
     <Circle fill="DODGERBLUE" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
-    <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" onAction="#switchToProfile"/>
-    <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" onAction="#switchToApplyLeave"/>
+    <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" onAction="#switchToPersonalProfilePO"/>
+    <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Payroll Management" onAction="#switchToPayrollOfficerMain"/>
+    <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" onAction="#switchToApplyLeavePO"/>
     <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Change Password" onAction="#switchToPasswordChange"/>
     <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" onAction="#logOut"/>
 </VBox>

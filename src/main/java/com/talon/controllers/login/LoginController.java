@@ -17,6 +17,7 @@ import java.util.Map;
 import com.talon.utils.SessionState;
 import com.talon.controllers.common.PersonalProfilePageController;
 import com.talon.controllers.departmentManager.LeaveManagementPageController;
+import com.talon.controllers.payrollOfficer.PayrollOfficerMainController;
 
 public class LoginController extends BaseController {
     @FXML
@@ -119,7 +120,7 @@ public class LoginController extends BaseController {
     private void switchToAppropriateScene(String role) {
         String sceneName = switch (role) {
             case "HR Officer" -> "hrMain";
-            case "Payroll Officer" -> "Payroll_Lobby";
+            case "Payroll Officer" -> "payrollOfficerMain";
             case "System Administrator" -> "adminHomepage";
             case "Department Manager" -> "departmentManagerMain";
             default -> "applyLeaveEmployee";
@@ -134,6 +135,12 @@ public class LoginController extends BaseController {
             LeaveManagementPageController controller = (LeaveManagementPageController) router.getController("departmentManagerMain");
             if (controller != null) {
                 controller.loadLeaveApplications();
+            }
+        }
+        if (sceneName.equals("payrollOfficerMain")) {
+            PayrollOfficerMainController controller = (PayrollOfficerMainController) router.getController("payrollOfficerMain");
+            if (controller != null) {
+                controller.loadAllTransactions();
             }
         }
         router.switchScene(sceneName);
