@@ -12,6 +12,7 @@ import javafx.scene.layout.GridPane;
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ApplyLeavePageController extends BaseController {
 
@@ -59,10 +60,15 @@ public class ApplyLeavePageController extends BaseController {
             
             if (employee.getLeaveApplications() != null) {
                 changeValueOfDeleteColumn();
-                for (LeaveApplication leave : employee.getLeaveApplications()) {
+                for (int i = 0; i < employee.getLeaveApplications().size(); i++) {
+                    LeaveApplication leave = employee.getLeaveApplications().get(i);
+                    final int index = i;  // Create a final variable to capture the index
                     Button deleteButton = new Button("Delete");
-                    deleteButton.setOnAction(event -> handleDeleteLeaveApplication(leave));
-                    LeaveApplicationRow row = new LeaveApplicationRow(leave.getLeaveType(), leave.getStartDate(), leave.getEndDate(), leave.getReason(), leave.getStatus(), deleteButton);
+                    deleteButton.setOnAction(event -> handleDeleteLeaveApplication(leave, index));
+                    if (leave.getStatus().equalsIgnoreCase("APPROVED")) {
+                        deleteButton.setDisable(true);
+                    }
+                    LeaveApplicationRow row = new LeaveApplicationRow(index, leave.getLeaveType(), leave.getStartDate(), leave.getEndDate(), leave.getReason(), leave.getStatus(), deleteButton, leave);
                     leaveApplicationsTable.getItems().add(row);
                 }
             }
@@ -171,50 +177,50 @@ public class ApplyLeavePageController extends BaseController {
         if (deleteColumn != null) {
             deleteColumn.setCellValueFactory(new PropertyValueFactory<>("deleteButton"));
             deleteColumn.setCellFactory(column -> new TableCell<LeaveApplicationRow, Button>() {
+                private final Button deleteButton = new Button("Delete");
+
                 @Override
                 protected void updateItem(Button item, boolean empty) {
                     super.updateItem(item, empty);
-                    if (empty || item == null) {
+                    if (empty) {
                         setGraphic(null);
                     } else {
-                        setGraphic(item);
-                        item.setOnAction(event -> {
-                            //get row index
-                            int rowIndex = getIndex();
-                            // from row index, get the leave application from employee.getLeaveApplications()
-                            LeaveApplication leaveApplication = currentEmployee.getLeaveApplications().get(rowIndex);
-                            handleDeleteLeaveApplication(leaveApplication);
-                        });
+                        LeaveApplicationRow row = getTableView().getItems().get(getIndex());
+                        deleteButton.setOnAction(event -> handleDeleteLeaveApplication(row.getLeaveApplication(), row.getIndex()));
+                        deleteButton.setDisable(!"PENDING".equalsIgnoreCase(row.getStatus()));
+                        setGraphic(deleteButton);
                     }
                 }
             });
         }
     }
 
-    private void handleDeleteLeaveApplication(LeaveApplication leaveApplication) {
-        if (!"PENDING".equalsIgnoreCase(leaveApplication.getStatus())) {
-            ErrorAlert("Only pending leave applications can be deleted.");
-            return;
-        }
-
+    private void handleDeleteLeaveApplication(LeaveApplication leaveApplication, int index) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Delete Leave Application");
         alert.setHeaderText(null);
         alert.setContentText("Are you sure you want to delete this leave application?");
-
         alert.showAndWait().ifPresent(response -> {
             if (response == ButtonType.OK) {
                 try {
-                    currentEmployee.getLeaveApplications().remove(leaveApplication);
                     Map<String, Employee> employees = EmployeeUtils.ReadData();
-                    employees.put(SessionState.getInstance().getLoggedInUserId(), currentEmployee);
-                    EmployeeUtils.WriteData(employees);
+                    Employee updatedEmployee = employees.get(SessionState.getInstance().getLoggedInUserId());
+                    List<LeaveApplication> leaveApplications = updatedEmployee.getLeaveApplications();
                     
-                    // Clear the table and reload leave applications
-                    leaveApplicationsTable.getItems().clear();
-                    loadLeaveApplications();
-                    
-                    SuccessAlert("Leave application deleted successfully.");
+                    if (index >= 0 && index < leaveApplications.size()) {
+                        leaveApplications.remove(index);
+                        updatedEmployee.setLeaveApplications(leaveApplications);
+                        employees.put(SessionState.getInstance().getLoggedInUserId(), updatedEmployee);
+                        EmployeeUtils.WriteData(employees);
+                        
+                        // Refresh the table data
+                        loadEmployeeData();
+                        loadLeaveApplications();
+                        
+                        SuccessAlert("Leave application deleted successfully.");
+                    } else {
+                        ErrorAlert("Leave application not found.");
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                     ErrorAlert("Error deleting leave application.");

@@ -43,10 +43,10 @@
     ],
     "leaveApplications": [
       {
-        "leaveType": "Annual Leave",
-        "startDate": "2024-01-01",
-        "endDate": "2024-01-05",
-        "reason": "Personal Leave",
+        "leaveType": "Medical Leave",
+        "startDate": "2024-09-11",
+        "endDate": "2024-09-19",
+        "reason": "sick",
         "status": "APPROVED"
       }
     ],
@@ -56,12 +56,18 @@
         "status": "ONTIME",
         "timeIn": "08:00:00",
         "timeOut": "17:00:00"
+      },
+      {
+        "date": "2024-09-04",
+        "status": "LATE",
+        "timeIn": "09:22:59.096359",
+        "timeOut": "10:57:27.723669"
       }
     ]
   },
   "08517aa5-e2ab-4d44-98af-e81afc3aec23": {
     "username": "Alice23",
-    "password": "$2a$12$MRZQvSOcrc0zxlwjS4yUr.i4NcTYXtqkylqU0ggJj7O1.fXYjvss6",
+    "password": "$2a$12$uiselMi5VZYSQ8ZFJDryOe5zOajVbdEeNRDzjfT7Ds18Na0Af/UXe",
     "fullName": "Alice Johnson",
     "gender": "Female",
     "identificationCard": "051109121204",
@@ -87,16 +93,24 @@
     "email": "george@gmail.com",
     "address": "Sri Lagenda Villa",
     "emergencyContact": {
-      "name": "",
-      "phoneNumber": "",
-      "relationship": ""
+      "name": "Amy",
+      "phoneNumber": "0168919332",
+      "relationship": "Mother"
     },
     "role": "System Administrator",
     "position": "IT Support",
     "loginAttempts": 0,
     "accountStatus": "ACTIVE",
     "accountDisabled": false,
-    "nationality": "Singaporean"
+    "nationality": "Singaporean",
+    "attendanceRecords": [
+      {
+        "date": "2024-09-04",
+        "status": "LATE",
+        "timeIn": "09:30:43.621133",
+        "timeOut": "PENDING"
+      }
+    ]
   },
   "c5ded723-a90e-4a4a-acb3-eac1d86f5586": {
     "username": "jeffDham",
@@ -105,7 +119,15 @@
     "loginAttempts": 0,
     "accountStatus": "ACTIVE",
     "accountDisabled": false,
-    "leaveApplications": [],
+    "leaveApplications": [
+      {
+        "leaveType": "Medical Leave",
+        "startDate": "2024-09-11",
+        "endDate": "2024-09-19",
+        "reason": "sick",
+        "status": "PENDING"
+      }
+    ],
     "attendanceRecords": [
       {
         "date": "2024-09-03",
@@ -117,8 +139,16 @@
         "date": "2024-09-04",
         "status": "ONTIME",
         "timeIn": "00:00:15.174669",
-        "timeOut": "03:07:28.105832"
+        "timeOut": "10:31:06.762857"
       }
     ]
+  },
+  "a392c43d-57b0-48d4-b262-0849d420c7f8": {
+    "username": "xiangrong",
+    "password": "$2a$12$gE9IrVfZIp4sThV5PrVqnuNrYTr28IfcBMj0W6Dq.9qBSKm853cA2",
+    "role": "Department Manager",
+    "loginAttempts": 0,
+    "accountStatus": "ACTIVE",
+    "accountDisabled": false
   }
 }

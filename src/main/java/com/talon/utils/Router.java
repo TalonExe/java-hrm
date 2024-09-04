@@ -14,6 +14,7 @@ public class Router {
     private Stage primaryStage;
     private Map<String, Scene> scenes;
     private Map<String, Object> controllers;
+    private String currentScene;
 
     private Router() {
         scenes = new HashMap<>();
@@ -39,13 +40,14 @@ public class Router {
         controllers.put(name, loader.getController());
     }
 
-    public void switchScene(String name) {
-        Scene scene = scenes.get(name);
+    public void switchScene(String sceneName) {
+        Scene scene = scenes.get(sceneName);
         if (scene != null && primaryStage != null) {
             primaryStage.setScene(scene);
         } else {
-            System.err.println("Scene not found: " + name);
+            System.err.println("Scene not found: " + sceneName);
         }
+        this.currentScene = sceneName;
     }
 
     public Object getController(String name) {
@@ -54,5 +56,9 @@ public class Router {
 
     public Stage getPrimaryStage() {
         return primaryStage;
+    }
+
+    public String getCurrentScene() {
+        return this.currentScene;
     }
 }

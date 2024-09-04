@@ -49,9 +49,18 @@
 
 .info-field {
     -fx-background-color: #2C3E50;
-    -fx-text-fill: #ECF0F1;
+    -fx-text-fill: #FFFFFF;
     -fx-font-size: 14px;
     -fx-padding: 8;
+}
+
+.info-field .text-area {
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #34495E;
+}
+
+.info-field .text-area .content {
+    -fx-background-color: #34495E;
 }
 
 .main-background {

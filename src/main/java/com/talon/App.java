@@ -13,6 +13,12 @@ public class App extends Application {
         // Load the login scene
         router.loadScene("login", "/views/login/LoginPage.fxml");
 
+        // Load scenes for System Admin
+        router.loadScene("personalProfileAdmin", "/views/systemAdmin/PersonalProfilePage.fxml");
+        router.loadScene("applyLeaveAdmin", "/views/systemAdmin/ApplyLeavePage.fxml");
+        router.loadScene("adminHomepage", "/views/systemAdmin/AdminHomepage.fxml");
+        router.loadScene("manageUserAccounts", "/views/systemAdmin/ManageUserAccountsPage.fxml");
+        
         // Load scenes for HR
         router.loadScene("hrMain", "/views/hr/HRMainpage.fxml");
         router.loadScene("employmentDetailsManagement", "/views/hr/ManageEmploymentDetailsPage.fxml");

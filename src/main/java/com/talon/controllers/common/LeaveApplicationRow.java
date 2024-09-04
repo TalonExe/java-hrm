@@ -2,6 +2,7 @@ package com.talon.controllers.common;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.Button;
+import com.talon.models.LeaveApplication;
 
 public class LeaveApplicationRow {
     private SimpleStringProperty leaveType;
@@ -10,14 +11,18 @@ public class LeaveApplicationRow {
     private SimpleStringProperty reason;
     private SimpleStringProperty status;
     private Button deleteButton;
+    private LeaveApplication leaveApplication;
+    private int index;
 
-        public LeaveApplicationRow(String leaveType, String startDate, String endDate, String reason, String status, Button deleteButton) {
+    public LeaveApplicationRow(int index, String leaveType, String startDate, String endDate, String reason, String status, Button deleteButton, LeaveApplication leaveApplication) {
+        this.index = index;
         this.leaveType = new SimpleStringProperty(leaveType);
         this.startDate = new SimpleStringProperty(startDate);
         this.endDate = new SimpleStringProperty(endDate);
         this.reason = new SimpleStringProperty(reason);
         this.status = new SimpleStringProperty(status);
         this.deleteButton = deleteButton;
+        this.leaveApplication = leaveApplication;
     }
 
     public String getLeaveType() {
@@ -62,5 +67,17 @@ public class LeaveApplicationRow {
 
     public Button getDeleteButton() {
         return deleteButton;
+    }
+
+    public LeaveApplication getLeaveApplication() {
+        return leaveApplication;
+    }
+
+    public void setLeaveApplication(LeaveApplication leaveApplication) {
+        this.leaveApplication = leaveApplication;
+    }
+
+    public int getIndex() {
+        return index;
     }
 }

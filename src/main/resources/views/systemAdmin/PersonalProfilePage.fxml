@@ -36,7 +36,7 @@
                         <Label text="Phone Number:" styleClass="field-label" />
                         <TextField fx:id="phoneNumberField" editable="false" styleClass="info-field" />
                         <Label text="Address:" styleClass="field-label" />
-                        <TextArea fx:id="addressField" editable="false" styleClass="info-field" />
+                        <TextArea fx:id="addressField" editable="false" styleClass="info-field text-area content" />
                      </VBox>
                   </ScrollPane>
                </Tab>

@@ -79,10 +79,24 @@ public class LoginController extends BaseController {
         EmployeeUtils.createAttendanceRecord(employeeId, LocalDate.now().toString(), LocalTime.now().toString());
         switchToAppropriateScene(employee.getRole());
         
-        // Load user data in the PersonalProfilePageController
-        PersonalProfilePageController profileController = (PersonalProfilePageController) router.getController("personalProfileHR");
+        // Load user data in the appropriate PersonalProfilePageController
+        String profileSceneName = getProfileSceneName(employee.getRole());
+        PersonalProfilePageController profileController = (PersonalProfilePageController) router.getController(profileSceneName);
         if (profileController != null) {
             profileController.loadUserData();
+        }
+    }
+
+    private String getProfileSceneName(String role) {
+        switch (role) {
+            case "HR Officer":
+                return "personalProfileHR";
+            case "Payroll Manager":
+                return "personalProfilePayroll";
+            case "System Administrator":
+                return "personalProfileAdmin";
+            default:
+                return "personalProfileEmployee";
         }
     }
 
@@ -95,7 +109,7 @@ public class LoginController extends BaseController {
         String sceneName = switch (role) {
             case "HR Officer" -> "hrMain";
             case "Payroll Manager" -> "Payroll_Lobby";
-            case "System Administrator" -> "SystemAdminHomepage";
+            case "System Administrator" -> "adminHomepage";
             default -> "EmployeePersonal";
         };
         router.switchScene(sceneName);
