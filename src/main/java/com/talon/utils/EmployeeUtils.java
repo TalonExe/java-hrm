@@ -385,4 +385,72 @@ public class EmployeeUtils {
         LocalTime lateThreshold = LocalTime.of(8, 30);
         return clockInTime.isAfter(lateThreshold);
     }
+
+    public static boolean isLateThreeTimes(String id) throws Exception {
+        try {
+            Map<String, Employee> employees = ReadData();
+            Employee employee = employees.get(id);
+            
+            if (employee == null) {
+                throw new Exception("Employee not found");
+            }
+
+            List<AttendanceRecord> attendanceRecords = employee.getAttendanceRecords();
+            if (attendanceRecords == null) {
+                throw new Exception("No attendance records found");
+            }
+
+            int lateCount = 0;
+            LocalDate currentDate = LocalDate.now();
+            for (AttendanceRecord record : attendanceRecords) {
+                LocalDate recordDate = LocalDate.parse(record.getDate());
+                if (recordDate.getMonth() == currentDate.getMonth() && 
+                    recordDate.getYear() == currentDate.getYear() && 
+                    record.getStatus().equalsIgnoreCase("LATE")) {
+                    lateCount++;
+                }
+            }
+
+            return lateCount >= 3;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public static int getNetSalary(String id) throws Exception {
+        try {
+            Map<String, Employee> employees = ReadData();
+            Employee employee = employees.get(id);
+            
+            if (employee == null) {
+                throw new Exception("Employee not found");
+            }
+    
+            // Get employee's gross salary
+            double grossSalary = employee.getGrossSalary();
+    
+            // Calculate the deductions
+            double epf = grossSalary * 0.11; // Employee EPF contribution (11%)
+            double socso = grossSalary * 0.005; // Employee SOCSO contribution (0.5%)
+            double eis = grossSalary * 0.002; // Employee EIS contribution (0.2%)
+    
+            // Calculate PCB (annual tax / 12)
+            double annualTax = grossSalary * 0.05;
+            double pcb = annualTax / 12;
+    
+            // Check if the employee has been late 3 or more times this month
+            boolean isLateThreeTimes = isLateThreeTimes(id);
+            double latePenalty = isLateThreeTimes ? 100 : 0; // RM100 penalty for being late 3 or more times
+    
+            // Calculate net salary
+            double netSalary = grossSalary - epf - socso - eis - pcb - latePenalty;
+    
+            // Return net salary rounded to nearest integer
+            return (int) Math.round(netSalary);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
 }

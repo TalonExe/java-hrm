@@ -30,6 +30,11 @@ public class App extends Application {
         router.loadScene("personalProfileDM", "/views/departmentManager/PersonalProfilePage.fxml");
         router.loadScene("departmentManagerMain", "/views/departmentManager/LeaveManagementPage.fxml");
 
+        // Load scenes for Payroll Officer
+        router.loadScene("personalProfilePO", "/views/payrollOfficer/PersonalProfilePage.fxml");
+        router.loadScene("applyLeavePO", "/views/payrollOfficer/ApplyLeavePage.fxml");
+        router.loadScene("passwordChangePO", "/views/payrollOfficer/PasswordChangePage.fxml");
+
         // Load scenes for HR
         router.loadScene("hrMain", "/views/hr/HRMainpage.fxml");
         router.loadScene("employmentDetailsManagement", "/views/hr/ManageEmploymentDetailsPage.fxml");

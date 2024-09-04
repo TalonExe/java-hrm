@@ -100,8 +100,8 @@ public class LoginController extends BaseController {
         switch (role) {
             case "HR Officer":
                 return "personalProfileHR";
-            case "Payroll Manager":
-                return "personalProfilePayroll";
+            case "Payroll Officer":
+                return "personalProfilePO";
             case "System Administrator":
                 return "personalProfileAdmin";
             case "Department Manager":
@@ -119,7 +119,7 @@ public class LoginController extends BaseController {
     private void switchToAppropriateScene(String role) {
         String sceneName = switch (role) {
             case "HR Officer" -> "hrMain";
-            case "Payroll Manager" -> "Payroll_Lobby";
+            case "Payroll Officer" -> "Payroll_Lobby";
             case "System Administrator" -> "adminHomepage";
             case "Department Manager" -> "departmentManagerMain";
             default -> "applyLeaveEmployee";

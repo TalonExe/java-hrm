@@ -10,6 +10,7 @@ import com.talon.utils.SessionState;
 import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class LeaveManagementPageController extends DepartmentManagerMainController {
 
@@ -53,7 +54,13 @@ public class LeaveManagementPageController extends DepartmentManagerMainControll
             int index = 1;
             for (Employee employee : allEmployees.values()) {
                 if (employee.getDepartment() != null && employee.getDepartment().equals(currentDepartment) && employee.getLeaveApplications() != null) {
+                    Map<String, LeaveApplication> uniqueApplications = new HashMap<>();
                     for (LeaveApplication application : employee.getLeaveApplications()) {
+                        String key = employee.getFullName() + application.getLeaveType() + application.getStartDate() + application.getEndDate();
+                        uniqueApplications.put(key, application);
+                    }
+                    
+                    for (LeaveApplication application : uniqueApplications.values()) {
                         Button actionButton = createActionButton(application, employee);
                         LeaveApplicationRow row = new LeaveApplicationRow(
                                 index++,
