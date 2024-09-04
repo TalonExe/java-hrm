@@ -209,6 +209,13 @@
         "endDate": "2024-09-13",
         "reason": "Fever",
         "status": "PENDING"
+      },
+      {
+        "leaveType": "Annual Leave",
+        "startDate": "2024-09-19",
+        "endDate": "2024-09-20",
+        "reason": "Vacation",
+        "status": "PENDING"
       }
     ],
     "attendanceRecords": [
@@ -216,7 +223,7 @@
         "date": "2024-09-04",
         "status": "LATE",
         "timeIn": "12:38:08.588344",
-        "timeOut": "12:45:18.283409"
+        "timeOut": "13:57:05.467909"
       }
     ]
   }

@@ -8,6 +8,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Map;
@@ -18,14 +21,18 @@ public class LoginController extends BaseController {
     @FXML
     private TextField loginUsername;
     @FXML
-    private PasswordField loginPassword;
+    private PasswordField passwordField;
     @FXML
     private AnchorPane rootPane;
+    @FXML
+    private Button togglePasswordVisibility;
+
+    private TextField visiblePasswordField;
 
     @FXML
     private void loginProcess() {
         String usernameInput = loginUsername.getText();
-        String passwordInput = loginPassword.getText();
+        String passwordInput = passwordField.isVisible() ? passwordField.getText() : visiblePasswordField.getText();
 
         try {
             Employee loggedInEmployee = EmployeeUtils.findByUsername(usernameInput);
@@ -103,7 +110,7 @@ public class LoginController extends BaseController {
 
     private void clearLoginFields() {
         loginUsername.setText("");
-        loginPassword.setText("");
+        passwordField.setText("");
     }
 
     private void switchToAppropriateScene(String role) {
@@ -130,5 +137,42 @@ public class LoginController extends BaseController {
                 rootPane.prefHeightProperty().bind(newValue.heightProperty());
             }
         });
+    }
+
+    @FXML
+    private void togglePasswordVisibility() {
+        try {
+            if (passwordField.isVisible()) {
+                if (visiblePasswordField == null) {
+                    visiblePasswordField = new TextField();
+                    visiblePasswordField.setPromptText("Password");
+                    visiblePasswordField.setFont(passwordField.getFont());
+                    visiblePasswordField.getStyleClass().addAll(passwordField.getStyleClass());
+                    HBox.setHgrow(visiblePasswordField, Priority.ALWAYS);
+                }
+                visiblePasswordField.setText(passwordField.getText());
+                HBox parent = (HBox) passwordField.getParent();
+                if (parent != null) {
+                    int index = parent.getChildren().indexOf(passwordField);
+                    parent.getChildren().set(index, visiblePasswordField);
+                }
+                passwordField.setVisible(false);
+                visiblePasswordField.setVisible(true);
+                togglePasswordVisibility.setText("🔒");
+            } else {
+                passwordField.setText(visiblePasswordField.getText());
+                HBox parent = (HBox) visiblePasswordField.getParent();
+                if (parent != null) {
+                    int index = parent.getChildren().indexOf(visiblePasswordField);
+                    parent.getChildren().set(index, passwordField);
+                }
+                passwordField.setVisible(true);
+                visiblePasswordField.setVisible(false);
+                togglePasswordVisibility.setText("👁️");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorAlert("An error occurred while toggling password visibility");
+        }
     }
 }

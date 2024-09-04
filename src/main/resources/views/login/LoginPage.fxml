@@ -25,11 +25,14 @@
                            <Font size="18.0" />
                         </font>
                      </TextField>
-                     <PasswordField fx:id="loginPassword" maxWidth="300.0" promptText="Password">
-                        <font>
-                           <Font size="18.0" />
-                        </font>
-                     </PasswordField>
+                     <HBox maxWidth="300.0" alignment="CENTER_LEFT">
+                        <PasswordField fx:id="passwordField" HBox.hgrow="ALWAYS" promptText="Password">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </PasswordField>
+                        <Button fx:id="togglePasswordVisibility" mnemonicParsing="false" onAction="#togglePasswordVisibility" styleClass="visibility-toggle" text="👁️" />
+                     </HBox>
                      <Button styleClass="hover-button" mnemonicParsing="false" onAction="#loginProcess" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #86C232;" text="Login">
                         <font>
                            <Font size="24.0" />

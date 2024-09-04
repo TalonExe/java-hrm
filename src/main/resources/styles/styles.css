@@ -74,3 +74,14 @@
 .combo-box:disabled .list-cell {
     -fx-text-fill: white;
 }
+
+.visibility-toggle {
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 0 5;
+    -fx-border-width: 0;
+    -fx-font-size: 18px;
+}
+
+.visibility-toggle:hover {
+    -fx-cursor: hand;
+}
