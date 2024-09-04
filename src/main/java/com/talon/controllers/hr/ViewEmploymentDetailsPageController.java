@@ -146,7 +146,20 @@ public class ViewEmploymentDetailsPageController extends HRMainController {
                 employee.setFullName(fullNameLabel.getText());
                 employee.setPosition(positionLabel.getText());
                 employee.setDepartment(departmentLabel.getText());
-                employee.setGrossSalary(Integer.parseInt(grossSalaryLabel.getText()));
+                
+                String salaryText = grossSalaryLabel.getText();
+                if (salaryText != null && !salaryText.isEmpty()) {
+                    try {
+                        int salary = Integer.parseInt(salaryText);
+                        employee.setGrossSalary(salary);
+                    } catch (NumberFormatException e) {
+                        ErrorAlert("Invalid salary format. Please enter a valid number.");
+                        return;
+                    }
+                } else {
+                    ErrorAlert("Salary cannot be empty.");
+                    return;
+                }
 
                 if (!employee.getRole().equals("System Administrator")) {
                     employee.setRole(roleComboBox.getValue());
@@ -236,19 +249,21 @@ public class ViewEmploymentDetailsPageController extends HRMainController {
     private void loadExternalWorkExperienceData() {
         try {
             Employee employee = EmployeeUtils.getEmployeeById(employeeId);
-            if (employee != null && employee.getExternalWorkExperiences() != null) {
+            if (employee != null) {
                 externalWorkExperienceGrid.getChildren().clear();
                 
                 // Add header
                 addExternalWorkExperienceHeader();
                 
                 int row = 1;
-                List<ExternalWorkExperience> experiences = employee.getExternalWorkExperiences();
-                for (int i = 0; i < experiences.size(); i++) {
-                    addExternalWorkExperienceRow(experiences.get(i), row++, i);
+                if (employee.getExternalWorkExperiences() != null) {
+                    List<ExternalWorkExperience> experiences = employee.getExternalWorkExperiences();
+                    for (int i = 0; i < experiences.size(); i++) {
+                        addExternalWorkExperienceRow(experiences.get(i), row++, i);
+                    }
                 }
                 
-                // Add "Add" button
+                // Add "Add" button (always add this, regardless of existing experiences)
                 Button addButton = new Button("Add Experience");
                 addButton.setOnAction(e -> handleAddExternalWorkExperience());
                 externalWorkExperienceGrid.add(addButton, 0, row, 6, 1);
@@ -299,15 +314,19 @@ public class ViewEmploymentDetailsPageController extends HRMainController {
         if (newExp != null) {
             try {
                 Employee employee = EmployeeUtils.getEmployeeById(employeeId);
-                if (employee.getExternalWorkExperiences() == null) {
-                    employee.setExternalWorkExperiences(new ArrayList<>());
+                if (employee != null) {
+                    if (employee.getExternalWorkExperiences() == null) {
+                        employee.setExternalWorkExperiences(new ArrayList<>());
+                    }
+                    employee.getExternalWorkExperiences().add(newExp);
+                    Map<String, Employee> employees = EmployeeUtils.ReadData();
+                    employees.put(employeeId, employee);
+                    EmployeeUtils.WriteData(employees);
+                    loadExternalWorkExperienceData();
+                    SuccessAlert("External work experience added successfully");
+                } else {
+                    ErrorAlert("Employee not found");
                 }
-                employee.getExternalWorkExperiences().add(newExp);
-                Map<String, Employee> employees = EmployeeUtils.ReadData();
-                employees.put(employeeId, employee);
-                EmployeeUtils.WriteData(employees);
-                loadExternalWorkExperienceData();
-                SuccessAlert("External work experience added successfully");
             } catch (Exception e) {
                 e.printStackTrace();
                 ErrorAlert("Error adding external work experience");
@@ -470,23 +489,25 @@ public class ViewEmploymentDetailsPageController extends HRMainController {
     private void loadInternalWorkExperienceData() {
         try {
             Employee employee = EmployeeUtils.getEmployeeById(employeeId);
-            if (employee != null && employee.getInternalWorkExperiences() != null) {
-                employee.sortInternalWorkExperiences();
+            if (employee != null) {
                 internalWorkExperienceGrid.getChildren().clear();
                 
                 // Add header
                 addInternalWorkExperienceHeader();
                 
                 int row = 1;
-                List<InternalWorkExperience> experiences = employee.getInternalWorkExperiences();
-                for (int i = 0; i < experiences.size(); i++) {
-                    addInternalWorkExperienceRow(experiences.get(i), row++, i);
+                if (employee.getInternalWorkExperiences() != null) {
+                    employee.sortInternalWorkExperiences();
+                    List<InternalWorkExperience> experiences = employee.getInternalWorkExperiences();
+                    for (int i = 0; i < experiences.size(); i++) {
+                        addInternalWorkExperienceRow(experiences.get(i), row++, i);
+                    }
                 }
                 
-                // Add "Add" button
+                // Add "Add" button (always add this, regardless of existing experiences)
                 Button addButton = new Button("Add Experience");
                 addButton.setOnAction(e -> handleAddInternalWorkExperience());
-                internalWorkExperienceGrid.add(addButton, 0, row, 6, 1);
+                internalWorkExperienceGrid.add(addButton, 0, row, 7, 1);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -552,35 +573,39 @@ public class ViewEmploymentDetailsPageController extends HRMainController {
         if (newExp != null) {
             try {
                 Employee employee = EmployeeUtils.getEmployeeById(employeeId);
-                if (employee.getInternalWorkExperiences() == null) {
-                    employee.setInternalWorkExperiences(new ArrayList<>());
+                if (employee != null) {
+                    if (employee.getInternalWorkExperiences() == null) {
+                        employee.setInternalWorkExperiences(new ArrayList<>());
+                    }
+                    
+                    // Check if there's already an ongoing experience
+                    boolean hasOngoing = employee.getInternalWorkExperiences().stream()
+                        .anyMatch(exp -> "ongoing".equalsIgnoreCase(exp.getEndDate()));
+                    
+                    if (hasOngoing && "ongoing".equalsIgnoreCase(newExp.getEndDate())) {
+                        ErrorAlert("There can't be two ongoing internal work experiences.");
+                        return;
+                    }
+                    
+                    employee.getInternalWorkExperiences().add(newExp);
+                    
+                    // If this is an ongoing experience, update the employee's main details
+                    if ("ongoing".equalsIgnoreCase(newExp.getEndDate())) {
+                        employee.setRole(newExp.getRole());
+                        employee.setPosition(newExp.getPosition());
+                        employee.setGrossSalary(newExp.getGrossSalary());
+                        employee.setDepartment(newExp.getDepartment());
+                    }
+                    
+                    Map<String, Employee> employees = EmployeeUtils.ReadData();
+                    employees.put(employeeId, employee);
+                    EmployeeUtils.WriteData(employees);
+                    loadInternalWorkExperienceData();
+                    loadEmployeeData(); // Refresh the main employee details
+                    SuccessAlert("Internal work experience added successfully");
+                } else {
+                    ErrorAlert("Employee not found");
                 }
-                
-                // Check if there's already an ongoing experience
-                boolean hasOngoing = employee.getInternalWorkExperiences().stream()
-                    .anyMatch(exp -> "ongoing".equalsIgnoreCase(exp.getEndDate()));
-                
-                if (hasOngoing && "ongoing".equalsIgnoreCase(newExp.getEndDate())) {
-                    ErrorAlert("There can't be two ongoing internal work experiences.");
-                    return;
-                }
-                
-                employee.getInternalWorkExperiences().add(newExp);
-                
-                // If this is an ongoing experience, update the employee's main details
-                if ("ongoing".equalsIgnoreCase(newExp.getEndDate())) {
-                    employee.setRole(newExp.getRole());
-                    employee.setPosition(newExp.getPosition());
-                    employee.setGrossSalary(newExp.getGrossSalary());
-                    employee.setDepartment(newExp.getDepartment());
-                }
-                
-                Map<String, Employee> employees = EmployeeUtils.ReadData();
-                employees.put(employeeId, employee);
-                EmployeeUtils.WriteData(employees);
-                loadInternalWorkExperienceData();
-                loadEmployeeData(); // Refresh the main employee details
-                SuccessAlert("Internal work experience added successfully");
             } catch (Exception e) {
                 e.printStackTrace();
                 ErrorAlert("Error adding internal work experience");

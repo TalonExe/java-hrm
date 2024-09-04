@@ -182,18 +182,21 @@ public class EmployeeUtils {
         }
     }
 
-    public static int getTotalApprovedLeave(String id, String leaveType) throws Exception {
+    public static int getTotalApprovedLeave(String id, String leaveType) {
         try {
-            // Get total approved leave for the current year
             Employee employee = getEmployeeById(id);
+            if (employee == null || employee.getLeaveApplications() == null) {
+                return 0;
+            }
+
+            int currentYear = LocalDate.now().getYear();
             int totalApprovedLeave = 0;
-            int currentYear = LocalDate.now().getYear(); // Get the current year
 
             for (LeaveApplication leaveApplication : employee.getLeaveApplications()) {
                 LocalDate startDate = LocalDate.parse(leaveApplication.getStartDate());
                 if (leaveApplication.getLeaveType().equalsIgnoreCase(leaveType) 
                     && leaveApplication.getStatus().equalsIgnoreCase("APPROVED") 
-                    && startDate.getYear() == currentYear) { // Check if the leave is from the current year
+                    && startDate.getYear() == currentYear) {
                     totalApprovedLeave++;
                 }
             }

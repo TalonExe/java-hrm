@@ -1,6 +1,7 @@
 package com.talon.controllers.login;
 
 import com.talon.controllers.BaseController;
+import com.talon.controllers.common.ApplyLeavePageController;
 import com.talon.models.Employee;
 import com.talon.utils.EmployeeUtils;
 import javafx.fxml.FXML;
@@ -110,8 +111,14 @@ public class LoginController extends BaseController {
             case "HR Officer" -> "hrMain";
             case "Payroll Manager" -> "Payroll_Lobby";
             case "System Administrator" -> "adminHomepage";
-            default -> "EmployeePersonal";
+            default -> "applyLeaveEmployee";
         };
+        if (sceneName.equals("applyLeaveEmployee")) {
+            ApplyLeavePageController controller = (ApplyLeavePageController) router.getController("applyLeaveEmployee");
+            if (controller != null) {
+                controller.loadEmployeeData();
+            }
+        }
         router.switchScene(sceneName);
     }
 

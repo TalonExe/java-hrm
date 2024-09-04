@@ -25,16 +25,17 @@
     "internalWorkExperiences": [
       {
         "department": "IT",
-        "role": "System Administrator",
-        "grossSalary": 2200,
-        "position": "IT Support",
-        "startDate": "2015-01-02",
-        "endDate": "ongoing"
+        "role": "Normal Employee",
+        "grossSalary": 1000,
+        "companyName": "Talon",
+        "position": "IT Intern",
+        "startDate": "2014-08-08",
+        "endDate": "2014-12-12"
       }
     ],
     "externalWorkExperiences": [
       {
-        "reasonForLeaving": "Bad Culture",
+        "reasonForLeaving": "Bad Pay",
         "companyName": "Google",
         "position": "Software Engineer",
         "startDate": "2009-01-01",
@@ -114,7 +115,7 @@
   },
   "c5ded723-a90e-4a4a-acb3-eac1d86f5586": {
     "username": "jeffDham",
-    "password": "$2a$12$MRZQvSOcrc0zxlwjS4yUr.i4NcTYXtqkylqU0ggJj7O1.fXYjvss6",
+    "password": "$2a$12$m4rNxDgZ0DvaikMmHAddyevjzhgDvPeP8tWCS4X/ayHkoFxnRO9RO",
     "role": "HR Officer",
     "loginAttempts": 0,
     "accountStatus": "ACTIVE",
@@ -125,6 +126,13 @@
         "startDate": "2024-09-11",
         "endDate": "2024-09-19",
         "reason": "sick",
+        "status": "PENDING"
+      },
+      {
+        "leaveType": "Unpaid Leave",
+        "startDate": "2024-09-05",
+        "endDate": "2024-09-06",
+        "reason": "Vacation",
         "status": "PENDING"
       }
     ],
@@ -139,7 +147,7 @@
         "date": "2024-09-04",
         "status": "ONTIME",
         "timeIn": "00:00:15.174669",
-        "timeOut": "10:31:06.762857"
+        "timeOut": "13:04:19.931659"
       }
     ]
   },
@@ -150,5 +158,66 @@
     "loginAttempts": 0,
     "accountStatus": "ACTIVE",
     "accountDisabled": false
+  },
+  "1f2fa3db-1c49-476c-bdf4-c1117308ce20": {
+    "username": "johnsmith",
+    "password": "$2a$12$cwP7tD4NmbvMQKMAZ.7qQOFKNMQPm2dMfcwrVMBXTxQLSb1adYMzm",
+    "fullName": "John Smithson",
+    "gender": "Male",
+    "identificationCard": "1234567890",
+    "phoneNumber": "0168919333",
+    "birthDate": "1990-01-01",
+    "email": "johnsmith@gmail.com",
+    "address": "Sri Lagenda Villa",
+    "emergencyContact": {
+      "name": "Jane Smith",
+      "phoneNumber": "0168919333",
+      "relationship": "Mother"
+    },
+    "role": "Normal Employee",
+    "position": "Graphic Designer",
+    "loginAttempts": 0,
+    "accountStatus": "ACTIVE",
+    "accountDisabled": false,
+    "nationality": "British",
+    "department": "Marketing",
+    "grossSalary": 2000,
+    "internalWorkExperiences": [
+      {
+        "department": "Marketing",
+        "role": "Normal Employee",
+        "grossSalary": 2000,
+        "companyName": "Talon",
+        "position": "Graphic Designer",
+        "startDate": "2021-10-10",
+        "endDate": "ongoing"
+      }
+    ],
+    "externalWorkExperiences": [
+      {
+        "reasonForLeaving": "Bad Pay",
+        "companyName": "Mcdonald\u0027s",
+        "position": "Cleaner",
+        "startDate": "2010-10-10",
+        "endDate": "2011-11-11"
+      }
+    ],
+    "leaveApplications": [
+      {
+        "leaveType": "Medical Leave",
+        "startDate": "2024-09-12",
+        "endDate": "2024-09-13",
+        "reason": "Fever",
+        "status": "PENDING"
+      }
+    ],
+    "attendanceRecords": [
+      {
+        "date": "2024-09-04",
+        "status": "LATE",
+        "timeIn": "12:38:08.588344",
+        "timeOut": "12:45:18.283409"
+      }
+    ]
   }
 }

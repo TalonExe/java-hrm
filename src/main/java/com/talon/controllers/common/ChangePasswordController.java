@@ -1,11 +1,12 @@
-package com.talon.controllers.hr;
+package com.talon.controllers.common;
 
+import com.talon.controllers.BaseController;
 import com.talon.utils.EmployeeUtils;
 import com.talon.utils.SessionState;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 
-public class ChangePasswordController extends HRMainController {
+public class ChangePasswordController extends BaseController {
 
     @FXML
     private PasswordField newPasswordField;
