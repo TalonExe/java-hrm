@@ -13,8 +13,9 @@ public class LeaveApplicationRow {
     private final SimpleStringProperty reason;
     private final SimpleStringProperty status;
     private final Button actionButton;
+    private final Button notifyButton;
 
-    public LeaveApplicationRow(int number, String employeeName, String leaveType, String startDate, String endDate, String reason, String status, Button actionButton) {
+    public LeaveApplicationRow(int number, String employeeName, String leaveType, String startDate, String endDate, String reason, String status, Button actionButton, Button notifyButton) {
         this.number = new SimpleIntegerProperty(number);
         this.employeeName = new SimpleStringProperty(employeeName);
         this.leaveType = new SimpleStringProperty(leaveType);
@@ -23,6 +24,7 @@ public class LeaveApplicationRow {
         this.reason = new SimpleStringProperty(reason);
         this.status = new SimpleStringProperty(status);
         this.actionButton = actionButton;
+        this.notifyButton = notifyButton;
     }
     
     public int getNumber() {
@@ -83,5 +85,9 @@ public class LeaveApplicationRow {
     
     public Button getActionButton() {
         return actionButton;
+    }
+    
+    public Button getNotifyButton() {
+        return notifyButton;
     }
 }

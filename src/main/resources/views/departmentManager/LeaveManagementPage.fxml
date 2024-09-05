@@ -55,6 +55,11 @@
                         <PropertyValueFactory property="actionButton"/>
                      </cellValueFactory>
                   </TableColumn>
+                  <TableColumn text="Notify" prefWidth="100" fx:id="notifyColumn">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="notifyButton"/>
+                     </cellValueFactory>
+                  </TableColumn>
                </columns>
             </TableView>
          </VBox>

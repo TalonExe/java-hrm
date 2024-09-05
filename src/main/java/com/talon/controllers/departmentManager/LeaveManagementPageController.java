@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
+import com.talon.utils.EmailUtils;
 
 public class LeaveManagementPageController extends DepartmentManagerMainController {
 
@@ -18,6 +19,8 @@ public class LeaveManagementPageController extends DepartmentManagerMainControll
     private TableView<LeaveApplicationRow> leaveApplicationsTable;
     @FXML
     private TableColumn<LeaveApplicationRow, Button> actionColumn;
+    @FXML
+    private TableColumn<LeaveApplicationRow, Button> notifyColumn;
 
     @FXML
     public void initialize() {
@@ -62,6 +65,7 @@ public class LeaveManagementPageController extends DepartmentManagerMainControll
                     
                     for (LeaveApplication application : uniqueApplications.values()) {
                         Button actionButton = createActionButton(application, employee);
+                        Button notifyButton = createNotifyButton(application, employee);
                         LeaveApplicationRow row = new LeaveApplicationRow(
                                 index++,
                                 employee.getFullName(),
@@ -70,7 +74,8 @@ public class LeaveManagementPageController extends DepartmentManagerMainControll
                                 application.getEndDate(),
                                 application.getReason(),
                                 application.getStatus(),
-                                actionButton);
+                                actionButton,
+                                notifyButton);
                         
                         if (application.getStatus().equalsIgnoreCase("PENDING")) {
                             pendingApplications.add(row);
@@ -99,6 +104,15 @@ public class LeaveManagementPageController extends DepartmentManagerMainControll
             actionButton.setDisable(true);
         }
         return actionButton;
+    }
+
+    private Button createNotifyButton(LeaveApplication application, Employee employee) {
+        Button notifyButton = new Button("Notify");
+        notifyButton.setOnAction(event -> sendNotificationEmail(application, employee));
+        if (!application.getStatus().equalsIgnoreCase("APPROVED") && !application.getStatus().equalsIgnoreCase("REJECTED")) {
+            notifyButton.setDisable(true);
+        }
+        return notifyButton;
     }
 
     private void showActionDialog(LeaveApplication application, Employee employee) {
@@ -182,5 +196,27 @@ public class LeaveManagementPageController extends DepartmentManagerMainControll
                 }
             }
         });
+    }
+
+    private void sendNotificationEmail(LeaveApplication application, Employee employee) {
+        try {
+            String recipientEmail = employee.getEmail();
+            if (recipientEmail == null || recipientEmail.trim().isEmpty()) {
+                ErrorAlert("Employee email is missing. Please contact the HR department.");
+                return;
+            }
+
+            String employeeName = employee.getFullName();
+            String leaveType = application.getLeaveType();
+            String startDate = application.getStartDate();
+            String endDate = application.getEndDate();
+            boolean isApproved = application.getStatus().equalsIgnoreCase("APPROVED");
+
+            EmailUtils.sendLeaveApplicationNotification(recipientEmail, employeeName, leaveType, startDate, endDate, isApproved);
+            SuccessAlert("Notification email sent successfully");
+        } catch (Exception e) {
+            e.printStackTrace();
+            ErrorAlert("Error sending notification email: " + e.getMessage());
+        }
     }
 }

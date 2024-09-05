@@ -7,7 +7,7 @@
     "identificationCard": "041109121205",
     "phoneNumber": "0168919330",
     "birthDate": "1985-07-14",
-    "email": "dave@gmail.com",
+    "email": "talonleavereceive@hotmail.com",
     "address": "Sri Lagenda Villa",
     "emergencyContact": {
       "name": "Jeff",
@@ -80,7 +80,7 @@
     "identificationCard": "051109121204",
     "phoneNumber": "0168919331",
     "birthDate": "1980-06-20",
-    "email": "alice@gmail.com",
+    "email": "talonleavereceive@hotmail.com",
     "address": "Sri Lagenda Villa",
     "role": "System Administrator",
     "position": "IT Support",
@@ -97,7 +97,7 @@
     "identificationCard": "9876543210",
     "phoneNumber": "0168919332",
     "birthDate": "1975-05-15",
-    "email": "george@gmail.com",
+    "email": "audyblesound@gmail.com",
     "address": "Sri Lagenda Villa",
     "emergencyContact": {
       "name": "Amy",
@@ -128,7 +128,7 @@
     "identificationCard": "4342424242342",
     "phoneNumber": "+13232323232",
     "birthDate": "2004-01-01",
-    "email": "smith@mail.com",
+    "email": "talonleavereceive@hotmail.com",
     "address": "Jalan Whatever, Kuala Lumpur, Malaysia",
     "emergencyContact": {
       "name": "Jane Doe",
@@ -193,7 +193,7 @@
     "identificationCard": "1234567890",
     "phoneNumber": "0168919333",
     "birthDate": "1990-01-01",
-    "email": "johnsmith@gmail.com",
+    "email": "talonleavereceive@hotmail.com",
     "address": "Sri Lagenda Villa",
     "emergencyContact": {
       "name": "Jane Smith",
@@ -263,6 +263,7 @@
     "username": "codefish",
     "password": "$2a$12$BdWvGKjvrRiz7mVhp3B.o.Rb9AIyJtgFILfGGX9scf7f34AHJozsG",
     "fullName": "Larry Lobster",
+    "email": "talonleavereceive@hotmail.com",
     "emergencyContact": {
       "name": "Jane Smith",
       "phoneNumber": "0168919333",
@@ -301,6 +302,13 @@
         "endDate": "2024-09-06",
         "reason": "Sick",
         "status": "APPROVED"
+      },
+      {
+        "leaveType": "Medical Leave",
+        "startDate": "2024-09-06",
+        "endDate": "2024-09-07",
+        "reason": "HeHe",
+        "status": "REJECTED"
       }
     ],
     "attendanceRecords": [
@@ -314,7 +322,7 @@
         "date": "2024-09-05",
         "status": "LATE",
         "timeIn": "10:53:04.979380",
-        "timeOut": "PENDING"
+        "timeOut": "12:22:42.109507"
       }
     ]
   },
@@ -326,7 +334,7 @@
     "identificationCard": "1234567890",
     "phoneNumber": "0168919334",
     "birthDate": "1990-01-01",
-    "email": "fiona@gmail.com",
+    "email": "talonleavereceive@hotmail.com",
     "address": "Sri Lagenda Villa",
     "emergencyContact": {
       "name": "Jane Smith",
