@@ -13,6 +13,7 @@
     <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Profile" onAction="#switchToPersonalProfileDM"/>
     <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Manage Leave Applications" onAction="#switchToHome"/>
     <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" onAction="#switchToApplyLeaveDM"/>
+    <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Feedback" onAction="#switchToFeedbackPageDM"/>
     <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Change Password" onAction="#switchToPasswordChange"/>
     <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" onAction="#logOut"/>
 </VBox>

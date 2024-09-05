@@ -14,6 +14,7 @@
     <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Manage Personal Details" onAction="#switchToHome"/>
     <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Manage Employment Details" wrapText="true" onAction="#switchToEmploymentDetailsManagement"/>
     <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" onAction="#switchToApplyLeaveHR"/>
+    <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Feedback" onAction="#switchToFeedbackPageHR"/>
     <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Change Password" onAction="#switchToChangePassword"/>
     <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" onAction="#logOut"/>
 </VBox>

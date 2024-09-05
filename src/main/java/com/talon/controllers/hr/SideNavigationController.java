@@ -45,4 +45,9 @@ public class SideNavigationController extends HRMainController {
             controller.loadEmployeeData();
         }
     }
+
+    @FXML
+    private void switchToFeedbackPageHR() {
+        router.switchScene("feedbackPageHR");
+    }
 }

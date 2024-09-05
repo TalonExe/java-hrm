@@ -14,5 +14,6 @@
     <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Payroll Management" onAction="#switchToPayrollOfficerMain"/>
     <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Apply Leave" onAction="#switchToApplyLeavePO"/>
     <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Change Password" onAction="#switchToPasswordChange"/>
+    <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Feedback" onAction="#switchToFeedbackPagePO"/>
     <Button styleClass="hover-button" maxWidth="Infinity" minHeight="50" style="-fx-background-color: #86C232; -fx-border-color: #474B4F; -fx-text-fill: #FFFFFF;" text="Logout" onAction="#logOut"/>
 </VBox>

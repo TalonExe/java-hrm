@@ -36,4 +36,9 @@ public class SideNavigationController extends DepartmentManagerMainController {
     private void switchToPasswordChange() {
         router.switchScene("passwordChangeDM");
     }
+
+    @FXML
+    private void switchToFeedbackPageDM() {
+        router.switchScene("feedbackPageDM");
+    }
 }

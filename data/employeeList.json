@@ -2,7 +2,7 @@
   "863b16b3-c07c-49ce-8a41-2cad37b411f8": {
     "username": "Dave0204",
     "password": "$2a$12$TQHfoUo46HXLI/ijTfzXZ.tdYFLXais0AluYIwrYXOAglu7IqbB42",
-    "fullName": "Dave Johnson",
+    "fullName": "Dave Johnsonson",
     "gender": "Male",
     "identificationCard": "041109121205",
     "phoneNumber": "0168919330",
@@ -21,11 +21,11 @@
     "accountDisabled": false,
     "nationality": "Malaysian",
     "department": "IT",
-    "grossSalary": 25000,
+    "grossSalary": 2500,
     "internalWorkExperiences": [
       {
         "department": "IT",
-        "role": "Normal Employee",
+        "role": "System Administrator",
         "grossSalary": 1000,
         "companyName": "Talon",
         "position": "IT Intern",
@@ -35,7 +35,7 @@
     ],
     "externalWorkExperiences": [
       {
-        "reasonForLeaving": "Bad Pay",
+        "reasonForLeaving": "Bad",
         "companyName": "Google",
         "position": "Software Engineer",
         "startDate": "2009-01-01",
@@ -63,6 +63,12 @@
         "status": "LATE",
         "timeIn": "09:22:59.096359",
         "timeOut": "10:57:27.723669"
+      },
+      {
+        "date": "2024-09-05",
+        "status": "LATE",
+        "timeIn": "10:59:14.529145",
+        "timeOut": "PENDING"
       }
     ]
   },
@@ -117,10 +123,23 @@
   "c5ded723-a90e-4a4a-acb3-eac1d86f5586": {
     "username": "jeffDham",
     "password": "$2a$12$m4rNxDgZ0DvaikMmHAddyevjzhgDvPeP8tWCS4X/ayHkoFxnRO9RO",
+    "fullName": "William Smith",
+    "gender": "Male",
+    "identificationCard": "4342424242342",
+    "phoneNumber": "+13232323232",
+    "birthDate": "2004-01-01",
+    "email": "smith@mail.com",
+    "address": "Jalan Whatever, Kuala Lumpur, Malaysia",
+    "emergencyContact": {
+      "name": "Jane Doe",
+      "phoneNumber": "+123232323232",
+      "relationship": "Wife"
+    },
     "role": "HR Officer",
     "loginAttempts": 0,
     "accountStatus": "ACTIVE",
     "accountDisabled": false,
+    "nationality": "Malaysian",
     "leaveApplications": [
       {
         "leaveType": "Medical Leave",
@@ -149,6 +168,12 @@
         "status": "ONTIME",
         "timeIn": "00:00:15.174669",
         "timeOut": "19:02:58.462281"
+      },
+      {
+        "date": "2024-09-05",
+        "status": "LATE",
+        "timeIn": "10:23:50.502331",
+        "timeOut": "10:51:36.925515"
       }
     ]
   },
@@ -225,12 +250,19 @@
         "status": "LATE",
         "timeIn": "12:38:08.588344",
         "timeOut": "19:03:16.773676"
+      },
+      {
+        "date": "2024-09-05",
+        "status": "LATE",
+        "timeIn": "10:45:25.261874",
+        "timeOut": "10:48:25.215671"
       }
     ]
   },
   "ebb3770b-bb50-47da-bc72-b6cf74f47d42": {
     "username": "codefish",
     "password": "$2a$12$BdWvGKjvrRiz7mVhp3B.o.Rb9AIyJtgFILfGGX9scf7f34AHJozsG",
+    "fullName": "Larry Lobster",
     "emergencyContact": {
       "name": "Jane Smith",
       "phoneNumber": "0168919333",
@@ -277,6 +309,12 @@
         "status": "LATE",
         "timeIn": "12:38:08.588344",
         "timeOut": "20:49:42.893506"
+      },
+      {
+        "date": "2024-09-05",
+        "status": "LATE",
+        "timeIn": "10:53:04.979380",
+        "timeOut": "PENDING"
       }
     ]
   },
@@ -329,6 +367,12 @@
         "status": "LATE",
         "timeIn": "12:38:08.588344",
         "timeOut": "23:48:23.142561"
+      },
+      {
+        "date": "2024-09-05",
+        "status": "LATE",
+        "timeIn": "10:48:45.676084",
+        "timeOut": "10:51:08.801315"
       }
     ]
   }

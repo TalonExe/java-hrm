@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+
+<AnchorPane fx:id="rootPane" prefWidth="1920" prefHeight="1080" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.controllers.common.WriteFeedbackController">
+   <stylesheets>
+      <URL value="@../../styles/styles.css" />
+   </stylesheets>
+   <children>
+      <HBox AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <fx:include source="./SideNavigation.fxml" />
+         <VBox HBox.hgrow="ALWAYS" spacing="20" alignment="TOP_CENTER">
+            <padding>
+               <Insets top="30" right="30" bottom="30" left="30" />
+            </padding>
+            <Label text="System Feedback" styleClass="header-label"/>
+            <VBox spacing="10" alignment="CENTER_LEFT">
+               <Label text="Your feedback is valuable to us. Please share your thoughts about the system:" style="-fx-text-fill: white; -fx-font-size: 16px;" />
+               <TextArea fx:id="feedbackTextArea" prefHeight="200" wrapText="true" promptText="Enter your feedback here..."/>
+               <HBox spacing="10" alignment="CENTER_RIGHT">
+                  <Button text="Submit Feedback" onAction="#handleSubmitFeedback" styleClass="action-button"/>
+               </HBox>
+            </VBox>
+         </VBox>
+      </HBox>
+   </children>
+</AnchorPane>

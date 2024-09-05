@@ -32,4 +32,9 @@ public class SideNavigationController extends PayrollOfficerMainController {
     private void switchToPasswordChange() {
         router.switchScene("passwordChangePO");
     }
+
+    @FXML
+    private void switchToFeedbackPagePO() {
+        router.switchScene("feedbackPagePO");
+    }
 }

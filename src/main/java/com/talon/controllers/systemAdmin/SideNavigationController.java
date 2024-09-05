@@ -41,4 +41,13 @@ public class SideNavigationController extends SystemAdminMainController {
             controller.refreshManageUserData();
         }
     }
+
+    @FXML
+    private void switchToViewFeedbacks() {
+        router.switchScene("viewFeedbacks");
+        ViewFeedbacksPageController controller = (ViewFeedbacksPageController) router.getController("viewFeedbacks");
+        if (controller != null) {
+            controller.loadFeedbacks();
+        }
+    }
 }

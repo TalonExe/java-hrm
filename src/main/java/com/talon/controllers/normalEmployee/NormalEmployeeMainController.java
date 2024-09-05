@@ -26,6 +26,11 @@ public class NormalEmployeeMainController extends BaseController {
     }
 
     @FXML
+    private void switchToFeedback() {
+        router.switchScene("feedbackPageEmployee");
+    }
+
+    @FXML
     private void switchToPasswordChange() {
         router.switchScene("passwordChangeEmployee");
     }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+
+<AnchorPane fx:id="rootPane" prefWidth="1920" prefHeight="1080" style="-fx-background-color: #474B4F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talon.controllers.systemAdmin.ViewFeedbacksPageController">
+   <stylesheets>
+      <URL value="@../../styles/styles.css" />
+   </stylesheets>
+   <children>
+      <HBox AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <fx:include source="./SideNavigation.fxml" />
+         <VBox HBox.hgrow="ALWAYS" spacing="20" alignment="TOP_CENTER">
+            <padding>
+               <Insets top="30" right="30" bottom="30" left="30" />
+            </padding>
+            <Label text="View Feedbacks" styleClass="header-label"/>
+            <TableView fx:id="feedbackTable" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn text="No." prefWidth="50" fx:id="numberColumn"/>
+                  <TableColumn text="User Type" prefWidth="150" fx:id="userTypeColumn"/>
+                  <TableColumn text="Date" prefWidth="150" fx:id="dateColumn"/>
+                  <TableColumn text="Feedback" prefWidth="600" fx:id="feedbackColumn"/>
+               </columns>
+            </TableView>
+         </VBox>
+      </HBox>
+   </children>
+</AnchorPane>
