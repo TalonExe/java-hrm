@@ -13,5 +13,20 @@
     "pcb": 83.33333333333333,
     "latePenalty": 100.0,
     "netSalary": 17476.666666666668
+  },
+  "863b16b3-c07c-49ce-8a41-2cad37b411f8_2024-07-01": {
+    "employeeId": "863b16b3-c07c-49ce-8a41-2cad37b411f8",
+    "transactionDate": "2024-07-01",
+    "grossSalary": 20000.0,
+    "employeeEpf": 2200.0,
+    "employeeSocso": 100.0,
+    "employeeEis": 40.0,
+    "employeeTax": 1000.0,
+    "employerEpf": 2600.0,
+    "employerSocso": 360.0,
+    "employerEis": 40.0,
+    "pcb": 83.33333333333333,
+    "latePenalty": 0.0,
+    "netSalary": 17576.666666666668
   }
 }

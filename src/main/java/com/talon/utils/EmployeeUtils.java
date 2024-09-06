@@ -386,7 +386,7 @@ public class EmployeeUtils {
         return clockInTime.isAfter(lateThreshold);
     }
 
-    public static boolean isLateThreeTimes(String id) throws Exception {
+    public static boolean isLateThreeTimes(String id, int month, int year) throws Exception {
         try {
             Map<String, Employee> employees = ReadData();
             Employee employee = employees.get(id);
@@ -397,15 +397,14 @@ public class EmployeeUtils {
 
             List<AttendanceRecord> attendanceRecords = employee.getAttendanceRecords();
             if (attendanceRecords == null) {
-                throw new Exception("No attendance records found");
+                return false;
             }
 
             int lateCount = 0;
-            LocalDate currentDate = LocalDate.now();
             for (AttendanceRecord record : attendanceRecords) {
                 LocalDate recordDate = LocalDate.parse(record.getDate());
-                if (recordDate.getMonth() == currentDate.getMonth() && 
-                    recordDate.getYear() == currentDate.getYear() && 
+                if (recordDate.getMonthValue() == month && 
+                    recordDate.getYear() == year && 
                     record.getStatus().equalsIgnoreCase("LATE")) {
                     lateCount++;
                 }
@@ -439,8 +438,13 @@ public class EmployeeUtils {
             double annualTax = grossSalary * 0.05;
             double pcb = annualTax / 12;
     
+            // Get current month and year
+            LocalDate currentDate = LocalDate.now();
+            int currentMonth = currentDate.getMonthValue();
+            int currentYear = currentDate.getYear();
+    
             // Check if the employee has been late 3 or more times this month
-            boolean isLateThreeTimes = isLateThreeTimes(id);
+            boolean isLateThreeTimes = isLateThreeTimes(id, currentMonth, currentYear);
             double latePenalty = isLateThreeTimes ? 100 : 0; // RM100 penalty for being late 3 or more times
     
             // Calculate net salary

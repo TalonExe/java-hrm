@@ -47,7 +47,7 @@
         "date": "2024-09-06",
         "status": "LATE",
         "timeIn": "10:43:37.846782",
-        "timeOut": "10:51:57.917201"
+        "timeOut": "14:23:10.717299"
       },
       {
         "date": "2024-09-05",
@@ -80,8 +80,8 @@
     },
     "role": "System Administrator",
     "position": "IT support",
-    "loginAttempts": 0,
-    "accountStatus": "ACTIVE",
+    "loginAttempts": 3,
+    "accountStatus": "LOCKED",
     "accountDisabled": true,
     "nationality": "Malaysian",
     "department": "IT",
@@ -130,6 +130,15 @@
         "position": "Accountant",
         "startDate": "2010-10-10",
         "endDate": "ongoing"
+      },
+      {
+        "department": "Finance",
+        "role": "Normal Employee",
+        "grossSalary": 200,
+        "companyName": "Talon",
+        "position": "Intern",
+        "startDate": "2009-10-10",
+        "endDate": "2009-12-12"
       }
     ],
     "attendanceRecords": [
@@ -137,7 +146,7 @@
         "date": "2024-09-06",
         "status": "LATE",
         "timeIn": "11:20:05.338270",
-        "timeOut": "11:24:43.865833"
+        "timeOut": "11:43:59.777521"
       }
     ]
   },
@@ -259,7 +268,7 @@
         "date": "2024-09-06",
         "status": "LATE",
         "timeIn": "10:52:22.787549",
-        "timeOut": "11:19:23.813125"
+        "timeOut": "14:24:31.567070"
       }
     ]
   }

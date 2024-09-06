@@ -297,7 +297,7 @@ public class PayrollOfficerMainController extends BaseController {
                     }
 
                     double grossSalary = employee.getGrossSalary() != null ? employee.getGrossSalary() : 0;
-                    boolean isLateThreeTimes = EmployeeUtils.isLateThreeTimes(employeeId);
+                    boolean isLateThreeTimes = EmployeeUtils.isLateThreeTimes(employeeId, transactionDate.getMonthValue(), transactionDate.getYear());
                     double latePenalty = isLateThreeTimes ? 100 : 0;
 
                     PayrollTransaction newTransaction = new PayrollTransaction(employeeId, transactionDateString, grossSalary);
