@@ -2,203 +2,159 @@
   "863b16b3-c07c-49ce-8a41-2cad37b411f8": {
     "username": "Dave0204",
     "password": "$2a$12$TQHfoUo46HXLI/ijTfzXZ.tdYFLXais0AluYIwrYXOAglu7IqbB42",
-    "fullName": "Dave Johnsonson",
+    "fullName": "Dave Lee",
     "gender": "Male",
-    "identificationCard": "041109121205",
-    "phoneNumber": "0168919330",
-    "birthDate": "1985-07-14",
+    "identificationCard": "2423423424242",
+    "phoneNumber": "+604343434343",
+    "birthDate": "2000-10-10",
     "email": "talonleavereceive@hotmail.com",
-    "address": "Sri Lagenda Villa",
+    "address": "Street:  2 Jln Bandar 11 Taman Melawati Hulu\n\nCity:   Klang\n\nState/province/area:    Selangor\n\nPhone number:  034107-3069\n\nZip code:  53100\n\nCountry calling code:  +60\n\nCountry:  Malaysia",
     "emergencyContact": {
-      "name": "Jeff",
-      "phoneNumber": "0168919330",
-      "relationship": "Father"
+      "name": "Jessie",
+      "phoneNumber": "+1032323232",
+      "relationship": "Wife"
     },
     "role": "System Administrator",
     "position": "IT Support",
     "loginAttempts": 0,
     "accountStatus": "ACTIVE",
     "accountDisabled": false,
-    "nationality": "Malaysian",
+    "nationality": "American",
     "department": "IT",
-    "grossSalary": 2500,
+    "grossSalary": 20000,
     "internalWorkExperiences": [
       {
         "department": "IT",
         "role": "System Administrator",
-        "grossSalary": 1000,
+        "grossSalary": 20000,
         "companyName": "Talon",
-        "position": "IT Intern",
-        "startDate": "2014-08-08",
-        "endDate": "2014-12-12"
-      }
-    ],
-    "externalWorkExperiences": [
-      {
-        "reasonForLeaving": "Bad",
-        "companyName": "Google",
-        "position": "Software Engineer",
-        "startDate": "2009-01-01",
-        "endDate": "2009-11-01"
+        "position": "IT Support",
+        "startDate": "2020-10-10",
+        "endDate": "ongoing"
       }
     ],
     "leaveApplications": [
       {
-        "leaveType": "Medical Leave",
-        "startDate": "2024-09-11",
-        "endDate": "2024-09-19",
-        "reason": "sick",
-        "status": "APPROVED"
-      }
-    ],
-    "attendanceRecords": [
-      {
-        "date": "2024-01-01",
-        "status": "ONTIME",
-        "timeIn": "08:00:00",
-        "timeOut": "17:00:00"
-      },
-      {
-        "date": "2024-09-04",
-        "status": "LATE",
-        "timeIn": "09:22:59.096359",
-        "timeOut": "10:57:27.723669"
-      },
-      {
-        "date": "2024-09-05",
-        "status": "LATE",
-        "timeIn": "10:59:14.529145",
-        "timeOut": "PENDING"
-      }
-    ]
-  },
-  "08517aa5-e2ab-4d44-98af-e81afc3aec23": {
-    "username": "Alice23",
-    "password": "$2a$12$uiselMi5VZYSQ8ZFJDryOe5zOajVbdEeNRDzjfT7Ds18Na0Af/UXe",
-    "fullName": "Alice Johnson",
-    "gender": "Female",
-    "identificationCard": "051109121204",
-    "phoneNumber": "0168919331",
-    "birthDate": "1980-06-20",
-    "email": "talonleavereceive@hotmail.com",
-    "address": "Sri Lagenda Villa",
-    "role": "System Administrator",
-    "position": "IT Support",
-    "loginAttempts": 0,
-    "accountStatus": "ACTIVE",
-    "accountDisabled": true,
-    "nationality": "Malaysian"
-  },
-  "8070f1c5-f2b5-4a71-873b-c2c3697a6b40": {
-    "username": "george343",
-    "password": "$2a$12$TQHfoUo46HXLI/ijTfzXZ.tdYFLXais0AluYIwrYXOAglu7IqbB42",
-    "fullName": "George Johnson",
-    "gender": "Male",
-    "identificationCard": "9876543210",
-    "phoneNumber": "0168919332",
-    "birthDate": "1975-05-15",
-    "email": "audyblesound@gmail.com",
-    "address": "Sri Lagenda Villa",
-    "emergencyContact": {
-      "name": "Amy",
-      "phoneNumber": "0168919332",
-      "relationship": "Mother"
-    },
-    "role": "System Administrator",
-    "position": "IT Support",
-    "loginAttempts": 0,
-    "accountStatus": "ACTIVE",
-    "accountDisabled": false,
-    "nationality": "Singaporean",
-    "department": "IT",
-    "attendanceRecords": [
-      {
-        "date": "2024-09-04",
-        "status": "LATE",
-        "timeIn": "09:30:43.621133",
-        "timeOut": "PENDING"
-      }
-    ]
-  },
-  "c5ded723-a90e-4a4a-acb3-eac1d86f5586": {
-    "username": "jeffDham",
-    "password": "$2a$12$m4rNxDgZ0DvaikMmHAddyevjzhgDvPeP8tWCS4X/ayHkoFxnRO9RO",
-    "fullName": "William Smith",
-    "gender": "Male",
-    "identificationCard": "4342424242342",
-    "phoneNumber": "+13232323232",
-    "birthDate": "2004-01-01",
-    "email": "talonleavereceive@hotmail.com",
-    "address": "Jalan Whatever, Kuala Lumpur, Malaysia",
-    "emergencyContact": {
-      "name": "Jane Doe",
-      "phoneNumber": "+123232323232",
-      "relationship": "Wife"
-    },
-    "role": "HR Officer",
-    "loginAttempts": 0,
-    "accountStatus": "ACTIVE",
-    "accountDisabled": false,
-    "nationality": "Malaysian",
-    "leaveApplications": [
-      {
-        "leaveType": "Medical Leave",
-        "startDate": "2024-09-11",
-        "endDate": "2024-09-19",
-        "reason": "sick",
-        "status": "PENDING"
-      },
-      {
-        "leaveType": "Unpaid Leave",
-        "startDate": "2024-09-05",
-        "endDate": "2024-09-06",
+        "leaveType": "Annual Leave",
+        "startDate": "2024-10-31",
+        "endDate": "2024-11-02",
         "reason": "Vacation",
         "status": "PENDING"
       }
     ],
     "attendanceRecords": [
       {
-        "date": "2024-09-03",
+        "date": "2024-09-06",
         "status": "LATE",
-        "timeIn": "22:17:21.134070",
-        "timeOut": "23:37:18.673184"
-      },
-      {
-        "date": "2024-09-04",
-        "status": "ONTIME",
-        "timeIn": "00:00:15.174669",
-        "timeOut": "19:02:58.462281"
+        "timeIn": "10:43:37.846782",
+        "timeOut": "10:51:57.917201"
       },
       {
         "date": "2024-09-05",
         "status": "LATE",
-        "timeIn": "10:23:50.502331",
-        "timeOut": "10:51:36.925515"
+        "timeIn": "10:43:37.846782",
+        "timeOut": "10:51:57.917201"
+      },
+      {
+        "date": "2024-09-04",
+        "status": "LATE",
+        "timeIn": "10:43:37.846782",
+        "timeOut": "10:51:57.917201"
       }
     ]
   },
-  "a392c43d-57b0-48d4-b262-0849d420c7f8": {
-    "username": "xiangrong",
-    "password": "$2a$12$gE9IrVfZIp4sThV5PrVqnuNrYTr28IfcBMj0W6Dq.9qBSKm853cA2",
-    "role": "Department Manager",
+  "08517aa5-e2ab-4d44-98af-e81afc3aec23": {
+    "username": "Alice23",
+    "password": "$2a$12$yP3yjUGdfVovuVBxFyNWvOSTUZWFHhbzEOeJ9XgVlqRvtfVvrUvPO",
+    "fullName": "Alice Lim",
+    "gender": "Female",
+    "identificationCard": "3430982098402",
+    "phoneNumber": "+323232323232",
+    "birthDate": "1990-01-02",
+    "email": "talonleavereceive@hotmail.com",
+    "address": "Street:  2 Jln Bandar 11 Taman Melawati Hulu\n\nCity:   Klang\n\nState/province/area:    Selangor\n\nPhone number:  034107-3069\n\nZip code:  53100\n\nCountry calling code:  +60\n\nCountry:  Malaysia",
+    "emergencyContact": {
+      "name": "John Doe",
+      "phoneNumber": "+3232323232",
+      "relationship": "Brother"
+    },
+    "role": "System Administrator",
+    "position": "IT support",
     "loginAttempts": 0,
     "accountStatus": "ACTIVE",
-    "accountDisabled": false
+    "accountDisabled": true,
+    "nationality": "Malaysian",
+    "department": "IT",
+    "grossSalary": 15000,
+    "internalWorkExperiences": [
+      {
+        "department": "IT",
+        "role": "System Administrator",
+        "grossSalary": 15000,
+        "companyName": "Talon",
+        "position": "IT support",
+        "startDate": "2021-01-01",
+        "endDate": "ongoing"
+      }
+    ]
   },
-  "1f2fa3db-1c49-476c-bdf4-c1117308ce20": {
-    "username": "johnsmith",
-    "password": "$2a$12$cwP7tD4NmbvMQKMAZ.7qQOFKNMQPm2dMfcwrVMBXTxQLSb1adYMzm",
-    "fullName": "John Smithson",
-    "gender": "Male",
-    "identificationCard": "1234567890",
-    "phoneNumber": "0168919333",
-    "birthDate": "1990-01-01",
-    "email": "talonleavereceive@hotmail.com",
-    "address": "Sri Lagenda Villa",
+  "0bb47bb9-81a7-4db0-9c07-548a0819fa66": {
+    "username": "financeguru",
+    "password": "$2a$12$asqEoRrN498lKFzqa/zau.OTvmHpPRM0cjfitM94sqbSPiWqptl1q",
+    "fullName": "Fiona Lim",
+    "gender": "Female",
+    "identificationCard": "243424242",
+    "phoneNumber": "+434343049304",
+    "birthDate": "2000-10-10",
+    "email": "talonreceive@hotmail.com",
+    "address": "Street:  2 Jln Bandar 11 Taman Melawati Hulu\n\nCity:   Klang\n\nState/province/area:    Selangor\n\nPhone number:  034107-3069\n\nZip code:  53100\n\nCountry calling code:  +60\n\nCountry:  Malaysia",
     "emergencyContact": {
-      "name": "Jane Smith",
-      "phoneNumber": "0168919333",
+      "name": "Kwok Go Fan",
+      "phoneNumber": "+604324242424",
       "relationship": "Mother"
+    },
+    "role": "Payroll Officer",
+    "position": "Accountant",
+    "loginAttempts": 0,
+    "accountStatus": "ACTIVE",
+    "accountDisabled": false,
+    "nationality": "Malaysian",
+    "department": "Finance",
+    "grossSalary": 1000,
+    "internalWorkExperiences": [
+      {
+        "department": "Finance",
+        "role": "Payroll Officer",
+        "grossSalary": 1000,
+        "companyName": "Talon",
+        "position": "Accountant",
+        "startDate": "2010-10-10",
+        "endDate": "ongoing"
+      }
+    ],
+    "attendanceRecords": [
+      {
+        "date": "2024-09-06",
+        "status": "LATE",
+        "timeIn": "11:20:05.338270",
+        "timeOut": "11:24:43.865833"
+      }
+    ]
+  },
+  "a35f06e6-a531-4498-9a24-f25b899bb2a5": {
+    "username": "normalguy",
+    "password": "$2a$12$go1xb/R7PkbBsSOhBBDVG.EK.DrO8lQCnFwEf7rizspXfP/lpkDM.",
+    "fullName": "Henry Brown",
+    "gender": "Male",
+    "identificationCard": "480928402",
+    "phoneNumber": "+4349340343",
+    "birthDate": "1999-10-10",
+    "email": "talonleavereceive@mail.com",
+    "address": "Street:  2 Jln Bandar 11 Taman Melawati Hulu\n\nCity:   Klang\n\nState/province/area:    Selangor\n\nPhone number:  034107-3069\n\nZip code:  53100\n\nCountry calling code:  +60\n\nCountry:  Malaysia",
+    "emergencyContact": {
+      "name": "John Smith",
+      "phoneNumber": "+43242242342",
+      "relationship": "Guardian"
     },
     "role": "Normal Employee",
     "position": "Graphic Designer",
@@ -207,180 +163,103 @@
     "accountDisabled": false,
     "nationality": "British",
     "department": "IT",
-    "grossSalary": 2000,
+    "grossSalary": 500,
     "internalWorkExperiences": [
       {
-        "department": "Marketing",
+        "department": "IT",
         "role": "Normal Employee",
-        "grossSalary": 2000,
+        "grossSalary": 500,
         "companyName": "Talon",
         "position": "Graphic Designer",
-        "startDate": "2021-10-10",
+        "startDate": "2023-10-10",
         "endDate": "ongoing"
       }
-    ],
-    "externalWorkExperiences": [
+    ]
+  },
+  "3415f2d9-a0fc-44d9-9d85-8e7a048ab72f": {
+    "username": "goodmanager",
+    "password": "$2a$12$xNGGTq7C6Yr18oTiTIdnXO4y5fP4EE5KilVEjJxIGMzDR5etCxcW2",
+    "fullName": "Low Leng Lim",
+    "gender": "Male",
+    "identificationCard": "4343433434",
+    "phoneNumber": "+434343434343",
+    "birthDate": "1980-10-10",
+    "email": "talonleavereceive@mail.com",
+    "address": "Street:  2 Jln Bandar 11 Taman Melawati Hulu\n\nCity:   Klang\n\nState/province/area:    Selangor\n\nPhone number:  034107-3069\n\nZip code:  53100\n\nCountry calling code:  +60\n\nCountry:  Malaysia",
+    "emergencyContact": {
+      "name": "Lim Teng Xi",
+      "phoneNumber": "+4404334334343",
+      "relationship": "Father"
+    },
+    "role": "Department Manager",
+    "position": "Project Manager",
+    "loginAttempts": 0,
+    "accountStatus": "ACTIVE",
+    "accountDisabled": false,
+    "nationality": "Malaysian",
+    "department": "IT",
+    "grossSalary": 20000,
+    "internalWorkExperiences": [
       {
-        "reasonForLeaving": "Bad Pay",
-        "companyName": "Mcdonald\u0027s",
-        "position": "Cleaner",
-        "startDate": "2010-10-10",
-        "endDate": "2011-11-11"
+        "department": "IT",
+        "role": "Department Manager",
+        "grossSalary": 20000,
+        "companyName": "Talon",
+        "position": "Project Manager",
+        "startDate": "2000-10-10",
+        "endDate": "ongoing"
+      }
+    ]
+  },
+  "a27d9054-42f0-4dae-90ce-f3e5e844c285": {
+    "username": "hrperson",
+    "password": "$2a$12$xfE4AB7MaHp0.O54VYZbUudvCXL755kwP8LKJxRt9DYDFJjYMrm7O",
+    "fullName": "Jane Costayne",
+    "gender": "Female",
+    "identificationCard": "84092384092",
+    "phoneNumber": "+2323232323",
+    "birthDate": "1980-10-01",
+    "email": "talonleavereceive@hotmail.com",
+    "address": "Street:  2 Jln Bandar 11 Taman Melawati Hulu\n\nCity:   Klang\n\nState/province/area:    Selangor\n\nPhone number:  034107-3069\n\nZip code:  53100\n\nCountry calling code:  +60\n\nCountry:  Malaysia",
+    "emergencyContact": {
+      "name": "Tyget Smith",
+      "phoneNumber": "+4334343433",
+      "relationship": "Father"
+    },
+    "role": "HR Officer",
+    "position": "Junior HR",
+    "loginAttempts": 0,
+    "accountStatus": "ACTIVE",
+    "accountDisabled": false,
+    "nationality": "Italian",
+    "department": "HR",
+    "grossSalary": 1800,
+    "internalWorkExperiences": [
+      {
+        "department": "HR",
+        "role": "HR Officer",
+        "grossSalary": 1800,
+        "companyName": "Talon",
+        "position": "Junior HR",
+        "startDate": "2018-06-06",
+        "endDate": "ongoing"
       }
     ],
     "leaveApplications": [
       {
-        "leaveType": "Medical Leave",
-        "startDate": "2024-09-12",
-        "endDate": "2024-09-13",
-        "reason": "Fever",
-        "status": "APPROVED"
-      },
-      {
-        "leaveType": "Annual Leave",
-        "startDate": "2024-09-19",
-        "endDate": "2024-09-20",
-        "reason": "Vacation",
+        "leaveType": "Unpaid Leave",
+        "startDate": "2024-10-01",
+        "endDate": "2024-10-02",
+        "reason": "Wedding",
         "status": "PENDING"
       }
     ],
     "attendanceRecords": [
       {
-        "date": "2024-09-04",
+        "date": "2024-09-06",
         "status": "LATE",
-        "timeIn": "12:38:08.588344",
-        "timeOut": "19:03:16.773676"
-      },
-      {
-        "date": "2024-09-05",
-        "status": "LATE",
-        "timeIn": "10:45:25.261874",
-        "timeOut": "10:48:25.215671"
-      }
-    ]
-  },
-  "ebb3770b-bb50-47da-bc72-b6cf74f47d42": {
-    "username": "codefish",
-    "password": "$2a$12$BdWvGKjvrRiz7mVhp3B.o.Rb9AIyJtgFILfGGX9scf7f34AHJozsG",
-    "fullName": "Larry Lobster",
-    "email": "talonleavereceive@hotmail.com",
-    "emergencyContact": {
-      "name": "Jane Smith",
-      "phoneNumber": "0168919333",
-      "relationship": "Mother"
-    },
-    "role": "Department Manager",
-    "loginAttempts": 0,
-    "accountStatus": "ACTIVE",
-    "accountDisabled": false,
-    "department": "IT",
-    "grossSalary": 2500,
-    "internalWorkExperiences": [
-      {
-        "department": "IT",
-        "role": "Normal Employee",
-        "grossSalary": 2000,
-        "companyName": "Talon",
-        "position": "IT Intern",
-        "startDate": "2014-08-08",
-        "endDate": "2014-12-12"
-      },
-      {
-        "department": "IT",
-        "role": "Department Manager",
-        "grossSalary": 2500,
-        "companyName": "Talon",
-        "position": "IT Manager",
-        "startDate": "2024-09-01",
-        "endDate": "ongoing"
-      }
-    ],
-    "leaveApplications": [
-      {
-        "leaveType": "Annual Leave",
-        "startDate": "2024-09-05",
-        "endDate": "2024-09-06",
-        "reason": "Sick",
-        "status": "APPROVED"
-      },
-      {
-        "leaveType": "Medical Leave",
-        "startDate": "2024-09-06",
-        "endDate": "2024-09-07",
-        "reason": "HeHe",
-        "status": "REJECTED"
-      }
-    ],
-    "attendanceRecords": [
-      {
-        "date": "2024-09-04",
-        "status": "LATE",
-        "timeIn": "12:38:08.588344",
-        "timeOut": "20:49:42.893506"
-      },
-      {
-        "date": "2024-09-05",
-        "status": "LATE",
-        "timeIn": "10:53:04.979380",
-        "timeOut": "12:40:16.246461"
-      }
-    ]
-  },
-  "2fbd2e81-b5ff-424a-8104-eb2d0ebd11ae": {
-    "username": "financeGuru",
-    "password": "$2a$12$pKCt88Ls6GrsMu72RzzX4.XDaQpUwiHrnpNdtWSegP.oW5pQwqMwC",
-    "fullName": "Fiona Lim",
-    "gender": "Female",
-    "identificationCard": "1234567890",
-    "phoneNumber": "0168919334",
-    "birthDate": "1990-01-01",
-    "email": "talonleavereceive@hotmail.com",
-    "address": "Sri Lagenda Villa",
-    "emergencyContact": {
-      "name": "Jane Smith",
-      "phoneNumber": "0168919333",
-      "relationship": "Mother"
-    },
-    "role": "Payroll Officer",
-    "position": "Payroll Officer",
-    "loginAttempts": 0,
-    "accountStatus": "ACTIVE",
-    "accountDisabled": false,
-    "nationality": "Malaysian",
-    "department": "Finance",
-    "grossSalary": 3000,
-    "internalWorkExperiences": [
-      {
-        "department": "Finance",
-        "role": "Payroll Officer",
-        "grossSalary": 3000,
-        "companyName": "Talon",
-        "position": "Payroll Officer",
-        "startDate": "2024-09-01",
-        "endDate": "ongoing"
-      }
-    ],
-    "leaveApplications": [
-      {
-        "leaveType": "Annual Leave",
-        "startDate": "2024-09-05",
-        "endDate": "2024-09-06",
-        "reason": "Sick",
-        "status": "APPROVED"
-      }
-    ],
-    "attendanceRecords": [
-      {
-        "date": "2024-09-04",
-        "status": "LATE",
-        "timeIn": "12:38:08.588344",
-        "timeOut": "23:48:23.142561"
-      },
-      {
-        "date": "2024-09-05",
-        "status": "LATE",
-        "timeIn": "10:48:45.676084",
-        "timeOut": "10:51:08.801315"
+        "timeIn": "10:52:22.787549",
+        "timeOut": "11:19:23.813125"
       }
     ]
   }
